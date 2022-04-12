@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxesV1", "TaxesV1\TaxesV1.csproj", "{A1A1C5C3-9716-48E1-8ADD-B52D4EA0ECA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1A1C5C3-9716-48E1-8ADD-B52D4EA0ECA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1A1C5C3-9716-48E1-8ADD-B52D4EA0ECA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1A1C5C3-9716-48E1-8ADD-B52D4EA0ECA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1A1C5C3-9716-48E1-8ADD-B52D4EA0ECA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

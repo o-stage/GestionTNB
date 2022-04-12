@@ -67,7 +67,7 @@ namespace TaxesV1
             else
             {
                 Connection.Close();
-                ErrorLabel.Content = "Invalid username or password";
+                ErrorLabel.Visibility =Visibility.Visible;
             }
 
         }

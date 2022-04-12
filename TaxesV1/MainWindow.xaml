@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TaxesV1"
         xmlns:str="clr-namespace:TaxesV1.Resources"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="{x:Static str:Strings.Login}" Height="350" Width="525">
 
     <Grid Name="Body" HorizontalAlignment="Stretch">
         <StackPanel Margin="70,-10,71,10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -15,7 +15,7 @@
             <Label Content="{x:Static str:Strings.Password}" Padding="5,5,0,0"/>
             <PasswordBox Name="PasswordTextBox"  HorizontalAlignment="Stretch"/>
             <Button Click="ButtonLogin_OnClick" Content="{x:Static str:Strings.Login}" Width="100" Margin="0,5,0,5"/>
-            <Label x:Name="ErrorLabel" Content="" Foreground="Red"/>
+            <Label x:Name="ErrorLabel" Content="{x:Static str:Strings.IncorrectUsernameOrPassword}" Foreground="Red" Visibility="Hidden"/>
         </StackPanel>
         <ComboBox x:Name="LanguageComboBox" Width="120" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Label Content="English"/>

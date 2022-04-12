@@ -74,4 +74,7 @@
     <data name="Year" xml:space="preserve">
         <value>السنة</value>
     </data>
+    <data name="IncorrectUsernameOrPassword" xml:space="preserve">
+        <value>اسم المستخدم أو كلمة المرور غير صحيحة.</value>
+    </data>
 </root>

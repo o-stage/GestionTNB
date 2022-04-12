@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Collections;
-
 namespace TaxesV1.Resources {
     using System;
     
@@ -144,6 +142,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incorrect username or password..
+        /// </summary>
+        public static string IncorrectUsernameOrPassword {
+            get {
+                return ResourceManager.GetString("IncorrectUsernameOrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Name.
         /// </summary>
         public static string LastName {
@@ -249,11 +256,6 @@ namespace TaxesV1.Resources {
             get {
                 return ResourceManager.GetString("Year", resourceCulture);
             }
-        }
-
-        public  Resources.Strings GetResourceInstance()
-        {
-            return new Strings();
         }
     }
 }

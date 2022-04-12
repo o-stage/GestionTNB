@@ -180,4 +180,7 @@
   <data name="Year" xml:space="preserve">
     <value>Year</value>
   </data>
+  <data name="IncorrectUsernameOrPassword" xml:space="preserve">
+    <value>Incorrect username or password.</value>
+  </data>
 </root>

@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Collections;
+
 namespace TaxesV1.Resources {
     using System;
     
@@ -247,6 +249,11 @@ namespace TaxesV1.Resources {
             get {
                 return ResourceManager.GetString("Year", resourceCulture);
             }
+        }
+
+        public  Resources.Strings GetResourceInstance()
+        {
+            return new Strings();
         }
     }
 }

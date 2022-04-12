@@ -26,7 +26,7 @@ namespace TaxesV1
                     index = 2;
                     break;
             }
-
+            if(index==2) SetFlowDirection(Body,FlowDirection.RightToLeft);
             LanguageComboBox.SelectedIndex = index;
         }
 

@@ -46,6 +46,8 @@ namespace TaxesV1
             }
 
             Properties.Settings.Default.Save();
+            System.Threading.Thread.CurrentThread.CurrentUICulture =
+                new System.Globalization.CultureInfo(Properties.Settings.Default.Language);
         }
 
         private void ButtonLogin_OnClick(object sender, RoutedEventArgs e)

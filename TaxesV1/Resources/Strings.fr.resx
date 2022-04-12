@@ -138,4 +138,46 @@
   <data name="Login" xml:space="preserve">
     <value>Se Connecter</value>
   </data>
+  <data name="FileNumber" xml:space="preserve">
+    <value>N° Dossier</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="FileDate" xml:space="preserve">
+    <value>Date Dossier</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Date Début</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Changer</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Accountable" xml:space="preserve">
+    <value>Redevable</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>Lieu</value>
+  </data>
+  <data name="GrossArea" xml:space="preserve">
+    <value>Superficie Brute</value>
+  </data>
+  <data name="TaxableArea" xml:space="preserve">
+    <value>Superficie Taxable</value>
+  </data>
+  <data name="NonTaxableArea" xml:space="preserve">
+    <value>Superficie Non Taxable</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Année</value>
+  </data>
 </root>

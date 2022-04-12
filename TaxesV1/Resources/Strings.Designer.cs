@@ -61,6 +61,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accountable.
+        /// </summary>
+        public static string Accountable {
+            get {
+                return ResourceManager.GetString("Accountable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string Add {
@@ -79,11 +88,38 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Change.
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
-        public static string Change {
+        public static string Delete {
             get {
-                return ResourceManager.GetString("Change", resourceCulture);
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FileDate {
+            get {
+                return ResourceManager.GetString("FileDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Number.
+        /// </summary>
+        public static string FileNumber {
+            get {
+                return ResourceManager.GetString("FileNumber", resourceCulture);
             }
         }
         
@@ -93,6 +129,15 @@ namespace TaxesV1.Resources {
         public static string FirstName {
             get {
                 return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gross Area.
+        /// </summary>
+        public static string GrossArea {
+            get {
+                return ResourceManager.GetString("GrossArea", resourceCulture);
             }
         }
         
@@ -115,6 +160,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Non-Taxable Area.
+        /// </summary>
+        public static string NonTaxableArea {
+            get {
+                return ResourceManager.GetString("NonTaxableArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -124,11 +178,11 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Place.
         /// </summary>
-        public static string Remove {
+        public static string Place {
             get {
-                return ResourceManager.GetString("Remove", resourceCulture);
+                return ResourceManager.GetString("Place", resourceCulture);
             }
         }
         
@@ -138,6 +192,33 @@ namespace TaxesV1.Resources {
         public static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date.
+        /// </summary>
+        public static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taxable Area.
+        /// </summary>
+        public static string TaxableArea {
+            get {
+                return ResourceManager.GetString("TaxableArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
             }
         }
         
@@ -156,6 +237,15 @@ namespace TaxesV1.Resources {
         public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year.
+        /// </summary>
+        public static string Year {
+            get {
+                return ResourceManager.GetString("Year", resourceCulture);
             }
         }
     }

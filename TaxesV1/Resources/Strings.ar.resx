@@ -38,4 +38,40 @@
     <data name="Login" xml:space="preserve">
         <value>تسجيل الدخول</value>
     </data>
+    <data name="FileNumber" xml:space="preserve">
+        <value>رقم الملف</value>
+    </data>
+    <data name="FileDate" xml:space="preserve">
+        <value>تاريخ الملف</value>
+    </data>
+    <data name="StartDate" xml:space="preserve">
+        <value>تاريخ البداية</value>
+    </data>
+    <data name="Delete" xml:space="preserve">
+        <value>حذف</value>
+    </data>
+    <data name="Edit" xml:space="preserve">
+        <value>تعديل</value>
+    </data>
+    <data name="Type" xml:space="preserve">
+        <value>نوع</value>
+    </data>
+    <data name="Accountable" xml:space="preserve">
+        <value>مديون</value>
+    </data>
+    <data name="Place" xml:space="preserve">
+        <value>مكان</value>
+    </data>
+    <data name="GrossArea" xml:space="preserve">
+        <value>المساحة الإجمالية</value>
+    </data>
+    <data name="TaxableArea" xml:space="preserve">
+        <value>المساحة الخاضعة للضريبة</value>
+    </data>
+    <data name="NonTaxableArea" xml:space="preserve">
+        <value>المساحة غير خاضعة للضريبة</value>
+    </data>
+    <data name="Year" xml:space="preserve">
+        <value>السنة</value>
+    </data>
 </root>

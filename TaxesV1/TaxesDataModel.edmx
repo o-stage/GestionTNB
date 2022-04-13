@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TaxesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Constants">
+          <Key>
+            <PropertyRef Name="Key" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Key" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="float" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Declaration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NDossier" Type="varchar" MaxLength="50" />
+          <Property Name="DateDeclaration" Type="date" />
+          <Property Name="Payer" Type="bit" />
+          <Property Name="Anne" Type="int" />
+        </EntityType>
+        <EntityType Name="Dossier">
+          <Key>
+            <PropertyRef Name="NDossier" />
+          </Key>
+          <Property Name="NDossier" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateDossier" Type="date" />
+          <Property Name="DateDebut" Type="date" />
+          <Property Name="RedevableId" Type="varchar" MaxLength="50" />
+          <Property Name="TerrainID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Redevable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="50" />
+          <Property Name="Prenom" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Terrain">
+          <Key>
+            <PropertyRef Name="NTF" />
+          </Key>
+          <Property Name="NTF" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lieu" Type="varchar(max)" />
+          <Property Name="SuperficeBrute" Type="float" />
+          <Property Name="SuperficeTaxable" Type="float" />
+          <Property Name="Type" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Etat" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DateChangementEtat" Type="datetime" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="CIN" />
+          </Key>
+          <Property Name="CIN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
+          <Property Name="ROLE" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__Declarati__NDoss__31EC6D26">
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="0..1" />
+          <End Role="Declaration" Type="Self.Declaration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dossier">
+              <PropertyRef Name="NDossier" />
+            </Principal>
+            <Dependent Role="Declaration">
+              <PropertyRef Name="NDossier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dossier__Redevab__2E1BDC42">
+          <End Role="Redevable" Type="Self.Redevable" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Redevable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dossier">
+              <PropertyRef Name="RedevableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dossier__Terrain__2F10007B">
+          <End Role="Terrain" Type="Self.Terrain" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terrain">
+              <PropertyRef Name="NTF" />
+            </Principal>
+            <Dependent Role="Dossier">
+              <PropertyRef Name="TerrainID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TaxesModelStoreContainer">
+          <EntitySet Name="Constants" EntityType="Self.Constants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Declaration" EntityType="Self.Declaration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dossier" EntityType="Self.Dossier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Redevable" EntityType="Self.Redevable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Terrain" EntityType="Self.Terrain" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Declarati__NDoss__31EC6D26" Association="Self.FK__Declarati__NDoss__31EC6D26">
+            <End Role="Dossier" EntitySet="Dossier" />
+            <End Role="Declaration" EntitySet="Declaration" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dossier__Redevab__2E1BDC42" Association="Self.FK__Dossier__Redevab__2E1BDC42">
+            <End Role="Redevable" EntitySet="Redevable" />
+            <End Role="Dossier" EntitySet="Dossier" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dossier__Terrain__2F10007B" Association="Self.FK__Dossier__Terrain__2F10007B">
+            <End Role="Terrain" EntitySet="Terrain" />
+            <End Role="Dossier" EntitySet="Dossier" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TaxesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Declaration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NDossier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateDeclaration" Type="DateTime" Precision="0" />
+          <Property Name="Payer" Type="Boolean" />
+          <NavigationProperty Name="Dossier" Relationship="Self.FK__Declarati__NDoss__31EC6D26" FromRole="Declaration" ToRole="Dossier" />
+          <Property Name="Anne" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Dossier">
+          <Key>
+            <PropertyRef Name="NDossier" />
+          </Key>
+          <Property Name="NDossier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateDossier" Type="DateTime" Precision="0" />
+          <Property Name="DateDebut" Type="DateTime" Precision="0" />
+          <Property Name="RedevableId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TerrainID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Declarations" Relationship="Self.FK__Declarati__NDoss__31EC6D26" FromRole="Dossier" ToRole="Declaration" />
+          <NavigationProperty Name="Redevable" Relationship="Self.FK__Dossier__Redevab__2E1BDC42" FromRole="Dossier" ToRole="Redevable" />
+          <NavigationProperty Name="Terrain" Relationship="Self.FK__Dossier__Terrain__2F10007B" FromRole="Dossier" ToRole="Terrain" />
+        </EntityType>
+        <EntityType Name="Redevable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Dossiers" Relationship="Self.FK__Dossier__Redevab__2E1BDC42" FromRole="Redevable" ToRole="Dossier" />
+        </EntityType>
+        <EntityType Name="Terrain">
+          <Key>
+            <PropertyRef Name="NTF" />
+          </Key>
+          <Property Name="NTF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SuperficeBrute" Type="Double" />
+          <Property Name="SuperficeTaxable" Type="Double" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Dossiers" Relationship="Self.FK__Dossier__Terrain__2F10007B" FromRole="Terrain" ToRole="Dossier" />
+          <Property Name="Etat" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DateChangementEtat" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK__Declarati__NDoss__31EC6D26">
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="0..1" />
+          <End Role="Declaration" Type="Self.Declaration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dossier">
+              <PropertyRef Name="NDossier" />
+            </Principal>
+            <Dependent Role="Declaration">
+              <PropertyRef Name="NDossier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dossier__Redevab__2E1BDC42">
+          <End Role="Redevable" Type="Self.Redevable" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Redevable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dossier">
+              <PropertyRef Name="RedevableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dossier__Terrain__2F10007B">
+          <End Role="Terrain" Type="Self.Terrain" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terrain">
+              <PropertyRef Name="NTF" />
+            </Principal>
+            <Dependent Role="Dossier">
+              <PropertyRef Name="TerrainID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TaxesV2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Declarations" EntityType="Self.Declaration" />
+          <EntitySet Name="Dossiers" EntityType="Self.Dossier" />
+          <EntitySet Name="Redevables" EntityType="Self.Redevable" />
+          <EntitySet Name="Terrains" EntityType="Self.Terrain" />
+          <AssociationSet Name="FK__Declarati__NDoss__31EC6D26" Association="Self.FK__Declarati__NDoss__31EC6D26">
+            <End Role="Dossier" EntitySet="Dossiers" />
+            <End Role="Declaration" EntitySet="Declarations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dossier__Redevab__2E1BDC42" Association="Self.FK__Dossier__Redevab__2E1BDC42">
+            <End Role="Redevable" EntitySet="Redevables" />
+            <End Role="Dossier" EntitySet="Dossiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dossier__Terrain__2F10007B" Association="Self.FK__Dossier__Terrain__2F10007B">
+            <End Role="Terrain" EntitySet="Terrains" />
+            <End Role="Dossier" EntitySet="Dossiers" />
+          </AssociationSet>
+          <EntitySet Name="Constants" EntityType="TaxesModel.Constant" />
+          <EntitySet Name="users" EntityType="TaxesModel.user" />
+        </EntityContainer>
+        <EntityType Name="Constant">
+          <Key>
+            <PropertyRef Name="Key" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Double" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="CIN" />
+          </Key>
+          <Property Name="CIN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ROLE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TaxesModelStoreContainer" CdmEntityContainer="TaxesV2Entities">
+          <EntitySetMapping Name="Declarations">
+            <EntityTypeMapping TypeName="TaxesModel.Declaration">
+              <MappingFragment StoreEntitySet="Declaration">
+                <ScalarProperty Name="Anne" ColumnName="Anne" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NDossier" ColumnName="NDossier" />
+                <ScalarProperty Name="DateDeclaration" ColumnName="DateDeclaration" />
+                <ScalarProperty Name="Payer" ColumnName="Payer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dossiers">
+            <EntityTypeMapping TypeName="TaxesModel.Dossier">
+              <MappingFragment StoreEntitySet="Dossier">
+                <ScalarProperty Name="NDossier" ColumnName="NDossier" />
+                <ScalarProperty Name="DateDossier" ColumnName="DateDossier" />
+                <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+                <ScalarProperty Name="RedevableId" ColumnName="RedevableId" />
+                <ScalarProperty Name="TerrainID" ColumnName="TerrainID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Redevables">
+            <EntityTypeMapping TypeName="TaxesModel.Redevable">
+              <MappingFragment StoreEntitySet="Redevable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terrains">
+            <EntityTypeMapping TypeName="TaxesModel.Terrain">
+              <MappingFragment StoreEntitySet="Terrain">
+                <ScalarProperty Name="DateChangementEtat" ColumnName="DateChangementEtat" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="NTF" ColumnName="NTF" />
+                <ScalarProperty Name="Lieu" ColumnName="Lieu" />
+                <ScalarProperty Name="SuperficeBrute" ColumnName="SuperficeBrute" />
+                <ScalarProperty Name="SuperficeTaxable" ColumnName="SuperficeTaxable" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Constants">
+            <EntityTypeMapping TypeName="TaxesModel.Constant">
+              <MappingFragment StoreEntitySet="Constants">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="TaxesModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="CIN" ColumnName="CIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

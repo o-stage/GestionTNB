@@ -183,4 +183,10 @@
   <data name="IncorrectUsernameOrPassword" xml:space="preserve">
     <value>Identifiant ou mot de passe incorrect.</value>
   </data>
+  <data name="Print" xml:space="preserve">
+    <value>Imprimer</value>
+  </data>
+  <data name="CalculateTaxes" xml:space="preserve">
+    <value>Calculer Les Taxes</value>
+  </data>
 </root>

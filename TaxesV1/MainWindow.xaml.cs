@@ -6,13 +6,14 @@ namespace TaxesV1
 {
     public partial class MainWindow
     {
+        public string CurrentPasswordHintText { get; set; }
         public MainWindow()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture =
                 new System.Globalization.CultureInfo(Properties.Settings.Default.Language);
 
             InitializeComponent();
-
+            DataContext = this;
             int index = 0;
             switch (Properties.Settings.Default.Language)
             {

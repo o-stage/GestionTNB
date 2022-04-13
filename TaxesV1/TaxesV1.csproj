@@ -44,6 +44,9 @@
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.CSharp\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
       <Private>True</Private>
@@ -69,6 +72,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -109,12 +113,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Constant.cs">
+      <DependentUpon>TaxesDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data.cs" />
     <Compile Include="Declaration.cs">
       <DependentUpon>TaxesDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Dossier.cs">
       <DependentUpon>TaxesDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MultiValueConverters\DifferenceConverter.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -129,6 +138,7 @@
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="Taxes.cs" />
     <Compile Include="TaxesDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -150,6 +160,12 @@
     <Compile Include="Terrain.cs">
       <DependentUpon>TaxesDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="user.cs">
+      <DependentUpon>TaxesDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrintDocument.xaml.cs">
+      <DependentUpon>PrintDocument.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -163,6 +179,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="TaxesSureTNB.xaml" />
+    <Page Include="PrintDocument.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -213,6 +230,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="db.sql" />
     <Content Include="TaxesDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TaxesDataModel.Context.cs</LastGenOutput>

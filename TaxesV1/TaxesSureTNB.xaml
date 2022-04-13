@@ -5,9 +5,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:TaxesV1"
         xmlns:r="clr-namespace:TaxesV1.Resources"
+        xmlns:converter="clr-namespace:TaxesV1.MultiValueConverters"
         mc:Ignorable="d"
         Title="Taxes Sure LesTerrains Non Batu" Width="800" Height="580" VerticalContentAlignment="Top">
 
+    <Window.Resources>
+        <ResourceDictionary>
+            <converter:DifferenceConverter x:Key="DifferenceConverter"></converter:DifferenceConverter>
+        </ResourceDictionary>
+    </Window.Resources>
     <Border Name="Body" Background="#d8d8d8">
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
@@ -72,7 +78,7 @@
                     <Label Content="{x:Static r:Strings.NonTaxableArea}" />
                     <TextBox TextWrapping="Wrap" IsReadOnly="True">
                         <TextBox.Text>
-                            <MultiBinding StringFormat="{}{{0}-{1}}">
+                            <MultiBinding Converter="{StaticResource DifferenceConverter }">
                                 <Binding Path="Terrain.SuperficeBrute" />
                                 <Binding Path="Terrain.SuperficeTaxable" />
                             </MultiBinding>

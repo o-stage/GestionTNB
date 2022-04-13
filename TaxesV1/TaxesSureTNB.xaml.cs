@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Documents;
 
 namespace TaxesV1
 {
@@ -9,7 +10,9 @@ namespace TaxesV1
     {
         TaxesV2Entities Entities;
         private CollectionViewSource ViewSource = new CollectionViewSource();
+        private Taxes tax;
         public Dossier SelectedFile { get; set; }
+
         public TaxesSureTNB()
         {
             Entities = Data.Entities;
@@ -19,14 +22,30 @@ namespace TaxesV1
 
         private void ButtonFetch_Click(object sender, RoutedEventArgs e)
         {
-            Dossier dossier = Entities.Dossiers.Find(FileNumberTextBox.Text);
+            PrintDialog dialog = new PrintDialog();
+            if (dialog.ShowDialog() != true)
+                return;
+            PrintDocument doc = new PrintDocument
+            {
+                PageHeight = dialog.PrintableAreaHeight,
+                PageWidth = dialog.PrintableAreaWidth,
+                PagePadding = new Thickness(50),
+                ColumnGap = 0,
+                ColumnWidth = dialog.PrintableAreaWidth,
+                Name = "FlowDoc",
+                Taxes = tax,
+                Dossier = SelectedFile,
+                DataContext = SelectedFile
+            };
+            IDocumentPaginatorSource idpSource = doc;
+            dialog.PrintDocument(idpSource.DocumentPaginator, "Printing.");
         }
 
         private void ButtonCalculateTaxes_OnClick(object sender, RoutedEventArgs e)
         {
             SelectedFile = Data.Entities.Dossiers.Find(FileNumberTextBox.Text);
             DataContext = SelectedFile;
-            Taxes tax = Taxes.GetTaxes(SelectedFile);
+            tax = Taxes.GetTaxes(SelectedFile);
             DataGrid.ItemsSource = tax._taxes;
         }
     }

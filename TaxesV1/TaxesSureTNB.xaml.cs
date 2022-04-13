@@ -9,20 +9,25 @@ namespace TaxesV1
     {
         TaxesV2Entities Entities;
         private CollectionViewSource ViewSource = new CollectionViewSource();
-
+        public Dossier SelectedFile { get; set; }
         public TaxesSureTNB()
         {
             Entities = Data.Entities;
             InitializeComponent();
             if (Properties.Settings.Default.Language == "ar") SetFlowDirection(Body, FlowDirection.RightToLeft);
-            DataGrid.ItemsSource = Entities.Dossiers.Take(30).ToList();
-            // ViewSource.Source = Entities.Declarations;
-            //   DataGrid.ItemsSource = Entities.Dossiers.ToList();
         }
 
         private void ButtonFetch_Click(object sender, RoutedEventArgs e)
         {
             Dossier dossier = Entities.Dossiers.Find(FileNumberTextBox.Text);
+        }
+
+        private void ButtonCalculateTaxes_OnClick(object sender, RoutedEventArgs e)
+        {
+            SelectedFile = Data.Entities.Dossiers.Find(FileNumberTextBox.Text);
+            DataContext = SelectedFile;
+            Taxes tax = Taxes.GetTaxes(SelectedFile);
+            DataGrid.ItemsSource = tax._taxes;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace TaxesV1
@@ -10,7 +11,7 @@ namespace TaxesV1
         private const string TaxSureImmeuble = "TaxSureImmeuble";
         private const string TaxSureEconomie = "TaxSureEconomie";
 
-        public List<Tax> _taxes { get; private set; }
+        public List<Tax> _taxes = new List<Tax>();
         public float TotalNet => _taxes.Where(tax => tax.Selected).Sum(tax => tax.Total);
         public float TotalAmends => _taxes.Where(tax => tax.Selected).Sum(tax => tax.Amends);
         public float TotalDefaultDec => _taxes.Where(tax => tax.Selected).Sum(tax => tax.DefaultDecl);
@@ -18,7 +19,7 @@ namespace TaxesV1
 
         public class Tax
         {
-            public bool Selected = true;
+            public bool Selected { get; set; } = true;
             public int Year { get; internal set; }
             public string NDeclaration { get; internal set; }
             public string DateDeclaration { get; internal set; }
@@ -34,9 +35,10 @@ namespace TaxesV1
         }
 
 
-        static Taxes GetTaxes(Dossier dossier, int starYear = 0)
+        public static Taxes GetTaxes(Dossier dossier, int starYear = 0)
         {
             Taxes taxes = new Taxes();
+            
             if (starYear == 0)
                 starYear = DateTime.Now.Year - 5;
 
@@ -46,6 +48,7 @@ namespace TaxesV1
                 {
                     Year = year
                 };
+                taxes._taxes.Add(tax);
                 if (dossier.Terrain.Etat == "Bati" && dossier.Terrain.DateChangementEtat.Value.Year >= year) break;
 
                 if (year < DateTime.Now.Year || DateTime.Now.Month > 3)
@@ -55,8 +58,9 @@ namespace TaxesV1
                         Declaration declaration = dossier.Declarations.First(dec => dec.Anne == year);
                         tax.NDeclaration = declaration.ID.ToString();
                         tax.DateDeclaration = declaration.DateDeclaration.Value.ToShortDateString();
+                        if (declaration.Payer.Value) continue;
                     }
-                    catch (ArgumentNullException)
+                    catch (InvalidOperationException)
                     {
                         tax.DefaultDecl = 500;
                     }
@@ -71,11 +75,10 @@ namespace TaxesV1
 
                 tax.MtPrincipal = GetLastKeyChange(GetTaxType(dossier.Terrain.Type), year) *
                                   (float)dossier.Terrain.SuperficeTaxable.Value;
-                
+
                 int numberOfLateMonths = MonthDifference(new DateTime(year, 3, 1), DateTime.Now);
                 if (numberOfLateMonths > 0)
                     tax.Amends = (0.15f + 0.05f * (numberOfLateMonths - 1)) * tax.MtPrincipal;
-                taxes._taxes.Add(tax);
             }
 
             return taxes;
@@ -96,11 +99,11 @@ namespace TaxesV1
         {
             switch (category)
             {
-                case "Villa":
+                case "villa":
                     return TaxSureVilla;
-                case "Immeuble":
+                case "immeuble":
                     return TaxSureImmeuble;
-                case "Economie":
+                case "economique":
                     return TaxSureEconomie;
                 default: return "";
             }

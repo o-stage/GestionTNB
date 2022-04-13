@@ -77,4 +77,10 @@
     <data name="IncorrectUsernameOrPassword" xml:space="preserve">
         <value>اسم المستخدم أو كلمة المرور غير صحيحة.</value>
     </data>
+    <data name="Print" xml:space="preserve">
+        <value>اطبع</value>
+    </data>
+    <data name="CalculateTaxes" xml:space="preserve">
+        <value>احتسب الضرائب</value>
+    </data>
 </root>

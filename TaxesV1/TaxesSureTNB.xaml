@@ -9,7 +9,7 @@
         Title="Taxes Sure LesTerrains Non Batu" Width="800" Height="600" VerticalContentAlignment="Top">
 
     <Border Name="Body" Background="#d8d8d8">
-    <StackPanel   VerticalAlignment="Stretch">
+    <StackPanel>
         <Grid VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
@@ -27,13 +27,13 @@
                 <TextBox x:Name="FileNumberTextBox"  TextWrapping="Wrap" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
-                <Label Content="{x:Static r:Strings.FileDate}" />
-                <TextBox x:Name="FileDateTextBox" TextWrapping="Wrap" />
-            </StackPanel>
+                    <Label Content="{x:Static r:Strings.FileDate}" />
+                    <DatePicker x:Name="FileDatePicker"/>
+                </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0">
                 <Label Content="{x:Static r:Strings.StartDate}" />
-                <TextBox x:Name="StartDateTextBox" TextWrapping="Wrap" />
-            </StackPanel>
+                    <DatePicker x:Name="StartDatePicker"/>
+                </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
                 <Label Content="{x:Static r:Strings.Accountable}" />
                 <TextBox x:Name="AccountableTextBox" TextWrapping="Wrap" />
@@ -68,9 +68,15 @@
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal" Margin="0,8,0,5">
-            <Button Content="Button" Click="ButtonFetch_Click"/>
-        </StackPanel>
-        <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Background="{x:Null}" BorderBrush="#FF14DAA8"/>
+                <Button Content="{x:Static r:Strings.CalculateTaxes}" Click="ButtonFetch_Click"/>
+                <Button Content="{x:Static r:Strings.Print}" Click="ButtonFetch_Click"/>
+         </StackPanel>
+        <Grid VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
+            <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Background="{x:Null}" BorderBrush="#FF14DAA8"/>
+        </Grid>
 
     </StackPanel>
     </Border>

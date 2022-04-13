@@ -7,20 +7,22 @@ namespace TaxesV1
 {
     public partial class TaxesSureTNB : Window
     {
-        private TaxesV2Entities Entities = new TaxesV2Entities();
+        TaxesV2Entities Entities;
         private CollectionViewSource ViewSource = new CollectionViewSource();
+
         public TaxesSureTNB()
         {
+            Entities = Data.Entities;
             InitializeComponent();
-            if(Properties.Settings.Default.Language=="ar")SetFlowDirection(Body,FlowDirection.RightToLeft);
-            DataContext = Entities.Declarations;
-           // ViewSource.Source = Entities.Declarations;
+            if (Properties.Settings.Default.Language == "ar") SetFlowDirection(Body, FlowDirection.RightToLeft);
+            DataGrid.ItemsSource = Entities.Dossiers.Take(30).ToList();
+            // ViewSource.Source = Entities.Declarations;
             //   DataGrid.ItemsSource = Entities.Dossiers.ToList();
         }
-        
+
         private void ButtonFetch_Click(object sender, RoutedEventArgs e)
         {
-            
+            Dossier dossier = Entities.Dossiers.Find(FileNumberTextBox.Text);
         }
     }
 }

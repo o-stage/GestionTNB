@@ -7,22 +7,9 @@
         xmlns:r="clr-namespace:TaxesV1.Resources"
         mc:Ignorable="d"
         Title="Taxes Sure LesTerrains Non Batu" Width="800" Height="600" VerticalContentAlignment="Top">
-    <Window.Resources>
-        <Style TargetType="Label">
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="FontFamily" Value="Comic Sans MS"/>
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="Padding" Value="5,0"/>
-        </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="FontFamily" Value="Comic Sans MS"/>
-            <Setter Property="Margin" Value="5,0"/>
-            <Setter Property="Background" Value="Coral"></Setter>
-            <Setter Property="FontSize" Value="13"/>
 
-        </Style>
-    </Window.Resources>
-    <StackPanel Name="Body" VerticalAlignment="Stretch">
+    <Border Name="Body" Background="#d8d8d8">
+    <StackPanel   VerticalAlignment="Stretch">
         <Grid VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
@@ -37,7 +24,7 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Column="0" Grid.Row="0">
                 <Label Content="{x:Static r:Strings.FileNumber}"/>
-                <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" />
+                <TextBox x:Name="FileNumberTextBox"  TextWrapping="Wrap" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
                 <Label Content="{x:Static r:Strings.FileDate}" />
@@ -86,4 +73,5 @@
         <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Background="{x:Null}" BorderBrush="#FF14DAA8"/>
 
     </StackPanel>
+    </Border>
 </Window>

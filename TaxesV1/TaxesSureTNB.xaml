@@ -60,7 +60,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileDate}" />
-                        <DatePicker x:Name="FileDatePicker" SelectedDate="{Binding DateDossier, Mode=OneTime}"
+                        <DatePicker IsEnabled="False" x:Name="FileDatePicker" SelectedDate="{Binding DateDossier, Mode=OneTime}"
                                     FirstDayOfWeek="Monday" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0">

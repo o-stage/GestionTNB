@@ -65,7 +65,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" Margin="0,1,0,43" Grid.RowSpan="2">
                         <Label Content="{x:Static r:Strings.Type}" />
-                        <TextBox x:Name="TextBoxType" TextWrapping="Wrap" Text="{Binding Terrain.Type, Mode=OneTime}"
+                        <TextBox x:Name="TextBoxType" TextWrapping="Wrap" Text="{Binding Redevable.Type, Mode=OneTime}"
                                  IsReadOnly="True" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="3">

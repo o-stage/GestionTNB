@@ -137,9 +137,9 @@
                 <Button x:Name="PrintButton" Click="PrintButton_Click"
                         IsEnabled="False">
                     <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Foreground="{StaticResource Button.Static.Foreground}" Width="20" Height="20"
+                        <fa:IconImage Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" Width="20" Height="20"
                                       Icon="Print" />
-                        <Label Foreground="{StaticResource Button.Static.Foreground}" Padding="0" Margin="5 0"
+                        <Label Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" Padding="0" Margin="5 0"
                                Content="{x:Static r:Strings.Print}" />
                     </StackPanel>
 

@@ -45,12 +45,13 @@
             <Setter Property="Padding" Value="14,7" />
             <Setter Property="Margin" Value="7" />
             <Setter Property="FontSize" Value="14" />
+            <Setter Property="Tag" Value="0" />
 
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
-                            <Border x:Name="borderShadow" BorderBrush="Black" BorderThickness="0" CornerRadius="5"
+                            <Border x:Name="borderShadow" BorderBrush="Black" BorderThickness="{Binding Path=Tag,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" CornerRadius="5"
                                     SnapsToDevicePixels="True">
                                 <Border.Effect>
                                     <BlurEffect />
@@ -76,6 +77,7 @@
                                         Value="{StaticResource Button.MouseOver.Background}" />
                                 <Setter Property="BorderBrush" TargetName="border"
                                         Value="{StaticResource Button.MouseOver.Border}" />
+                                <Setter Property="Tag" Value="1"></Setter>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
                                 <Setter Property="Background" TargetName="border"

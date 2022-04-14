@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:TaxesV1"
         xmlns:r="clr-namespace:TaxesV1.Resources"
         xmlns:converter="clr-namespace:TaxesV1.MultiValueConverters"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
         Title="Taxes Sure LesTerrains Non Batu" Width="1000" Height="580" VerticalContentAlignment="Top">
 
@@ -19,7 +20,12 @@
         <local:MainMenu DockPanel.Dock="Left" HorizontalAlignment="Left" />
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" />
-            <Button Content="{x:Static r:Strings.FindFile}" Click="ButtonCalculateTaxes_OnClick" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+            <Button Click="ButtonCalculateTaxes_OnClick" VerticalAlignment="Center" HorizontalAlignment="Stretch" >
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Foreground="{StaticResource Button.Static.Foreground}" Width="20" Height="20" Icon="Search"/>
+                    <Label Foreground="{StaticResource Button.Static.Foreground}" Padding="0" Margin="5 0" Content="{x:Static r:Strings.FindFile}" />
+                </StackPanel>
+            </Button>
 
         </StackPanel>
         <Grid DockPanel.Dock="Right">
@@ -128,8 +134,14 @@
                 </StackPanel>
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
-                <Button x:Name="PrintButton" Content="{x:Static r:Strings.Print}" Click="PrintButton_Click"
-                        IsEnabled="False" />
+                <Button x:Name="PrintButton" Click="PrintButton_Click"
+                        IsEnabled="False" >
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Foreground="{StaticResource Button.Static.Foreground}" Width="20" Height="20" Icon="Print"/>
+                        <Label Foreground="{StaticResource Button.Static.Foreground}" Padding="0" Margin="5 0" Content="{x:Static r:Strings.Print}" />
+                    </StackPanel>
+                    
+                </Button>
             </StackPanel>
             <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="2" ColumnWidth="*"
                       CanUserAddRows="False" />

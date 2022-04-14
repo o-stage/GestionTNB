@@ -210,4 +210,7 @@
   <data name="FindFile" xml:space="preserve">
     <value>Rechercher Dossier</value>
   </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>Dossier non trouvé</value>
+  </data>
 </root>

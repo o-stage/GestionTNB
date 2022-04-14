@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using TaxesV1.Resources;
 
 namespace TaxesV1
 {
@@ -43,6 +44,11 @@ namespace TaxesV1
         {
             var cultureInfo = new CultureInfo("fr-ma");
             SelectedFile = Data.Entities.Dossiers.Find(FileNumberTextBox.Text);
+            if (SelectedFile == null)
+            {
+                MessageBox.Show(this,Strings.FileNotFound);
+                return;
+            }
             tax = Taxes.GetTaxes(SelectedFile);
             DataContext = SelectedFile;
             NumberOfNonDeposedDeclarations.Text = tax.NumberOfNonDeposedDeclarations.ToString();

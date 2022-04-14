@@ -211,4 +211,7 @@
   <data name="FindFile" xml:space="preserve">
     <value>Find File</value>
   </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>FileNotFound</value>
+  </data>
 </root>

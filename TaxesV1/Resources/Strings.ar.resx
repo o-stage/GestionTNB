@@ -104,4 +104,7 @@
     <data name="FindFile" xml:space="preserve">
         <value>بحث عن ملف</value>
     </data>
+    <data name="FileNotFound" xml:space="preserve">
+        <value>لم يتم العثور على الملف</value>
+    </data>
 </root>

@@ -5,13 +5,13 @@
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <SolidColorBrush x:Key="BackgroundColor" Color="#F4F4F4" />
+        <SolidColorBrush x:Key="BackgroundColor" Color="#f0f3f6" />
         <SolidColorBrush x:Key="TextColor" Color="black" />
         
         
-        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#1abfc2" />
-        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA" />
-        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5" />
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#f0f3f6" />
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#f0f3f6" />
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#f0f3f6" />
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -32,8 +32,9 @@
         <SolidColorBrush x:Key="Button.Pressed.Border" Color="#019ff8" />
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4" />
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5" />
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383" />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#999999" />
         <Style TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"></Setter>
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
@@ -49,7 +50,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
-                            <Border x:Name="borderShadow" BorderBrush="Black" BorderThickness="1" CornerRadius="5"
+                            <Border x:Name="borderShadow" BorderBrush="Black" BorderThickness="0" CornerRadius="5"
                                     SnapsToDevicePixels="True">
                                 <Border.Effect>
                                     <BlurEffect />

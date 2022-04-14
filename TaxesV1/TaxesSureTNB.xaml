@@ -16,14 +16,17 @@
             <converter:AccountableTypeConverter x:Key="AccountableTypeConverter" />
         </ResourceDictionary>
     </Window.Resources>
-    <DockPanel x:Name="Body" Background="#f0f3f5">
+    <DockPanel x:Name="Body" Background="#ffffff">
         <local:MainMenu DockPanel.Dock="Left" HorizontalAlignment="Left" />
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" />
-            <Button Click="ButtonCalculateTaxes_OnClick" VerticalAlignment="Center" HorizontalAlignment="Stretch" >
+            <Button Click="ButtonCalculateTaxes_OnClick" VerticalAlignment="Center" HorizontalAlignment="Stretch">
                 <StackPanel Orientation="Horizontal">
-                    <fa:IconImage Foreground="{StaticResource Button.Static.Foreground}" Width="20" Height="20" Icon="Search"/>
-                    <Label Foreground="{StaticResource Button.Static.Foreground}" Padding="0" Margin="5 0" Content="{x:Static r:Strings.FindFile}" />
+                    <fa:IconImage Width="20" Height="20" Icon="Search"
+                                  Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
+                    </fa:IconImage>
+                    <Label Padding="0" Margin="5 0" Content="{x:Static r:Strings.FindFile}" Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
+                    </Label>
                 </StackPanel>
             </Button>
 
@@ -53,7 +56,8 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileNumber}" />
-                        <TextBox Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                        <TextBox Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileDate}" />
@@ -86,7 +90,8 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="3">
                         <Label Content="{x:Static r:Strings.TaxableArea}" />
-                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeTaxable, Mode=OneTime}" IsEnabled="False"  IsReadOnly="True" />
+                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeTaxable, Mode=OneTime}"
+                                 IsEnabled="False" IsReadOnly="True" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">
                         <Label Content="{x:Static r:Strings.LandTitleNumber}" />
@@ -112,11 +117,6 @@
                         <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeBrute, Mode=OneTime}"
                                  IsReadOnly="True" IsEnabled="False" />
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Grid.Row="3">
-                        <Label Content="{x:Static r:Strings.TaxableArea}" />
-                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeTaxable, Mode=OneTime}"
-                                 IsReadOnly="True" IsEnabled="False" />
-                    </StackPanel>
                 </Grid>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                             Grid.Column="1">
@@ -135,12 +135,14 @@
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
                 <Button x:Name="PrintButton" Click="PrintButton_Click"
-                        IsEnabled="False" >
+                        IsEnabled="False">
                     <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Foreground="{StaticResource Button.Static.Foreground}" Width="20" Height="20" Icon="Print"/>
-                        <Label Foreground="{StaticResource Button.Static.Foreground}" Padding="0" Margin="5 0" Content="{x:Static r:Strings.Print}" />
+                        <fa:IconImage Foreground="{StaticResource Button.Static.Foreground}" Width="20" Height="20"
+                                      Icon="Print" />
+                        <Label Foreground="{StaticResource Button.Static.Foreground}" Padding="0" Margin="5 0"
+                               Content="{x:Static r:Strings.Print}" />
                     </StackPanel>
-                    
+
                 </Button>
             </StackPanel>
             <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="2" ColumnWidth="*"

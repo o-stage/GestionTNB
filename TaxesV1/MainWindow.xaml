@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="{x:Static str:Strings.Login}" Height="350" Width="525" WindowStartupLocation="CenterScreen">
   
-    <Grid Name="Body" Background="#D8D8D8" HorizontalAlignment="Stretch">
+    <Grid Name="Body" Background="#ffffff" HorizontalAlignment="Stretch">
         <StackPanel Margin="70,-10,71,10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Content="{x:Static str:Strings.Username}"/>
             <TextBox Name="UserNameTextBox" MinWidth="200"/>

@@ -75,4 +75,5 @@ create table Declaration
     Anne            int
 )
 go
+insert into users values ('550565','sbai','pass','admin')
 

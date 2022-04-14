@@ -7,12 +7,18 @@
              mc:Ignorable="d"
              VerticalAlignment="Stretch">
     <Grid>
-        <Border Padding="5" Background="CornflowerBlue">
-            <StackPanel>
-                <TextBlock>Settings</TextBlock>
-                <TextBlock>Terrain non bati</TextBlock>
-                <TextBlock>Settings</TextBlock>
-            </StackPanel>
+        <Border Padding="5" Background="#a4a4a4">
+            <Menu Background="{x:Null}">
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+                <MenuItem Header="Ajouter declaration"/>
+                <MenuItem Header="Tax sure Terrains non bati"/>
+                <MenuItem Header="Parameters"/>
+
+            </Menu>
         </Border>
 
     </Grid>

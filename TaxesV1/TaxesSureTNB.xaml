@@ -18,8 +18,8 @@
     <DockPanel x:Name="Body" Background="#d8d8d8">
         <local:MainMenu DockPanel.Dock="Left" HorizontalAlignment="Left" />
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" Width="200" />
-            <Button Content="{x:Static r:Strings.FindFile}" Click="ButtonCalculateTaxes_OnClick" />
+            <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" />
+            <Button Content="{x:Static r:Strings.FindFile}" Click="ButtonCalculateTaxes_OnClick" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
 
         </StackPanel>
         <Grid DockPanel.Dock="Right">
@@ -47,7 +47,7 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileNumber}" />
-                        <TextBox Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False" />
+                        <TextBox Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileDate}" />

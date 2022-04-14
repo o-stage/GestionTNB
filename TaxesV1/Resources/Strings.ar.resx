@@ -107,4 +107,7 @@
     <data name="FileNotFound" xml:space="preserve">
         <value>لم يتم العثور على الملف</value>
     </data>
+    <data name="LandTitleNumber" xml:space="preserve">
+        <value>رقم ملكية الأرض</value>
+    </data>
 </root>

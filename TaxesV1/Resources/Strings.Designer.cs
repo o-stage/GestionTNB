@@ -187,6 +187,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Land title number.
+        /// </summary>
+        public static string LandTitleNumber {
+            get {
+                return ResourceManager.GetString("LandTitleNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Name.
         /// </summary>
         public static string LastName {

@@ -79,7 +79,7 @@
                         <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeTaxable, Mode=OneTime}" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">
-                        <Label Content="N°T.F: (to be translated)" />
+                        <Label Content="{x:Static r:Strings.LandTitleNumber}" />
                         <TextBox TextWrapping="Wrap" Text="{Binding TerrainID, Mode=OneTime}" IsReadOnly="True" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">

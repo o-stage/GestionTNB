@@ -213,4 +213,7 @@
   <data name="FileNotFound" xml:space="preserve">
     <value>FileNotFound</value>
   </data>
+  <data name="LandTitleNumber" xml:space="preserve">
+    <value>Land title number</value>
+  </data>
 </root>

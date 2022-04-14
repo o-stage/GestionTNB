@@ -15,6 +15,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel x:Name="Body" Background="#d8d8d8">
+        <local:MainMenu DockPanel.Dock="Left" HorizontalAlignment="Left"/>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" Width="200" />
             <Button Content="{x:Static r:Strings.FindFile}" Click="ButtonCalculateTaxes_OnClick" />
@@ -45,21 +46,21 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileNumber}" />
-                        <TextBox Text="{Binding Path=NDossier}" IsReadOnly="True" TextWrapping="Wrap" />
+                        <TextBox Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileDate}" />
                         <DatePicker x:Name="FileDatePicker" SelectedDate="{Binding DateDossier, Mode=OneTime}"
-                                    FirstDayOfWeek="Monday" />
+                                    FirstDayOfWeek="Monday" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontSize="14" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.StartDate}" />
                         <DatePicker x:Name="StartDatePicker" SelectedDate="{Binding DateDebut, Mode=OneTime}"
-                                    FirstDayOfWeek="Monday" />
+                                    FirstDayOfWeek="Monday" FontSize="14" Padding="2,2,2,2" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
                         <Label Content="{x:Static r:Strings.Accountable}" />
-                        <TextBox x:Name="AccountableTextBox" TextWrapping="Wrap" IsReadOnly="True">
+                        <TextBox x:Name="AccountableTextBox" TextWrapping="Wrap" IsReadOnly="True" IsEnabled="False">
                             <MultiBinding StringFormat="{}{0} {1} ({2})">
                                 <Binding Path="Redevable.Nom" />
                                 <Binding Path="Redevable.Prenom" />
@@ -71,7 +72,7 @@
                     <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" Margin="0,1,0,43" Grid.RowSpan="2">
                         <Label Content="{x:Static r:Strings.Type}" />
                         <TextBox x:Name="TextBoxType" TextWrapping="Wrap" Text="{Binding Redevable.Type, Mode=OneTime}"
-                                 IsReadOnly="True" />
+                                 IsReadOnly="True" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="3">
                         <Label Content="{x:Static r:Strings.TaxableArea}" />
@@ -79,15 +80,15 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">
                         <Label Content="N°T.F: (to be translated)" />
-                        <TextBox TextWrapping="Wrap" Text="{Binding TerrainID, Mode=OneTime}" IsReadOnly="True" />
+                        <TextBox TextWrapping="Wrap" Text="{Binding TerrainID, Mode=OneTime}" IsReadOnly="True" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
                         <Label Content="{x:Static r:Strings.Place}" />
-                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.Lieu, Mode=OneTime}" IsReadOnly="True" />
+                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.Lieu, Mode=OneTime}" IsReadOnly="True" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Grid.Column="2" Grid.Row="3">
                         <Label Content="{x:Static r:Strings.NonTaxableArea}" />
-                        <TextBox TextWrapping="Wrap" IsReadOnly="True">
+                        <TextBox TextWrapping="Wrap" IsReadOnly="True" IsEnabled="False">
                             <MultiBinding Converter="{StaticResource DifferenceConverter}">
                                 <Binding Path="Terrain.SuperficeBrute" />
                                 <Binding Path="Terrain.SuperficeTaxable" />
@@ -97,12 +98,12 @@
                     <StackPanel Grid.Column="0" Grid.Row="3">
                         <Label Content="{x:Static r:Strings.GrossArea}" />
                         <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeBrute, Mode=OneTime}"
-                                 IsReadOnly="True" />
+                                 IsReadOnly="True" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="3">
                         <Label Content="{x:Static r:Strings.TaxableArea}" />
                         <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeTaxable, Mode=OneTime}"
-                                 IsReadOnly="True" />
+                                 IsReadOnly="True" IsEnabled="False" />
                     </StackPanel>
                 </Grid>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -121,7 +122,7 @@
                 </StackPanel>
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
-                <Button Name="PrintButton" Content="{x:Static r:Strings.Print}" Click="PrintButton_Click" IsEnabled="False"/>
+                <Button x:Name="PrintButton" Content="{x:Static r:Strings.Print}" Click="PrintButton_Click" IsEnabled="False"/>
             </StackPanel>
             <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="2" ColumnWidth="*"
                       CanUserAddRows="False" />

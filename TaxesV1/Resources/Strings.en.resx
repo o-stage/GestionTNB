@@ -189,4 +189,22 @@
   <data name="CalculateTaxes" xml:space="preserve">
     <value>Calculate Taxes</value>
   </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="Exempt" xml:space="preserve">
+    <value>Exempt</value>
+  </data>
+  <data name="NumberOfDeclarationsNotFiled" xml:space="preserve">
+    <value>Number of declarations not filed</value>
+  </data>
+  <data name="MainTotalToBePaid" xml:space="preserve">
+    <value>Main total to be paid</value>
+  </data>
+  <data name="TotalFinesToBePaid" xml:space="preserve">
+    <value>Total fines to be paid</value>
+  </data>
+  <data name="TotalToPay" xml:space="preserve">
+    <value>Total to pay</value>
+  </data>
 </root>

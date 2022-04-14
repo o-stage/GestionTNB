@@ -102,14 +102,14 @@
                 </Grid>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                             Grid.Column="1">
-                    <TextBlock TextWrapping="Wrap" Text="Resume" VerticalAlignment="Stretch" Padding="10,5,10,0" />
-                    <TextBlock TextWrapping="Wrap" Text="Nombre dec non deposer" Padding="10,5,10,0" />
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.Summary}" VerticalAlignment="Stretch" Padding="10,5,10,0" />
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.NumberOfDeclarationsNotFiled}" Padding="10,5,10,0" />
                     <TextBlock Name="NumberOfNonDeposedDeclarations" TextWrapping="Wrap" Padding="10,5,10,0" />
-                    <TextBlock TextWrapping="Wrap" Text="Total principal a payer" Padding="10,5,10,0" />
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.MainTotalToBePaid}" Padding="10,5,10,0" />
                     <TextBlock Name="TotalPrincipal" TextWrapping="Wrap" Padding="10,5,10,0" />
-                    <TextBlock TextWrapping="Wrap" Text="Total amends a payer" Padding="10,5,10,0" />
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.TotalFinesToBePaid}" Padding="10,5,10,0" />
                     <TextBlock Name="TotalAmends" TextWrapping="Wrap" Padding="10,5,10,0" />
-                    <TextBlock TextWrapping="Wrap" Text="Total a payer" Padding="10,5,10,0" />
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.TotalToPay}" Padding="10,5,10,0" />
                     <TextBlock Name="Total" TextWrapping="Wrap" Padding="10,5,10,0" />
                 </StackPanel>
             </Grid>

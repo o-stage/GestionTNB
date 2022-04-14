@@ -115,6 +115,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exempt.
+        /// </summary>
+        public static string Exempt {
+            get {
+                return ResourceManager.GetString("Exempt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         public static string FileDate {
@@ -178,11 +187,29 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Main total to be paid.
+        /// </summary>
+        public static string MainTotalToBePaid {
+            get {
+                return ResourceManager.GetString("MainTotalToBePaid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Non-Taxable Area.
         /// </summary>
         public static string NonTaxableArea {
             get {
                 return ResourceManager.GetString("NonTaxableArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of declarations not filed.
+        /// </summary>
+        public static string NumberOfDeclarationsNotFiled {
+            get {
+                return ResourceManager.GetString("NumberOfDeclarationsNotFiled", resourceCulture);
             }
         }
         
@@ -232,11 +259,38 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Summary.
+        /// </summary>
+        public static string Summary {
+            get {
+                return ResourceManager.GetString("Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Taxable Area.
         /// </summary>
         public static string TaxableArea {
             get {
                 return ResourceManager.GetString("TaxableArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total fines to be paid.
+        /// </summary>
+        public static string TotalFinesToBePaid {
+            get {
+                return ResourceManager.GetString("TotalFinesToBePaid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total to pay.
+        /// </summary>
+        public static string TotalToPay {
+            get {
+                return ResourceManager.GetString("TotalToPay", resourceCulture);
             }
         }
         

@@ -83,4 +83,22 @@
     <data name="CalculateTaxes" xml:space="preserve">
         <value>احتسب الضرائب</value>
     </data>
+    <data name="Summary" xml:space="preserve">
+        <value>موجز</value>
+    </data>
+    <data name="Exempt" xml:space="preserve">
+        <value>معفى</value>
+    </data>
+    <data name="NumberOfDeclarationsNotFiled" xml:space="preserve">
+        <value>عدد التصريحات التي لم تقدم</value>
+    </data>
+    <data name="MainTotalToBePaid" xml:space="preserve">
+        <value>أصل المبلغ الإجمالي المستحق</value>
+    </data>
+    <data name="TotalFinesToBePaid" xml:space="preserve">
+        <value>مجموع الغرامات المستحقة</value>
+    </data>
+    <data name="TotalToPay" xml:space="preserve">
+        <value>المبلغ الإجمالي المستحق</value>
+    </data>
 </root>

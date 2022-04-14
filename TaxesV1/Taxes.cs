@@ -38,19 +38,18 @@ namespace TaxesV1
         public static Taxes GetTaxes(Dossier dossier, int starYear = 0)
         {
             Taxes taxes = new Taxes();
-            
+
             if (starYear == 0)
                 starYear = DateTime.Now.Year - 5;
 
             for (int year = starYear; year <= DateTime.Now.Year; year++)
             {
+                if (dossier.Terrain.Etat == "Bati" && dossier.Terrain.DateChangementEtat.Value.Year >= year) break;
                 Tax tax = new Tax
                 {
                     Year = year
                 };
                 taxes._taxes.Add(tax);
-                if (dossier.Terrain.Etat == "Bati" && dossier.Terrain.DateChangementEtat.Value.Year >= year) break;
-
                 if (year < DateTime.Now.Year || DateTime.Now.Month > 3)
                 {
                     try
@@ -58,7 +57,11 @@ namespace TaxesV1
                         Declaration declaration = dossier.Declarations.First(dec => dec.Anne == year);
                         tax.NDeclaration = declaration.ID.ToString();
                         tax.DateDeclaration = declaration.DateDeclaration.Value.ToShortDateString();
-                        if (declaration.Payer.Value) continue;
+                        if (declaration.Payer.Value)
+                        {
+                            tax.Selected = false;
+                            continue;
+                        }
                     }
                     catch (InvalidOperationException)
                     {

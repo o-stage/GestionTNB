@@ -25,17 +25,14 @@ namespace TaxesV1
             PrintDialog dialog = new PrintDialog();
             if (dialog.ShowDialog() != true)
                 return;
-            PrintDocument doc = new PrintDocument
+            PrintDocument doc = new PrintDocument(tax,SelectedFile)
             {
                 PageHeight = dialog.PrintableAreaHeight,
                 PageWidth = dialog.PrintableAreaWidth,
                 PagePadding = new Thickness(50),
                 ColumnGap = 0,
                 ColumnWidth = dialog.PrintableAreaWidth,
-                Name = "FlowDoc",
-                Taxes = tax,
-                Dossier = SelectedFile,
-                DataContext = SelectedFile
+                Name = "FlowDoc"
             };
             IDocumentPaginatorSource idpSource = doc;
             dialog.PrintDocument(idpSource.DocumentPaginator, "Printing.");

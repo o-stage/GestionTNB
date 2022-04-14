@@ -123,6 +123,7 @@
     <Compile Include="Dossier.cs">
       <DependentUpon>TaxesDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MoneyTools.cs" />
     <Compile Include="MultiValueConverters\DifferenceConverter.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

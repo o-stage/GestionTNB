@@ -121,7 +121,7 @@
                 </StackPanel>
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
-                <Button Content="{x:Static r:Strings.Print}" Click="ButtonFetch_Click" />
+                <Button Name="PrintButton" Content="{x:Static r:Strings.Print}" Click="PrintButton_Click" IsEnabled="False"/>
             </StackPanel>
             <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="2" ColumnWidth="*"
                       CanUserAddRows="False" />

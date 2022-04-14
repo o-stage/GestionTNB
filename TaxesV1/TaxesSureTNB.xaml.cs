@@ -22,7 +22,7 @@ namespace TaxesV1
             if (Properties.Settings.Default.Language == "ar") SetFlowDirection(Body, FlowDirection.RightToLeft);
         }
 
-        private void ButtonFetch_Click(object sender, RoutedEventArgs e)
+        private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
             PrintDialog dialog = new PrintDialog();
             if (dialog.ShowDialog() != true)
@@ -56,6 +56,7 @@ namespace TaxesV1
             TotalAmends.Text = tax.TotalAmends.ToString("c", cultureInfo);
             Total.Text = tax.Total.ToString("c", cultureInfo);
             DataGrid.ItemsSource = tax._taxes;
+            PrintButton.IsEnabled = true;
         }
     }
 }

@@ -208,4 +208,7 @@
   <data name="TotalToPay" xml:space="preserve">
     <value>Total to pay</value>
   </data>
+  <data name="FindFile" xml:space="preserve">
+    <value>Find File</value>
+  </data>
 </root>

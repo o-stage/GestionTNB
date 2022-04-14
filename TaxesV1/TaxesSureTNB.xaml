@@ -14,8 +14,13 @@
             <converter:DifferenceConverter x:Key="DifferenceConverter"></converter:DifferenceConverter>
         </ResourceDictionary>
     </Window.Resources>
-    <Border Name="Body" Background="#d8d8d8">
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <DockPanel x:Name="Body" Background="#d8d8d8">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" Width="200" />
+            <Button Content="{x:Static r:Strings.FindFile}" Click="ButtonCalculateTaxes_OnClick" />
+
+        </StackPanel>
+        <Grid DockPanel.Dock="Right">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -40,7 +45,7 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileNumber}" />
-                        <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" />
+                        <TextBox Text="{Binding Path=NDossier}" IsReadOnly="True" TextWrapping="Wrap" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileDate}" />
@@ -102,24 +107,25 @@
                 </Grid>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                             Grid.Column="1">
-                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.Summary}" VerticalAlignment="Stretch" Padding="10,5,10,0" />
-                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.NumberOfDeclarationsNotFiled}" Padding="10,5,10,0" />
-                    <TextBlock Name="NumberOfNonDeposedDeclarations" TextWrapping="Wrap" Padding="10,5,10,0" />
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.Summary}" VerticalAlignment="Stretch"
+                               Padding="10,5,10,0" />
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.NumberOfDeclarationsNotFiled}"
+                               Padding="10,5,10,0" />
+                    <TextBlock x:Name="NumberOfNonDeposedDeclarations" TextWrapping="Wrap" Padding="10,5,10,0" />
                     <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.MainTotalToBePaid}" Padding="10,5,10,0" />
-                    <TextBlock Name="TotalPrincipal" TextWrapping="Wrap" Padding="10,5,10,0" />
+                    <TextBlock x:Name="TotalPrincipal" TextWrapping="Wrap" Padding="10,5,10,0" />
                     <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.TotalFinesToBePaid}" Padding="10,5,10,0" />
-                    <TextBlock Name="TotalAmends" TextWrapping="Wrap" Padding="10,5,10,0" />
+                    <TextBlock x:Name="TotalAmends" TextWrapping="Wrap" Padding="10,5,10,0" />
                     <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.TotalToPay}" Padding="10,5,10,0" />
-                    <TextBlock Name="Total" TextWrapping="Wrap" Padding="10,5,10,0" />
+                    <TextBlock x:Name="Total" TextWrapping="Wrap" Padding="10,5,10,0" />
                 </StackPanel>
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
-                <Button Content="{x:Static r:Strings.CalculateTaxes}" Click="ButtonCalculateTaxes_OnClick" />
                 <Button Content="{x:Static r:Strings.Print}" Click="ButtonFetch_Click" />
             </StackPanel>
             <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="2" ColumnWidth="*"
                       CanUserAddRows="False" />
 
         </Grid>
-    </Border>
+    </DockPanel>
 </Window>

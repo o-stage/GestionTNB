@@ -207,4 +207,7 @@
   <data name="TotalToPay" xml:space="preserve">
     <value>Total à payer</value>
   </data>
+  <data name="FindFile" xml:space="preserve">
+    <value>Rechercher Dossier</value>
+  </data>
 </root>

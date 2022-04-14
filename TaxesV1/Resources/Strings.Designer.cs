@@ -142,6 +142,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Find File.
+        /// </summary>
+        public static string FindFile {
+            get {
+                return ResourceManager.GetString("FindFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
         public static string FirstName {

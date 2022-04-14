@@ -7,6 +7,7 @@ namespace TaxesV1
     public partial class MainWindow
     {
         public string CurrentPasswordHintText { get; set; }
+
         public MainWindow()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture =
@@ -27,50 +28,57 @@ namespace TaxesV1
                     index = 2;
                     break;
             }
-            if(index==2) SetFlowDirection(Body,FlowDirection.RightToLeft);
+
+            if (index == 2) SetFlowDirection(Body, FlowDirection.RightToLeft);
             LanguageComboBox.SelectedIndex = index;
         }
 
         private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            string Language = "en";
             switch (LanguageComboBox.SelectedIndex)
             {
                 case 0:
-                    Properties.Settings.Default.Language = "en";
+                    Language = "en";
                     break;
                 case 1:
-                    Properties.Settings.Default.Language = "fr";
+                    Language = "fr";
                     break;
                 case 2:
-                    Properties.Settings.Default.Language = "ar";
+                    Language = "ar";
                     break;
             }
 
-            Properties.Settings.Default.Save();
-            System.Threading.Thread.CurrentThread.CurrentUICulture =
-                new System.Globalization.CultureInfo(Properties.Settings.Default.Language);
+            if (Properties.Settings.Default.Language != Language)
+            {
+                Properties.Settings.Default.Language = Language;
+                Properties.Settings.Default.Save();
+                new MainWindow().Show();
+                Close();
+            }
         }
 
         private void ButtonLogin_OnClick(object sender, RoutedEventArgs e)
         {
-            
             SqlConnection Connection =
                 new SqlConnection("Data Source=.;Initial Catalog=TaxesV2;Integrated Security=True");
-         Connection.Open();
-            SqlCommand cmd = new SqlCommand($"SELECT * FROM users WHERE USER_NAME='{UserNameTextBox.Text}' AND PASSWORD='{PasswordTextBox.Password}'",Connection);
+            Connection.Open();
+            SqlCommand cmd =
+                new SqlCommand(
+                    $"SELECT * FROM users WHERE USER_NAME='{UserNameTextBox.Text}' AND PASSWORD='{PasswordTextBox.Password}'",
+                    Connection);
             if (cmd.ExecuteReader().HasRows)
             {
                 Connection.Close();
-                
+
                 new TaxesSureTNB().Show();
                 Close();
             }
             else
             {
                 Connection.Close();
-                ErrorLabel.Visibility =Visibility.Visible;
+                ErrorLabel.Visibility = Visibility.Visible;
             }
-
         }
     }
 }

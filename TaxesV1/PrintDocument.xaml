@@ -2,241 +2,260 @@
 
 <FlowDocument
     x:Class="TaxesV1.PrintDocument"
-    FontSize="16"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:TaxesV1"
     mc:Ignorable="d">
-    <Paragraph TextAlignment="Center">
-        <Run>Royaume du Maroc</Run>
-        <LineBreak />
-        <Run>Ministère de l’intérieure</Run>
-        <LineBreak />
-        <Run>Wilaya de la Région de L'oriental</Run>
-        <LineBreak />
-        <Run>Préfecture d'Oujda-Angad</Run>
-        <LineBreak />
-        <Run>Commune d'Oujda</Run>
-        <LineBreak />
-        <Run>Direction Général des Services</Run>
-        <LineBreak />
-        <Run>Division de Développement des</Run>
-        <LineBreak />
-        <Run> Ressources Financiers</Run>
-        <LineBreak />
-        <Run>Service Communal D'Assiette </Run>
-    </Paragraph>
-    <Paragraph FontWeight="Bold" TextAlignment="Center">
-        <Run>Le: [date]</Run>
-    </Paragraph>
-    <Paragraph FontSize="24" TextAlignment="Center">
-        <Run>AVIS D'IMPOSITION</Run>
-    </Paragraph>
-    <Table>
-        <Table.Columns>
-            <TableColumn Width="120" />
-            <TableColumn Width="Auto" />
-        </Table.Columns>
-        <TableRowGroup>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>N° Dossier:</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run Text="{Binding Path=NDossier, Mode=OneTime}" />
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>Redevable:</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run>
-                            <Run.Text>
-                                <MultiBinding StringFormat="{}{0} {1}">
-                                    <Binding Path="Redevable.Nom" />
-                                    <Binding Path="Redevable.Prenom" />
-                                </MultiBinding>
-                            </Run.Text>
-                        </Run>
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>C.I.N:</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run Text="{Binding Path=RedevableId, Mode=OneTime}" />
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>N°Telephone:</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run>[tel]</Run>
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>N° T.F:</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run Text="{Binding Path=TerrainID, Mode=OneTime}" />
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>Categorie:</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run Text="{Binding Path=Terrain.Type, Mode=OneTime}" />
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>Superficie (m²):</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run Text="{Binding Path=Terrain.SuperficeTaxable, Mode=OneTime}" />
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>Lieu:</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run Text="{Binding Path=Terrain.Lieu, Mode=OneTime}" />
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-        </TableRowGroup>
-    </Table>
-    <Paragraph>
-        <LineBreak />
-    </Paragraph>
-    <Table>
-        <Table.Columns>
-            <TableColumn Width="1*" />
-            <TableColumn Width="1*" />
-            <TableColumn Width="1*" />
-            <TableColumn Width="1*" />
-            <TableColumn Width="1*" />
+    <Section FontFamily="Arial" FontSize="14">
+        <Table>
+            <TableRowGroup>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph TextAlignment="Center">
+                            <Run>Royaume du Maroc</Run>
+                            <LineBreak />
+                            <Run>Ministère de l’intérieure</Run>
+                            <LineBreak />
+                            <Run>Wilaya de la Région de L'oriental</Run>
+                            <LineBreak />
+                            <Run>Préfecture d'Oujda-Angad</Run>
+                            <LineBreak />
+                            <Run>Commune d'Oujda</Run>
+                            <LineBreak />
+                            <Run>Direction Général des Services</Run>
+                            <LineBreak />
+                            <Run>Division de Développement des</Run>
+                            <LineBreak />
+                            <Run>Ressources Financiers</Run>
+                            <LineBreak />
+                            <Run>Service Communal D'Assiette</Run>
+                        </Paragraph>
 
-        </Table.Columns>
-        <TableRowGroup>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>Année</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run>Mantant Principale</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run>Default declaration</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run>Amends</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run>Total</Run>
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>TOTAL PRINCIPAL:</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run>[total_principal]</Run>
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>TOTAL DEFAULT DE DECLARATION:</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run>[total_defdec]</Run>
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>TOTAL AMENDS:</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run>[total_amendes]</Run>
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    <Paragraph>
-                        <Run>TOTAL A PAYER:</Run>
-                    </Paragraph>
-                </TableCell>
-                <TableCell>
-                    <Paragraph>
-                        <Run>[total]</Run>
-                    </Paragraph>
-                </TableCell>
-            </TableRow>
-        </TableRowGroup>
-    </Table>
-    <Paragraph>
-        <Run>arrête le présent avis à la somme de:</Run>
-        <Run FontWeight="Bold">[total_words]</Run>
-    </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph TextAlignment="Right">
+                            <Run Name="TodayDate" FontWeight="Bold"></Run>
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+        </Table>
+
+
+        <Paragraph FontSize="24" TextAlignment="Center">
+            <Run>AVIS D'IMPOSITION</Run>
+        </Paragraph>
+        <Table>
+            <Table.Columns>
+                <TableColumn Width="120" />
+                <TableColumn Width="Auto" />
+            </Table.Columns>
+            <TableRowGroup>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>N° Dossier:</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run Text="{Binding Path=NDossier, Mode=OneTime}" />
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>Redevable:</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>
+                                <Run.Text>
+                                    <MultiBinding StringFormat="{}{0} {1}">
+                                        <Binding Path="Redevable.Nom" />
+                                        <Binding Path="Redevable.Prenom" />
+                                    </MultiBinding>
+                                </Run.Text>
+                            </Run>
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>C.I.N:</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run Text="{Binding Path=RedevableId, Mode=OneTime}" />
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>N°Telephone:</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run Text="{Binding Path=Redevable.Tel, Mode=OneTime}" />
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>N° T.F:</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run Text="{Binding Path=TerrainID, Mode=OneTime}" />
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>Categorie:</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run Text="{Binding Path=Terrain.Type, Mode=OneTime}" />
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>Superficie (m²):</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run Text="{Binding Path=Terrain.SuperficeTaxable, Mode=OneTime}" />
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>Lieu:</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run Text="{Binding Path=Terrain.Lieu, Mode=OneTime}" />
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+        </Table>
+        <Paragraph>
+            <LineBreak />
+        </Paragraph>
+        <Table>
+            <Table.Columns>
+                <TableColumn Width="Auto" />
+                <TableColumn Width="Auto" />
+                <TableColumn Width="Auto" />
+                <TableColumn Width="Auto" />
+                <TableColumn Width="Auto" />
+
+            </Table.Columns>
+            <TableRowGroup>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>Année</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>Mantant Principale</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>Default declaration</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>Amends</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>Total</Run>
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+            <TableRowGroup Name="TaxesRowRowGroup"></TableRowGroup>
+        </Table>
+        <Table>
+            <TableRowGroup>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>TOTAL PRINCIPAL:</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run Name="TotalPrincipal"></Run>
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>TOTAL DEFAULT DE DECLARATION:</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run Name="TotalDefaultDeclaration" />
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>TOTAL AMENDS:</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run Name="TotalAmmends" />
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            <Run>TOTAL A PAYER:</Run>
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>
+                            <Run Name="Total" />
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+        </Table>
+        <Paragraph>
+            <Run>Arrête le présent avis à la somme de:</Run>
+            <Run Name="TotalWords" FontWeight="Bold" />
+        </Paragraph>
+    </Section>
 </FlowDocument>

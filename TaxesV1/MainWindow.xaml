@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TaxesV1"
         xmlns:str="clr-namespace:TaxesV1.Resources"
         mc:Ignorable="d"
-        Title="{x:Static str:Strings.Login}" Height="350" Width="525">
+        Title="{x:Static str:Strings.Login}" Height="350" Width="525" WindowStartupLocation="CenterScreen">
   
     <Grid Name="Body" Background="#D8D8D8" HorizontalAlignment="Stretch">
         <StackPanel Margin="70,-10,71,10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">

@@ -30,7 +30,8 @@ create table Redevable
     Nom    varchar(50),
     Prenom varchar(50),
     Type   varchar(20)
-        check ([Type] = 'PM' OR [Type] = 'PF')
+        check ([Type] = 'PM' OR [Type] = 'PF'),
+    Tel varchar(50)
 )
 go
 

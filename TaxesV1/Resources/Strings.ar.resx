@@ -83,4 +83,37 @@
     <data name="CalculateTaxes" xml:space="preserve">
         <value>احتسب الضرائب</value>
     </data>
+    <data name="Summary" xml:space="preserve">
+        <value>موجز</value>
+    </data>
+    <data name="Exempt" xml:space="preserve">
+        <value>معفى</value>
+    </data>
+    <data name="NumberOfDeclarationsNotFiled" xml:space="preserve">
+        <value>عدد التصريحات التي لم تقدم</value>
+    </data>
+    <data name="MainTotalToBePaid" xml:space="preserve">
+        <value>أصل المبلغ الإجمالي المستحق</value>
+    </data>
+    <data name="TotalFinesToBePaid" xml:space="preserve">
+        <value>مجموع الغرامات المستحقة</value>
+    </data>
+    <data name="TotalToPay" xml:space="preserve">
+        <value>المبلغ الإجمالي المستحق</value>
+    </data>
+    <data name="FindFile" xml:space="preserve">
+        <value>بحث عن ملف</value>
+    </data>
+    <data name="FileNotFound" xml:space="preserve">
+        <value>لم يتم العثور على الملف</value>
+    </data>
+    <data name="LandTitleNumber" xml:space="preserve">
+        <value>رقم ملكية الأرض</value>
+    </data>
+    <data name="Individual" xml:space="preserve">
+        <value>شخص طبيعي</value>
+    </data>
+    <data name="BodyCorporate" xml:space="preserve">
+        <value>شخص معنوي</value>
+    </data>
 </root>

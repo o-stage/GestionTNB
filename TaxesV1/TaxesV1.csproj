@@ -123,6 +123,11 @@
     <Compile Include="Dossier.cs">
       <DependentUpon>TaxesDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MoneyTools.cs" />
+    <Compile Include="MultiValueConverters\AccountableTypeConverter.cs" />
     <Compile Include="MultiValueConverters\DifferenceConverter.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -166,6 +171,7 @@
     <Compile Include="PrintDocument.xaml.cs">
       <DependentUpon>PrintDocument.xaml</DependentUpon>
     </Compile>
+    <Page Include="MainMenu.xaml" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

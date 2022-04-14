@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="TaxesV1.MainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:TaxesV1"
+             mc:Ignorable="d"
+             VerticalAlignment="Stretch">
+    <Grid>
+        <Border Padding="5" Background="CornflowerBlue">
+            <StackPanel>
+                <TextBlock>Settings</TextBlock>
+                <TextBlock>Terrain non bati</TextBlock>
+                <TextBlock>Settings</TextBlock>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</UserControl>

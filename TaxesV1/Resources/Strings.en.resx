@@ -189,4 +189,37 @@
   <data name="CalculateTaxes" xml:space="preserve">
     <value>Calculate Taxes</value>
   </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="Exempt" xml:space="preserve">
+    <value>Exempt</value>
+  </data>
+  <data name="NumberOfDeclarationsNotFiled" xml:space="preserve">
+    <value>Number of declarations not filed</value>
+  </data>
+  <data name="MainTotalToBePaid" xml:space="preserve">
+    <value>Main total to be paid</value>
+  </data>
+  <data name="TotalFinesToBePaid" xml:space="preserve">
+    <value>Total fines to be paid</value>
+  </data>
+  <data name="TotalToPay" xml:space="preserve">
+    <value>Total to pay</value>
+  </data>
+  <data name="FindFile" xml:space="preserve">
+    <value>Find File</value>
+  </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>FileNotFound</value>
+  </data>
+  <data name="LandTitleNumber" xml:space="preserve">
+    <value>Land title number</value>
+  </data>
+  <data name="Individual" xml:space="preserve">
+    <value>Individual</value>
+  </data>
+  <data name="BodyCorporate" xml:space="preserve">
+    <value>Body corporate</value>
+  </data>
 </root>

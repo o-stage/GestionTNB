@@ -15,6 +15,7 @@ namespace TaxesV1
         public float TotalNet => _taxes.Where(tax => tax.Selected).Sum(tax => tax.Total);
         public float TotalAmends => _taxes.Where(tax => tax.Selected).Sum(tax => tax.Amends);
         public float TotalDefaultDec => _taxes.Where(tax => tax.Selected).Sum(tax => tax.DefaultDecl);
+        public int NumberOfNonDeposedDeclarations => _taxes.Where(tax => tax.DefaultDecl != 0).Count();
         public float Total => TotalNet + TotalAmends + TotalDefaultDec;
 
         public class Tax

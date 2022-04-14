@@ -21,84 +21,104 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <Grid VerticalAlignment="Top">
+            <Grid UseLayoutRounding="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="3*" />
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Column="0" Grid.Row="0">
-                    <Label Content="{x:Static r:Strings.FileNumber}" />
-                    <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" />
-                </StackPanel>
-                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
-                    <Label Content="{x:Static r:Strings.FileDate}" />
-                    <DatePicker x:Name="FileDatePicker" SelectedDate="{Binding Path=DateDossier, Mode=OneTime}" FirstDayOfWeek="Monday" />
-                </StackPanel>
-                <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0">
-                    <Label Content="{x:Static r:Strings.StartDate}" />
-                    <DatePicker x:Name="StartDatePicker" SelectedDate="{Binding Path=DateDebut, Mode=OneTime}" FirstDayOfWeek="Monday" />
-                </StackPanel>
-                <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-                    <Label Content="{x:Static r:Strings.Accountable}" />
-                    <TextBox x:Name="AccountableTextBox" TextWrapping="Wrap" IsReadOnly="True">
-                        <TextBox.Text>
-                            <MultiBinding StringFormat="{}{0} {1} ({2})" >
+                <Grid MinWidth="500">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Column="0" Grid.Row="0">
+                        <Label Content="{x:Static r:Strings.FileNumber}" />
+                        <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
+                        <Label Content="{x:Static r:Strings.FileDate}" />
+                        <DatePicker x:Name="FileDatePicker" SelectedDate="{Binding DateDossier, Mode=OneTime}"
+                                    FirstDayOfWeek="Monday" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0">
+                        <Label Content="{x:Static r:Strings.StartDate}" />
+                        <DatePicker x:Name="StartDatePicker" SelectedDate="{Binding DateDebut, Mode=OneTime}"
+                                    FirstDayOfWeek="Monday" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                        <Label Content="{x:Static r:Strings.Accountable}" />
+                        <TextBox x:Name="AccountableTextBox" TextWrapping="Wrap" IsReadOnly="True">
+                            <MultiBinding StringFormat="{}{0} {1} ({2})">
                                 <Binding Path="Redevable.Nom" />
                                 <Binding Path="Redevable.Prenom" />
                                 <Binding Path="Redevable.ID" />
                             </MultiBinding>
-                        </TextBox.Text>
-                    </TextBox>
+                        </TextBox>
 
-                </StackPanel>
-                <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" Margin="0,1,0,43" Grid.RowSpan="2">
-                    <Label Content="{x:Static r:Strings.Type}" />
-                    <TextBox x:Name="TextBoxType" TextWrapping="Wrap" Text="{Binding Path=Terrain.Type, Mode=OneTime}" IsReadOnly="True" />
-                </StackPanel>
-                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="3">
-                    <Label Content="{x:Static r:Strings.TaxableArea}" />
-                    <TextBox TextWrapping="Wrap" Text="{Binding Path=Terrain.SuperficeTaxable, Mode=OneTime}" />
-                </StackPanel>
-                <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">
-                    <Label Content="N°T.F: (to be translated)" />
-                    <TextBox TextWrapping="Wrap" Text="{Binding Path=TerrainID, Mode=OneTime}" IsReadOnly="True" />
-                </StackPanel>
-                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
-                    <Label Content="{x:Static r:Strings.Place}" />
-                    <TextBox TextWrapping="Wrap" Text="{Binding Path=Terrain.Lieu, Mode=OneTime}" IsReadOnly="True" />
-                </StackPanel>
-                <StackPanel Grid.Column="2" Grid.Row="3">
-                    <Label Content="{x:Static r:Strings.NonTaxableArea}" />
-                    <TextBox TextWrapping="Wrap" IsReadOnly="True">
-                        <TextBox.Text>
-                            <MultiBinding Converter="{StaticResource DifferenceConverter }">
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" Margin="0,1,0,43" Grid.RowSpan="2">
+                        <Label Content="{x:Static r:Strings.Type}" />
+                        <TextBox x:Name="TextBoxType" TextWrapping="Wrap" Text="{Binding Terrain.Type, Mode=OneTime}"
+                                 IsReadOnly="True" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="3">
+                        <Label Content="{x:Static r:Strings.TaxableArea}" />
+                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeTaxable, Mode=OneTime}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">
+                        <Label Content="N°T.F: (to be translated)" />
+                        <TextBox TextWrapping="Wrap" Text="{Binding TerrainID, Mode=OneTime}" IsReadOnly="True" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
+                        <Label Content="{x:Static r:Strings.Place}" />
+                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.Lieu, Mode=OneTime}" IsReadOnly="True" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Grid.Row="3">
+                        <Label Content="{x:Static r:Strings.NonTaxableArea}" />
+                        <TextBox TextWrapping="Wrap" IsReadOnly="True">
+                            <MultiBinding Converter="{StaticResource DifferenceConverter}">
                                 <Binding Path="Terrain.SuperficeBrute" />
                                 <Binding Path="Terrain.SuperficeTaxable" />
                             </MultiBinding>
-                        </TextBox.Text>
-                    </TextBox>
-                </StackPanel>
-                <StackPanel Grid.Column="0" Grid.Row="3">
-                    <Label Content="{x:Static r:Strings.GrossArea}" />
-                    <TextBox TextWrapping="Wrap" Text="{Binding Path=Terrain.SuperficeBrute, Mode=OneTime}" IsReadOnly="True" />
-                </StackPanel>
-                <StackPanel Grid.Column="1" Grid.Row="3">
-                    <Label Content="{x:Static r:Strings.TaxableArea}" />
-                    <TextBox TextWrapping="Wrap" Text="{Binding Path=Terrain.SuperficeTaxable, Mode=OneTime}" IsReadOnly="True" />
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Grid.Row="3">
+                        <Label Content="{x:Static r:Strings.GrossArea}" />
+                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeBrute, Mode=OneTime}"
+                                 IsReadOnly="True" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="3">
+                        <Label Content="{x:Static r:Strings.TaxableArea}" />
+                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeTaxable, Mode=OneTime}"
+                                 IsReadOnly="True" />
+                    </StackPanel>
+                </Grid>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                            Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="Resume" VerticalAlignment="Stretch" Padding="10,5,10,0" />
+                    <TextBlock TextWrapping="Wrap" Text="Nombre dec non deposer" Padding="10,5,10,0" />
+                    <TextBlock Name="NumberOfNonDeposedDeclarations" TextWrapping="Wrap" Padding="10,5,10,0" />
+                    <TextBlock TextWrapping="Wrap" Text="Total principal a payer" Padding="10,5,10,0" />
+                    <TextBlock Name="TotalPrincipal" TextWrapping="Wrap" Padding="10,5,10,0" />
+                    <TextBlock TextWrapping="Wrap" Text="Total amends a payer" Padding="10,5,10,0" />
+                    <TextBlock Name="TotalAmends" TextWrapping="Wrap" Padding="10,5,10,0" />
+                    <TextBlock TextWrapping="Wrap" Text="Total a payer" Padding="10,5,10,0" />
+                    <TextBlock Name="Total" TextWrapping="Wrap" Padding="10,5,10,0" />
                 </StackPanel>
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
                 <Button Content="{x:Static r:Strings.CalculateTaxes}" Click="ButtonCalculateTaxes_OnClick" />
                 <Button Content="{x:Static r:Strings.Print}" Click="ButtonFetch_Click" />
             </StackPanel>
-            <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="2" ColumnWidth="*" />
+            <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="2" ColumnWidth="*"
+                      CanUserAddRows="False" />
 
         </Grid>
     </Border>

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -25,7 +26,7 @@ namespace TaxesV1
             PrintDialog dialog = new PrintDialog();
             if (dialog.ShowDialog() != true)
                 return;
-            PrintDocument doc = new PrintDocument(tax,SelectedFile)
+            PrintDocument doc = new PrintDocument(tax, SelectedFile)
             {
                 PageHeight = dialog.PrintableAreaHeight,
                 PageWidth = dialog.PrintableAreaWidth,
@@ -40,9 +41,14 @@ namespace TaxesV1
 
         private void ButtonCalculateTaxes_OnClick(object sender, RoutedEventArgs e)
         {
+            var cultureInfo = new CultureInfo("fr-ma");
             SelectedFile = Data.Entities.Dossiers.Find(FileNumberTextBox.Text);
-            DataContext = SelectedFile;
             tax = Taxes.GetTaxes(SelectedFile);
+            DataContext = SelectedFile;
+            NumberOfNonDeposedDeclarations.Text = tax.NumberOfNonDeposedDeclarations.ToString();
+            TotalPrincipal.Text = tax.TotalNet.ToString("c", cultureInfo);
+            TotalAmends.Text = tax.TotalAmends.ToString("c", cultureInfo);
+            Total.Text = tax.Total.ToString("c", cultureInfo);
             DataGrid.ItemsSource = tax._taxes;
         }
     }

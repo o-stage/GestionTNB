@@ -7,7 +7,7 @@
         xmlns:r="clr-namespace:TaxesV1.Resources"
         xmlns:converter="clr-namespace:TaxesV1.MultiValueConverters"
         mc:Ignorable="d"
-        Title="Taxes Sure LesTerrains Non Batu" Width="800" Height="580" VerticalContentAlignment="Top">
+        Title="Taxes Sure LesTerrains Non Batu" Width="1000" Height="580" VerticalContentAlignment="Top">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -15,7 +15,7 @@
             <converter:AccountableTypeConverter x:Key="AccountableTypeConverter" />
         </ResourceDictionary>
     </Window.Resources>
-    <DockPanel x:Name="Body" Background="#d8d8d8">
+    <DockPanel x:Name="Body" Background="#f0f3f5">
         <local:MainMenu DockPanel.Dock="Left" HorizontalAlignment="Left" />
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" />
@@ -80,7 +80,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="3">
                         <Label Content="{x:Static r:Strings.TaxableArea}" />
-                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeTaxable, Mode=OneTime}" />
+                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.SuperficeTaxable, Mode=OneTime}" IsEnabled="False"  IsReadOnly="True" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">
                         <Label Content="{x:Static r:Strings.LandTitleNumber}" />

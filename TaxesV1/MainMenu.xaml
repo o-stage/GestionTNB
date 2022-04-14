@@ -4,22 +4,165 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:TaxesV1"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d"
-             VerticalAlignment="Stretch">
-    <Grid>
-        <Border Padding="5" Background="#a4a4a4">
-            <Menu Background="{x:Null}">
-                <Menu.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel Orientation="Vertical"/>
-                    </ItemsPanelTemplate>
-                </Menu.ItemsPanel>
-                <MenuItem Header="Ajouter declaration"/>
-                <MenuItem Header="Tax sure Terrains non bati"/>
-                <MenuItem Header="Parameters"/>
+             VerticalAlignment="Stretch" Width="200">
+    <UserControl.Resources>
+        <Style x:Key="MenuButton" TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Foreground" Value="#7f839a"></Setter>
+            <Setter Property="Margin" Value="0 0 0 5"></Setter>
+            <Setter Property="Height" Value="45"></Setter>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"></Setter>
+            <Setter Property="Tag" Value="#6673b7"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0"
+                                BorderBrush="Transparent">
+                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"></ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
 
-            </Menu>
-        </Border>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#019ff8"></Setter>
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                    <Setter Property="Tag" Value="#7071f0"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0"
+                                        BorderBrush="#019ff8">
+                                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"></ContentPresenter>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 
-    </Grid>
+        <Style x:Key="MenuButtonActive" TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Foreground" Value="#019ff8"></Setter>
+            <Setter Property="Margin" Value="0 0 0 5"></Setter>
+            <Setter Property="Height" Value="45"></Setter>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"></Setter>
+            <Setter Property="Tag" Value="#7071f0"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0"
+                                BorderBrush="#019ff8">
+                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"></ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MenuButtonIcon" TargetType="fa:IconImage">
+            <Setter Property="Width" Value="32"></Setter>
+            <Setter Property="Height" Value="32"></Setter>
+            <Setter Property="Margin" Value="20 0 20 0"></Setter>
+            <Setter Property="Foreground"
+                    Value="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
+            </Setter>
+        </Style>
+        <Style x:Key="MenuButtonText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="13"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Foreground"
+                    Value="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Border>
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#f6f9fb" Offset="0"></GradientStop>
+                <GradientStop Color="#f6f9fb" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </Border.Background>
+        <StackPanel Cursor="Hand">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 35 0 0">
+                <Border CornerRadius="10" Width="40" Height="40">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#019ff8" Offset="0"></GradientStop>
+                            <GradientStop Color="#9ED7F7" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <TextBlock Name="UserInitials" Text="UN" Foreground="#ffffffff" FontSize="22"
+                               FontWeight="SemiBold" TextAlignment="Center"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+                </Border>
+                <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
+                    <TextBlock Name="UserName" Text="User Name" FontSize="15" Margin="0 0 0 5" Foreground="#7f839a"></TextBlock>
+                    <TextBlock Name="Auth" Text="Admin" FontSize="11" Foreground="#7f839a"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <Separator Height="0.8" Margin="20 30" Background="#46558a"></Separator>
+            <Button Style="{StaticResource MenuButtonActive}">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="Home" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
+                    <TextBlock Text="Dashboard" Style="{StaticResource MenuButtonText}"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuButton}">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="FlagCheckered" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
+                    <TextBlock Text="Promote" Style="{StaticResource MenuButtonText}"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuButton}">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="Cog" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
+                    <TextBlock Text="Settings" Style="{StaticResource MenuButtonText}"></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MenuButton}">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="FileSignature" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
+                    <TextBlock Text="Listing" Style="{StaticResource MenuButtonText}"></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MenuButton}">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="EnvelopeOpenText" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
+                    <TextBlock Text="Messages" Style="{StaticResource MenuButtonText}"></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MenuButton}">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="ChartArea" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
+                    <TextBlock Text="Statistics" Style="{StaticResource MenuButtonText}"></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MenuButton}">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="Coins" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
+                    <TextBlock Text="Revenue" Style="{StaticResource MenuButtonText}"></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MenuButton}">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="PowerOff" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
+                    <TextBlock Text="Logout" Style="{StaticResource MenuButtonText}"></TextBlock>
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+    </Border>
 </UserControl>

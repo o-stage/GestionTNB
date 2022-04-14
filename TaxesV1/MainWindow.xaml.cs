@@ -70,7 +70,8 @@ namespace TaxesV1
             if (cmd.ExecuteReader().HasRows)
             {
                 Connection.Close();
-
+                Properties.Settings.Default.User = UserNameTextBox.Text;
+                Properties.Settings.Default.Save();
                 new TaxesSureTNB().Show();
                 Close();
             }

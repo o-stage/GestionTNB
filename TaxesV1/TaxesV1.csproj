@@ -127,6 +127,7 @@
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="MoneyTools.cs" />
+    <Compile Include="MultiValueConverters\AccountableTypeConverter.cs" />
     <Compile Include="MultiValueConverters\DifferenceConverter.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -110,4 +110,10 @@
     <data name="LandTitleNumber" xml:space="preserve">
         <value>رقم ملكية الأرض</value>
     </data>
+    <data name="Individual" xml:space="preserve">
+        <value>شخص طبيعي</value>
+    </data>
+    <data name="BodyCorporate" xml:space="preserve">
+        <value>شخص معنوي</value>
+    </data>
 </root>

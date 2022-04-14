@@ -88,6 +88,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Body corporate.
+        /// </summary>
+        public static string BodyCorporate {
+            get {
+                return ResourceManager.GetString("BodyCorporate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calculate Taxes.
         /// </summary>
         public static string CalculateTaxes {
@@ -183,6 +192,15 @@ namespace TaxesV1.Resources {
         public static string IncorrectUsernameOrPassword {
             get {
                 return ResourceManager.GetString("IncorrectUsernameOrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to individual.
+        /// </summary>
+        public static string Individual {
+            get {
+                return ResourceManager.GetString("Individual", resourceCulture);
             }
         }
         

@@ -216,4 +216,10 @@
   <data name="LandTitleNumber" xml:space="preserve">
     <value>Land title number</value>
   </data>
+  <data name="Individual" xml:space="preserve">
+    <value>Individual</value>
+  </data>
+  <data name="BodyCorporate" xml:space="preserve">
+    <value>Body corporate</value>
+  </data>
 </root>

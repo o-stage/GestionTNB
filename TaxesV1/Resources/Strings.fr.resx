@@ -216,4 +216,10 @@
   <data name="LandTitleNumber" xml:space="preserve">
     <value>Numéro du Titre foncier</value>
   </data>
+  <data name="Individual" xml:space="preserve">
+    <value>Personne physique</value>
+  </data>
+  <data name="BodyCorporate" xml:space="preserve">
+    <value>Personne moral</value>
+  </data>
 </root>

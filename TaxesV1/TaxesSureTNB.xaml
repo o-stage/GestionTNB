@@ -11,11 +11,12 @@
 
     <Window.Resources>
         <ResourceDictionary>
-            <converter:DifferenceConverter x:Key="DifferenceConverter"></converter:DifferenceConverter>
+            <converter:DifferenceConverter x:Key="DifferenceConverter" />
+            <converter:AccountableTypeConverter x:Key="AccountableTypeConverter" />
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel x:Name="Body" Background="#d8d8d8">
-        <local:MainMenu DockPanel.Dock="Left" HorizontalAlignment="Left"/>
+        <local:MainMenu DockPanel.Dock="Left" HorizontalAlignment="Left" />
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" Width="200" />
             <Button Content="{x:Static r:Strings.FindFile}" Click="ButtonCalculateTaxes_OnClick" />
@@ -51,7 +52,8 @@
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileDate}" />
                         <DatePicker x:Name="FileDatePicker" SelectedDate="{Binding DateDossier, Mode=OneTime}"
-                                    FirstDayOfWeek="Monday" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontSize="14" IsEnabled="False" />
+                                    FirstDayOfWeek="Monday" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                    FontSize="14" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.StartDate}" />
@@ -71,7 +73,9 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" Margin="0,1,0,43" Grid.RowSpan="2">
                         <Label Content="{x:Static r:Strings.Type}" />
-                        <TextBox x:Name="TextBoxType" TextWrapping="Wrap" Text="{Binding Redevable.Type, Mode=OneTime}"
+                        <TextBox x:Name="TextBoxType" TextWrapping="Wrap"
+                                 Text="{Binding Redevable.Type, Mode=OneTime,
+                                 Converter={StaticResource ResourceKey=AccountableTypeConverter}}"
                                  IsReadOnly="True" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="3">
@@ -80,11 +84,13 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">
                         <Label Content="{x:Static r:Strings.LandTitleNumber}" />
-                        <TextBox TextWrapping="Wrap" Text="{Binding TerrainID, Mode=OneTime}" IsReadOnly="True" IsEnabled="False" />
+                        <TextBox TextWrapping="Wrap" Text="{Binding TerrainID, Mode=OneTime}" IsReadOnly="True"
+                                 IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
                         <Label Content="{x:Static r:Strings.Place}" />
-                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.Lieu, Mode=OneTime}" IsReadOnly="True" IsEnabled="False" />
+                        <TextBox TextWrapping="Wrap" Text="{Binding Terrain.Lieu, Mode=OneTime}" IsReadOnly="True"
+                                 IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Grid.Column="2" Grid.Row="3">
                         <Label Content="{x:Static r:Strings.NonTaxableArea}" />
@@ -122,7 +128,8 @@
                 </StackPanel>
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
-                <Button x:Name="PrintButton" Content="{x:Static r:Strings.Print}" Click="PrintButton_Click" IsEnabled="False"/>
+                <Button x:Name="PrintButton" Content="{x:Static r:Strings.Print}" Click="PrintButton_Click"
+                        IsEnabled="False" />
             </StackPanel>
             <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="2" ColumnWidth="*"
                       CanUserAddRows="False" />

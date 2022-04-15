@@ -10,9 +10,9 @@ namespace TaxesV1
     {
         public LoginWindow()
         {
-            InitializeComponent();
             System.Threading.Thread.CurrentThread.CurrentUICulture =
                 new System.Globalization.CultureInfo(Properties.Settings.Default.Language);
+            InitializeComponent();
             UseWindowsAuthentication.IsChecked = Properties.Settings.Default.UseWindowsAuthentication;
             DataContext = this;
             int index = 0;
@@ -61,14 +61,12 @@ namespace TaxesV1
 
         private void UseWindowsAuthentication_OnChecked(object sender, RoutedEventArgs e)
         {
-            UserNameTextBox.IsEnabled = false;
-            PasswordTextBox.IsEnabled = false;
+            InputPanel.IsEnabled = false;
         }
 
         private void UseWindowsAuthentication_OnUnchecked(object sender, RoutedEventArgs e)
         {
-            UserNameTextBox.IsEnabled = true;
-            PasswordTextBox.IsEnabled = true;
+            InputPanel.IsEnabled = true;
         }
 
         private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

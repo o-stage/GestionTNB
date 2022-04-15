@@ -4,11 +4,11 @@ using TaxesV1.Resources;
 
 namespace TaxesV1
 {
-    public partial class MainWindow
+    public partial class LoginWindow
     {
         public string CurrentPasswordHintText { get; set; }
 
-        public MainWindow()
+        public LoginWindow()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture =
                 new System.Globalization.CultureInfo(Properties.Settings.Default.Language);

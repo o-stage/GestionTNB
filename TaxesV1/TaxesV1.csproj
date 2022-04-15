@@ -131,6 +131,9 @@
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MoneyTools.cs" />
     <Compile Include="MultiValueConverters\AccountableTypeConverter.cs" />
     <Compile Include="MultiValueConverters\DifferenceConverter.cs" />
@@ -189,6 +192,7 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MainWindow.xaml" />
     <Page Include="TaxesSureTNB.xaml" />
     <Page Include="PrintDocument.xaml" />
   </ItemGroup>

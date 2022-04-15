@@ -10,10 +10,10 @@ namespace TaxesV1
     {
         public LoginWindow()
         {
+            InitializeComponent();
             System.Threading.Thread.CurrentThread.CurrentUICulture =
                 new System.Globalization.CultureInfo(Properties.Settings.Default.Language);
-
-            InitializeComponent();
+            UseWindowsAuthentication.IsChecked = Properties.Settings.Default.UseWindowsAuthentication;
             DataContext = this;
             int index = 0;
             switch (Properties.Settings.Default.Language)
@@ -39,6 +39,8 @@ namespace TaxesV1
             {
                 Data.Entities = new TaxesV2Entities();
                 new MainWindow().Show();
+                Properties.Settings.Default.UseWindowsAuthentication = true;
+                Properties.Settings.Default.Save();
                 Close();
                 return;
             }
@@ -47,6 +49,8 @@ namespace TaxesV1
             {
                 Data.Entities = new TaxesV2Entities(UserNameTextBox.Text, PasswordTextBox.Password);
                 new MainWindow().Show();
+                Properties.Settings.Default.UseWindowsAuthentication = false;
+                Properties.Settings.Default.Save();
                 Close();
             }
             catch (SqlException exception)
@@ -66,6 +70,7 @@ namespace TaxesV1
             UserNameTextBox.IsEnabled = true;
             PasswordTextBox.IsEnabled = true;
         }
+
         private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             string Language = "en";

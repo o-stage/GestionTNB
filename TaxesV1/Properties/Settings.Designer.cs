@@ -38,12 +38,24 @@ namespace TaxesV1.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string User {
+        public string UserName {
             get {
-                return ((string)(this["User"]));
+                return ((string)(this["UserName"]));
             }
             set {
-                this["User"] = value;
+                this["UserName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UseWindowsAuthentication {
+            get {
+                return ((bool)(this["UseWindowsAuthentication"]));
+            }
+            set {
+                this["UseWindowsAuthentication"] = value;
             }
         }
     }

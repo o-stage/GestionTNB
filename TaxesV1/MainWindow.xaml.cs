@@ -24,6 +24,10 @@ namespace TaxesV1
                 {
                     _currentPanel = Settings.GetInstance();
                 }
+                else if (button.Name == "File") {
+                    _currentPanel = Fichier.GetInstance();
+
+                }
                 else
                 {
                     _currentPanel = TaxesSureTNB.GetInstance();

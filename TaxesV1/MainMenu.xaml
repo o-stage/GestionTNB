@@ -115,7 +115,7 @@
                     <TextBlock Text="Dashboard" Style="{StaticResource MenuButtonText}"></TextBlock>
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuButton}">
+            <Button Name="File"  Style="{StaticResource MenuButton}">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Icon="FlagCheckered" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
                     <TextBlock Text="Promote" Style="{StaticResource MenuButtonText}"></TextBlock>

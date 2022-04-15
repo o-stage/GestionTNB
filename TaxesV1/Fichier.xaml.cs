@@ -17,9 +17,17 @@ namespace TaxesV1
     /// <summary>
     /// Logique d'interaction pour Fichier.xaml
     /// </summary>
-    public partial class Fichier : Window
+    public partial class Fichier : DockPanel
     {
-        public Fichier()
+        private static  Fichier _instance;
+
+        public static Fichier GetInstance() {
+            if (_instance == null)
+                _instance = new Fichier();
+            return _instance;
+        }
+
+        private Fichier()
         {
             InitializeComponent();
         }

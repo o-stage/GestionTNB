@@ -1,11 +1,11 @@
-﻿<Window x:Class="TaxesV1.Fichier"
+﻿<DockPanel x:Class="TaxesV1.Fichier"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaxesV1"
         mc:Ignorable="d"
-        Title="Fichier" Height="450" Width="800">
+       >
     <Grid>
         <Label Content="Numero Dossier" HorizontalAlignment="Left" Margin="85,53,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="White"/>
         <Label Content="Date  Dossier" HorizontalAlignment="Left" Margin="85,103,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="White"/>
@@ -20,4 +20,4 @@
         <Button Content="Ajouter Fichier" HorizontalAlignment="Left" Margin="588,53,0,0" VerticalAlignment="Top" Width="171" Height="43"/>
 
     </Grid>
-</Window>
+</DockPanel>

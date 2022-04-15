@@ -48,6 +48,8 @@ namespace TaxesV1
             try
             {
                 Data.Entities = new TaxesV2Entities(UserNameTextBox.Text, PasswordTextBox.Password);
+                Data.Entities.Database.Connection.Open();
+                Data.Entities.Database.Connection.Close();
                 new MainWindow().Show();
                 Properties.Settings.Default.UseWindowsAuthentication = false;
                 Properties.Settings.Default.Save();

@@ -27,11 +27,8 @@
                     </Label>
                 </StackPanel>
             </Button>
-<<<<<<< Updated upstream
-            <Button Name="NewDeclarationButton" Click="NewDeclarationButton_OnClick" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Stretch">
-=======
-            <Button Name="NewDeclarationButton" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Stretch" Click="NewDeclarationButton_Click">
->>>>>>> Stashed changes
+            <Button Name="NewDeclarationButton" Click="NewDeclarationButton_OnClick" IsEnabled="False"
+                    VerticalAlignment="Center" HorizontalAlignment="Stretch">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Width="20" Height="20" Icon="Plus"
                                   Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
@@ -129,20 +126,25 @@
                                  IsReadOnly="True" IsEnabled="False" />
                     </StackPanel>
                 </Grid>
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                            Grid.Column="1">
-                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.Summary}" VerticalAlignment="Stretch"
-                               Padding="10,5,10,0" />
-                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.NumberOfDeclarationsNotFiled}"
-                               Padding="10,5,10,0" />
-                    <TextBlock x:Name="NumberOfNonDeposedDeclarations" TextWrapping="Wrap" Padding="10,5,10,0" />
-                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.MainTotalToBePaid}" Padding="10,5,10,0" />
-                    <TextBlock x:Name="TotalPrincipal" TextWrapping="Wrap" Padding="10,5,10,0" />
-                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.TotalFinesToBePaid}" Padding="10,5,10,0" />
-                    <TextBlock x:Name="TotalAmends" TextWrapping="Wrap" Padding="10,5,10,0" />
-                    <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.TotalToPay}" Padding="10,5,10,0" />
-                    <TextBlock x:Name="Total" TextWrapping="Wrap" Padding="10,5,10,0" />
-                </StackPanel>
+                <Border Padding="5" Width="Auto" Background="#f7f8fa" CornerRadius="5" Grid.Column="1"  HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <TextBlock FontWeight="Bold" TextWrapping="Wrap" Text="{x:Static r:Strings.Summary}" VerticalAlignment="Stretch"
+                                   Padding="10,5,10,0" />
+                        <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.NumberOfDeclarationsNotFiled}"
+                                   Padding="10,5,10,0" />
+                        <TextBlock x:Name="NumberOfNonDeposedDeclarations" TextWrapping="Wrap" Padding="10,5,10,0" />
+                        <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.MainTotalToBePaid}"
+                                   Padding="10,5,10,0" />
+                        <TextBlock x:Name="TotalPrincipal" TextWrapping="Wrap" Padding="10,5,10,0" />
+                        <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.TotalFinesToBePaid}"
+                                   Padding="10,5,10,0" />
+                        <TextBlock x:Name="TotalAmends" TextWrapping="Wrap" Padding="10,5,10,0" />
+                        <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.TotalToPay}" Padding="10,5,10,0" />
+                        <TextBlock x:Name="Total" TextWrapping="Wrap" Padding="10,5,10,0" />
+                    </StackPanel>
+                </Border>
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
                 <Button x:Name="PrintButton" Click="PrintButton_Click"
@@ -160,10 +162,9 @@
 
                 </Button>
             </StackPanel>
-            <DataGrid x:Name="DataGrid"   Grid.Row="1" ColumnWidth="*"
-                      CanUserAddRows="False" Height="13" Margin="0,48.6,0.4,0" Grid.RowSpan="2" VerticalAlignment="Top" />
+            <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="2" ColumnWidth="*"
+                      CanUserAddRows="False" />
 
         </Grid>
     </DockPanel>
-    <local:MainMenu/>
 </DockPanel>

@@ -233,6 +233,6 @@
     <value>Unbuilt land file</value>
   </data>
   <data name="Logout" xml:space="preserve">
-    <value />
+    <value>Logout</value>
   </data>
 </root>

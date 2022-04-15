@@ -232,7 +232,7 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Logout.
         /// </summary>
         public static string Logout {
             get {

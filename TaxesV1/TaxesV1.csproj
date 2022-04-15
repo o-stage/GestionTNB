@@ -140,6 +140,9 @@
     <Compile Include="MoneyTools.cs" />
     <Compile Include="MultiValueConverters\AccountableTypeConverter.cs" />
     <Compile Include="MultiValueConverters\DifferenceConverter.cs" />
+    <Compile Include="NewDeclaration.xaml.cs">
+      <DependentUpon>NewDeclaration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -206,6 +209,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MainWindow.xaml" />
+    <Page Include="NewDeclaration.xaml" />
     <Page Include="Settings.xaml" />
     <Page Include="SideMenuItem.xaml" />
     <Page Include="TaxesSureTNB.xaml" />

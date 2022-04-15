@@ -66,5 +66,11 @@ namespace TaxesV1
             PrintButton.IsEnabled = true;
             NewDeclarationButton.IsEnabled = true;
         }
+
+        private void NewDeclarationButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewDeclaration newDeclaration = new NewDeclaration();
+            newDeclaration.ShowDialog();
+        }
     }
 }

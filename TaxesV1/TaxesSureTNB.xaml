@@ -27,7 +27,7 @@
                     </Label>
                 </StackPanel>
             </Button>
-            <Button Name="NewDeclarationButton" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+            <Button Name="NewDeclarationButton" Click="NewDeclarationButton_OnClick" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Stretch">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Width="20" Height="20" Icon="Plus"
                                   Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">

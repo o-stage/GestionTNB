@@ -1,0 +1,33 @@
+﻿<Window x:Class="TaxesV1.NewDeclaration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:TaxesV1"
+        xmlns:r="clr-namespace:TaxesV1.Resources"
+        mc:Ignorable="d"
+        Title="NewDeclaration" Height="450" Width="800">
+    <Grid Name="Body" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Content="{x:Static r:Strings.FileNumber}"></Label>
+        <TextBox Grid.Row="0" Grid.Column="1" Width="200" />
+        <Label Grid.Row="1" Grid.Column="0" Content="{x:Static r:Strings.StartDate}"></Label>
+        <DatePicker Grid.Row="1" Grid.Column="1" Width="200" />
+        <CheckBox Grid.Row="2" Grid.Column="1">payed</CheckBox>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="{x:Static r:Strings.Year}"></Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Width="200" />
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Width="150" Content="{x:Static r:Strings.NewDeclaration}"></Button>
+    </Grid>
+</Window>

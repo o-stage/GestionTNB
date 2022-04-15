@@ -14,8 +14,9 @@ namespace TaxesV1
         private CollectionViewSource ViewSource = new CollectionViewSource();
         private Taxes tax;
         public Dossier SelectedFile { get; set; }
-        
+
         private static TaxesSureTNB _instance;
+
         public static TaxesSureTNB GetInstance()
         {
             return _instance ?? (_instance = new TaxesSureTNB());
@@ -63,6 +64,7 @@ namespace TaxesV1
             Total.Text = tax.Total.ToString("c", cultureInfo);
             DataGrid.ItemsSource = tax._taxes;
             PrintButton.IsEnabled = true;
+            NewDeclarationButton.IsEnabled = true;
         }
     }
 }

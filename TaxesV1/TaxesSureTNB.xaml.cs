@@ -14,8 +14,14 @@ namespace TaxesV1
         private CollectionViewSource ViewSource = new CollectionViewSource();
         private Taxes tax;
         public Dossier SelectedFile { get; set; }
+        
+        private static TaxesSureTNB _instance;
+        public static TaxesSureTNB GetInstance()
+        {
+            return _instance ?? (_instance = new TaxesSureTNB());
+        }
 
-        public TaxesSureTNB()
+        private TaxesSureTNB()
         {
             Entities = Data.Entities;
             InitializeComponent();
@@ -48,6 +54,7 @@ namespace TaxesV1
                 MessageBox.Show(Window.GetWindow(this), Strings.FileNotFound);
                 return;
             }
+
             tax = Taxes.GetTaxes(SelectedFile);
             DataContext = SelectedFile;
             NumberOfNonDeposedDeclarations.Text = tax.NumberOfNonDeposedDeclarations.ToString();

@@ -89,7 +89,7 @@
                 <GradientStop Color="#f6f9fb" Offset="1"></GradientStop>
             </LinearGradientBrush>
         </Border.Background>
-        <StackPanel Cursor="Hand">
+        <StackPanel Name="Menu" Cursor="Hand">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 35 0 0">
                 <Border CornerRadius="10" Width="40" Height="40">
                     <Border.Background>
@@ -109,7 +109,7 @@
                 </StackPanel>
             </StackPanel>
             <Separator Height="0.8" Margin="20 30" Background="#46558a"></Separator>
-            <Button Style="{StaticResource MenuButtonActive}">
+            <Button Name="Dashboard" Style="{StaticResource MenuButtonActive}">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Icon="Home" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
                     <TextBlock Text="Dashboard" Style="{StaticResource MenuButtonText}"></TextBlock>
@@ -121,7 +121,7 @@
                     <TextBlock Text="Promote" Style="{StaticResource MenuButtonText}"></TextBlock>
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuButton}">
+            <Button Name="Settings" Style="{StaticResource MenuButton}">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Icon="Cog" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
                     <TextBlock Text="Settings" Style="{StaticResource MenuButtonText}"></TextBlock>

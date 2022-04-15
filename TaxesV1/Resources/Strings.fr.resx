@@ -225,4 +225,7 @@
   <data name="NewDeclaration" xml:space="preserve">
     <value>Nouvelle Déclaration</value>
   </data>
+  <data name="NewFile" xml:space="preserve">
+    <value>Nouveau Dossier</value>
+  </data>
 </root>

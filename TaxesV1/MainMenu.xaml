@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:TaxesV1"
+             xmlns:r="clr-namespace:TaxesV1.Resources"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d"
              VerticalAlignment="Stretch" Width="200">
@@ -112,19 +113,19 @@
             <Button Name="Dashboard" Style="{StaticResource MenuButtonActive}">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Icon="Home" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
-                    <TextBlock Text="Dashboard" Style="{StaticResource MenuButtonText}"></TextBlock>
+                    <TextBlock Text="{x:Static r:Strings.Settings}" Style="{StaticResource MenuButtonText}"></TextBlock>
                 </StackPanel>
             </Button>
             <Button Name="File"  Style="{StaticResource MenuButton}">
                 <StackPanel Orientation="Horizontal">
-                    <fa:IconImage Icon="FlagCheckered" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
-                    <TextBlock Text="Promote" Style="{StaticResource MenuButtonText}"></TextBlock>
+                    <fa:IconImage Icon="FolderPlus" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
+                    <TextBlock Text="{x:Static r:Strings.NewFile}" Style="{StaticResource MenuButtonText}"></TextBlock>
                 </StackPanel>
             </Button>
             <Button Name="Settings" Style="{StaticResource MenuButton}">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Icon="Cog" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
-                    <TextBlock Text="Settings" Style="{StaticResource MenuButtonText}"></TextBlock>
+                    <TextBlock Text="{x:Static r:Strings.Settings}" Style="{StaticResource MenuButtonText}"></TextBlock>
                 </StackPanel>
             </Button>
 

@@ -119,4 +119,7 @@
     <data name="NewDeclaration" xml:space="preserve">
         <value>تصريح جديد</value>
     </data>
+    <data name="NewFile" xml:space="preserve">
+        <value>ملف جديد</value>
+    </data>
 </root>

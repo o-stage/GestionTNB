@@ -27,7 +27,11 @@
                     </Label>
                 </StackPanel>
             </Button>
+<<<<<<< Updated upstream
             <Button Name="NewDeclarationButton" Click="NewDeclarationButton_OnClick" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+=======
+            <Button Name="NewDeclarationButton" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Stretch" Click="NewDeclarationButton_Click">
+>>>>>>> Stashed changes
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Width="20" Height="20" Icon="Plus"
                                   Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
@@ -156,9 +160,10 @@
 
                 </Button>
             </StackPanel>
-            <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="2" ColumnWidth="*"
-                      CanUserAddRows="False" />
+            <DataGrid x:Name="DataGrid"   Grid.Row="1" ColumnWidth="*"
+                      CanUserAddRows="False" Height="13" Margin="0,48.6,0.4,0" Grid.RowSpan="2" VerticalAlignment="Top" />
 
         </Grid>
     </DockPanel>
+    <local:MainMenu/>
 </DockPanel>

@@ -3,21 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:local="clr-namespace:TaxesV1"
         mc:Ignorable="d"
        >
-    <Grid>
+    <Grid Height="377" Width="950">
         <Label Content="Numero Dossier" HorizontalAlignment="Left" Margin="85,53,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="White"/>
         <Label Content="Date  Dossier" HorizontalAlignment="Left" Margin="85,103,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="White"/>
         <Label Content="Date Debut" HorizontalAlignment="Left" Margin="85,153,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="White"/>
         <Label Content="Id Redevable" HorizontalAlignment="Left" Margin="85,203,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="White"/>
         <Label Content="Id Terrain" HorizontalAlignment="Left" Margin="85,253,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="White"/>
-        <TextBox HorizontalAlignment="Left" Height="43" Margin="308,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="216"/>
-        <TextBox HorizontalAlignment="Left" Height="43" Margin="308,103,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="216"/>
-        <TextBox HorizontalAlignment="Left" Height="43" Margin="308,153,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="216"/>
-        <ComboBox HorizontalAlignment="Left" Height="43" Margin="309,203,0,0"  VerticalAlignment="Top" Width="216"/>
-        <ComboBox HorizontalAlignment="Left" Height="43" Margin="309,253,0,0"  VerticalAlignment="Top" Width="216"/>
-        <Button Content="Ajouter Fichier" HorizontalAlignment="Left" Margin="588,53,0,0" VerticalAlignment="Top" Width="171" Height="43"/>
+        <TextBox Name="NumDosstxt" HorizontalAlignment="Left" Height="43" Margin="308,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="216"/>
+        <DatePicker Name="datedossDatePicker" HorizontalAlignment="Left" Height="43" Margin="308,103,0,0"   VerticalAlignment="Top" Width="216"/>
+        <DatePicker Name="datedebutDatePicker" HorizontalAlignment="Left" Height="43" Margin="308,153,0,0"   VerticalAlignment="Top" Width="216"/>
+        <ComboBox Name="idredevablecombo" HorizontalAlignment="Left" Height="43" Margin="309,203,0,0"  VerticalAlignment="Top" Width="216"/>
+        <ComboBox Name="ntfcombo" HorizontalAlignment="Left" Height="43" Margin="309,253,0,0"  VerticalAlignment="Top" Width="216"/>
+        <Button Name="Nouveau_Fichier_Button" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="564,53,205,281" Height="43" RenderTransformOrigin="0.199,0.472" Foreground="#FF1D1C1C" Click="Nouveau_Fichier_Button_Click">
+            <StackPanel Orientation="Horizontal">
+                <fa:IconImage Width="20" Height="20" Icon="Plus"
+                                  Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
+                </fa:IconImage>
+                <Label Padding="0" Margin="5 0"
+                           Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" Content="Ajouter Fichier">
+                </Label>
+            </StackPanel>
+        </Button>
+
 
     </Grid>
 </DockPanel>

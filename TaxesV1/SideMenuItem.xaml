@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TaxesV1"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid HorizontalAlignment="Right" Width="300">
         
     </Grid>
 </UserControl>

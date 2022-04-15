@@ -19,7 +19,10 @@ namespace TaxesV1
             : base("name=TaxesV2Entities")
         {
         }
-    
+        public TaxesV2Entities(string UserName,string Password,string Server=".")
+            : base($"metadata=res://*/TaxesDataModel.csdl|res://*/TaxesDataModel.ssdl|res://*/TaxesDataModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source={Server};initial catalog=TaxesV2;user id={UserName};password={Password};MultipleActiveResultSets=True;App=EntityFramework\"")
+        {
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

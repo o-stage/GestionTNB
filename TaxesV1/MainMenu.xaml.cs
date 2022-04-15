@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -32,16 +33,17 @@ namespace TaxesV1
             MenuButtonStyle = FindResource("MenuButton") as Style;
             ActiveMenuButtonStyle = FindResource("MenuButtonActive") as Style;
             _activeButton = Dashboard;
-            user user = Data.Entities.users.First(user1 => user1.USER_NAME == Properties.Settings.Default.User);
-            if (user != null)
-            {
-                UserName.Text = user.USER_NAME;
-                var initials = user.USER_NAME.Split(' ');
-                UserInitials.Text = initials[0][0].ToString() + initials.Last()[0];
-                Auth.Text = user.ROLE;
-            }
 
-            foreach (var button in Menu.Children.OfType<Button>())
+
+            string Name = Data.Entities.Database.SqlQuery<string>("select SUSER_NAME()").FirstOrDefault();
+
+          
+                UserName.Text = Name;
+                var initials = Name.Split(' ');
+                UserInitials.Text = initials[0][0].ToString() + initials.Last()[0];
+                //Auth.Text = user.ROLE;
+
+                foreach (var button in Menu.Children.OfType<Button>())
                 button.Click += (sender, e) =>
                 {
                     if (OnMenuItemClicked != null)

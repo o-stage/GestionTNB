@@ -14,9 +14,9 @@
             <TextBox Name="UserNameTextBox" MinWidth="200"/>
             <Label Content="{x:Static str:Strings.Password}"/>
             <PasswordBox Name="PasswordTextBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <CheckBox Name="UseWindowsAuthentication" Unchecked="UseWindowsAuthentication_OnUnchecked" Checked="UseWindowsAuthentication_OnChecked">Use Windows Authentication</CheckBox>
             <Button Click="ButtonLogin_OnClick" Content="{x:Static str:Strings.Login}" HorizontalAlignment="Center" VerticalAlignment="Center">
             </Button>
-
             <Label x:Name="ErrorLabel" Content="{x:Static str:Strings.IncorrectUsernameOrPassword}" Foreground="Red" Visibility="Hidden"/>
         </StackPanel>
         <ComboBox x:Name="LanguageComboBox" Width="120" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" VerticalAlignment="Top">
@@ -24,6 +24,5 @@
             <Label Content="Français"/>
             <Label Content="العربية"/>
         </ComboBox>
-
     </Grid>
 </Window>

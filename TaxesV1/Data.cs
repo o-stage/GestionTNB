@@ -2,8 +2,8 @@
 {
     public class Data
     {
-        public static TaxesV2Entities Entities = new TaxesV2Entities();
-        
+        public static TaxesV2Entities Entities;
+
         //test comment
     }
 }

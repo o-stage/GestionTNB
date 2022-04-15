@@ -163,6 +163,9 @@
     <Compile Include="SideMenuItem.xaml.cs">
       <DependentUpon>SideMenuItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Taxes.cs" />
     <Compile Include="TaxesDataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -196,22 +199,15 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainMenu.xaml" />
-    <Page Include="LoginWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MainWindow.xaml" />
     <Page Include="NewDeclaration.xaml" />
     <Page Include="Settings.xaml" />
     <Page Include="SideMenuItem.xaml" />
+    <Page Include="LoginWindow.xaml" />
     <Page Include="TaxesSureTNB.xaml" />
     <Page Include="PrintDocument.xaml" />
   </ItemGroup>

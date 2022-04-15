@@ -1,13 +1,13 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 using System.Windows;
+using System.Windows.Media;
 using TaxesV1.Resources;
 
 namespace TaxesV1
 {
     public partial class LoginWindow
     {
-        public string CurrentPasswordHintText { get; set; }
-
         public LoginWindow()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture =
@@ -33,6 +33,39 @@ namespace TaxesV1
             LanguageComboBox.SelectedIndex = index;
         }
 
+        private void ButtonLogin_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (UseWindowsAuthentication.IsChecked != null && UseWindowsAuthentication.IsChecked.Value)
+            {
+                Data.Entities = new TaxesV2Entities();
+                new MainWindow().Show();
+                Close();
+                return;
+            }
+
+            try
+            {
+                Data.Entities = new TaxesV2Entities(UserNameTextBox.Text, PasswordTextBox.Password);
+                new MainWindow().Show();
+                Close();
+            }
+            catch (SqlException exception)
+            {
+                ErrorLabel.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void UseWindowsAuthentication_OnChecked(object sender, RoutedEventArgs e)
+        {
+            UserNameTextBox.IsEnabled = false;
+            PasswordTextBox.IsEnabled = false;
+        }
+
+        private void UseWindowsAuthentication_OnUnchecked(object sender, RoutedEventArgs e)
+        {
+            UserNameTextBox.IsEnabled = true;
+            PasswordTextBox.IsEnabled = true;
+        }
         private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             string Language = "en";
@@ -55,30 +88,6 @@ namespace TaxesV1
                 Properties.Settings.Default.Save();
                 new LoginWindow().Show();
                 Close();
-            }
-        }
-
-        private void ButtonLogin_OnClick(object sender, RoutedEventArgs e)
-        {
-            SqlConnection Connection =
-                new SqlConnection("Data Source=.;Initial Catalog=TaxesV2;Integrated Security=True");
-            Connection.Open();
-            SqlCommand cmd =
-                new SqlCommand(
-                    $"SELECT * FROM users WHERE USER_NAME='{UserNameTextBox.Text}' AND PASSWORD='{PasswordTextBox.Password}'",
-                    Connection);
-            if (cmd.ExecuteReader().HasRows)
-            {
-                Connection.Close();
-                Properties.Settings.Default.User = UserNameTextBox.Text;
-                Properties.Settings.Default.Save();
-                new MainWindow().Show();
-                Close();
-            }
-            else
-            {
-                Connection.Close();
-                ErrorLabel.Visibility = Visibility.Visible;
             }
         }
     }

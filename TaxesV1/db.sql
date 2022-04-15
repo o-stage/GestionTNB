@@ -1,4 +1,28 @@
-﻿create table Constants
+﻿--Enable the containment feature at the SQL Server
+USE master
+GO
+
+        sp_configure 'show advanced options', 1
+GO
+RECONFIGURE
+GO
+
+        sp_configure 'CONTAINED DATABASE AUTHENTICATION', 1
+GO
+RECONFIGURE
+GO
+
+        sp_configure 'show advanced options', 0
+GO
+RECONFIGURE
+GO
+
+--Create the database
+CREATE DATABASE TestDb CONTAINMENT = PARTIAL;
+go
+USE TaxesV2;
+--Create tables
+create table Constants
 (
     [Key] varchar(50) not null,
     Value float       not null,
@@ -12,16 +36,6 @@ INSERT INTO Constants ([Key], Value, Date) VALUES (N'TaxSureImmeuble', 8, N'1800
 INSERT INTO Constants ([Key], Value, Date) VALUES (N'TaxSureImmeuble', 9, N'2022-01-01 00:00:00.000');
 INSERT INTO Constants ([Key], Value, Date) VALUES (N'TaxSureVilla', 8, N'1800-01-01 00:00:00.000');
 INSERT INTO Constants ([Key], Value, Date) VALUES (N'TaxSureVilla', 9, N'2022-01-01 00:00:00.000');
-
-create table users
-(
-    CIN       varchar(50) not null
-        primary key,
-    USER_NAME varchar(50),
-    PASSWORD  varchar(50),
-    ROLE      varchar(20)
-)
-go
 
 create table Redevable
 (
@@ -75,5 +89,4 @@ create table Declaration
     Anne            int
 )
 go
-insert into users values ('550565','sbai','pass','admin')
 

@@ -12,8 +12,12 @@ namespace TaxesV1
         {
             InitializeComponent();
             if (Properties.Settings.Default.Language == "ar") SetFlowDirection(Body, FlowDirection.RightToLeft);
+          
             _currentPanel = TaxesSureTNB.GetInstance();
+            if(_currentPanel.Parent!=null)
+                Body.Children.Remove(_currentPanel);
             Body.Children.Insert(1, _currentPanel);
+            
             SideMenu.OnMenuItemClicked += ((button, args) =>
             {
                 Body.Children.Remove(_currentPanel);

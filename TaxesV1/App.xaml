@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TaxesV1"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
-             StartupUri="MainWindow.xaml">
+             StartupUri="LoginWindow.xaml">
     <Application.Resources>
         <SolidColorBrush x:Key="BackgroundColor" Color="#f0f3f6" />
         <SolidColorBrush x:Key="TextColor" Color="black" />

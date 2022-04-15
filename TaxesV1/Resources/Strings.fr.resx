@@ -222,4 +222,7 @@
   <data name="BodyCorporate" xml:space="preserve">
     <value>Personne moral</value>
   </data>
+  <data name="NewDeclaration" xml:space="preserve">
+    <value>Nouvelle Déclaration</value>
+  </data>
 </root>

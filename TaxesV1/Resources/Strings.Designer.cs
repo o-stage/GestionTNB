@@ -196,7 +196,7 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to individual.
+        ///   Looks up a localized string similar to Individual.
         /// </summary>
         public static string Individual {
             get {
@@ -237,6 +237,15 @@ namespace TaxesV1.Resources {
         public static string MainTotalToBePaid {
             get {
                 return ResourceManager.GetString("MainTotalToBePaid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Declaration.
+        /// </summary>
+        public static string NewDeclaration {
+            get {
+                return ResourceManager.GetString("NewDeclaration", resourceCulture);
             }
         }
         

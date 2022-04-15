@@ -8,18 +8,24 @@ using TaxesV1.Resources;
 
 namespace TaxesV1
 {
-    public partial class TaxesSureTNB : Window
+    public partial class TaxesSureTNB : DockPanel
     {
         TaxesV2Entities Entities;
         private CollectionViewSource ViewSource = new CollectionViewSource();
         private Taxes tax;
         public Dossier SelectedFile { get; set; }
 
-        public TaxesSureTNB()
+        private static TaxesSureTNB _instance;
+
+        public static TaxesSureTNB GetInstance()
+        {
+            return _instance ?? (_instance = new TaxesSureTNB());
+        }
+
+        private TaxesSureTNB()
         {
             Entities = Data.Entities;
             InitializeComponent();
-            if (Properties.Settings.Default.Language == "ar") SetFlowDirection(Body, FlowDirection.RightToLeft);
         }
 
         private void PrintButton_Click(object sender, RoutedEventArgs e)
@@ -46,9 +52,10 @@ namespace TaxesV1
             SelectedFile = Data.Entities.Dossiers.Find(FileNumberTextBox.Text);
             if (SelectedFile == null)
             {
-                MessageBox.Show(this,Strings.FileNotFound);
+                MessageBox.Show(Window.GetWindow(this), Strings.FileNotFound);
                 return;
             }
+
             tax = Taxes.GetTaxes(SelectedFile);
             DataContext = SelectedFile;
             NumberOfNonDeposedDeclarations.Text = tax.NumberOfNonDeposedDeclarations.ToString();
@@ -57,6 +64,7 @@ namespace TaxesV1
             Total.Text = tax.Total.ToString("c", cultureInfo);
             DataGrid.ItemsSource = tax._taxes;
             PrintButton.IsEnabled = true;
+            NewDeclarationButton.IsEnabled = true;
         }
     }
 }

@@ -116,4 +116,7 @@
     <data name="BodyCorporate" xml:space="preserve">
         <value>شخص معنوي</value>
     </data>
+    <data name="NewDeclaration" xml:space="preserve">
+        <value>تصريح جديد</value>
+    </data>
 </root>

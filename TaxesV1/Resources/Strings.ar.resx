@@ -125,4 +125,7 @@
     <data name="UnbuiltLandFile" xml:space="preserve">
         <value>ملف أرض غير مبنية</value>
     </data>
+    <data name="Logout" xml:space="preserve">
+        <value>تسجيل خروج</value>
+    </data>
 </root>

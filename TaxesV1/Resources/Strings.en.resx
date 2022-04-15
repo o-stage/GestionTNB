@@ -231,4 +231,7 @@
   <data name="UnbuiltLandFile" xml:space="preserve">
     <value>Unbuilt land file</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
 </root>

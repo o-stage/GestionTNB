@@ -160,7 +160,7 @@
             <Button Style="{StaticResource MenuButton}">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Icon="PowerOff" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
-                    <TextBlock Text="Logout" Style="{StaticResource MenuButtonText}"></TextBlock>
+                    <TextBlock Text="{x:Static r:Strings.Logout}" Style="{StaticResource MenuButtonText}"></TextBlock>
                 </StackPanel>
             </Button>
 

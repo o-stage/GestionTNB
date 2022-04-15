@@ -18,6 +18,5 @@
     </Window.Resources>
     <DockPanel x:Name="Body" Background="#ffffff">
         <local:MainMenu DockPanel.Dock="Left" HorizontalAlignment="Left" />
-
     </DockPanel>
 </Window>

@@ -8,7 +8,7 @@ using TaxesV1.Resources;
 
 namespace TaxesV1
 {
-    public partial class TaxesSureTNB : Window
+    public partial class TaxesSureTNB : DockPanel
     {
         TaxesV2Entities Entities;
         private CollectionViewSource ViewSource = new CollectionViewSource();
@@ -19,7 +19,6 @@ namespace TaxesV1
         {
             Entities = Data.Entities;
             InitializeComponent();
-            if (Properties.Settings.Default.Language == "ar") SetFlowDirection(Body, FlowDirection.RightToLeft);
         }
 
         private void PrintButton_Click(object sender, RoutedEventArgs e)
@@ -46,7 +45,7 @@ namespace TaxesV1
             SelectedFile = Data.Entities.Dossiers.Find(FileNumberTextBox.Text);
             if (SelectedFile == null)
             {
-                MessageBox.Show(this,Strings.FileNotFound);
+                MessageBox.Show(Window.GetWindow(this), Strings.FileNotFound);
                 return;
             }
             tax = Taxes.GetTaxes(SelectedFile);

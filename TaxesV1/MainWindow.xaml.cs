@@ -6,7 +6,9 @@ namespace TaxesV1
     {
         public MainWindow()
         {
+            if (Properties.Settings.Default.Language == "ar") SetFlowDirection(Body, FlowDirection.RightToLeft);
             InitializeComponent();
+            Body.Children.Add(new TaxesSureTNB());
         }
     }
 }

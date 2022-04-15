@@ -7,7 +7,7 @@
            xmlns:r="clr-namespace:TaxesV1.Resources"
            xmlns:converter="clr-namespace:TaxesV1.MultiValueConverters"
            xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-           mc:Ignorable="d">
+           mc:Ignorable="d" Background="#ffffffff">
     <DockPanel.Resources>
         <ResourceDictionary>
             <converter:DifferenceConverter x:Key="DifferenceConverter" />
@@ -23,6 +23,16 @@
                                   Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
                     </fa:IconImage>
                     <Label Padding="0" Margin="5 0" Content="{x:Static r:Strings.FindFile}"
+                           Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
+                    </Label>
+                </StackPanel>
+            </Button>
+            <Button VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Width="20" Height="20" Icon="Plus"
+                                  Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
+                    </fa:IconImage>
+                    <Label Padding="0" Margin="5 0" Content="{x:Static r:Strings.NewDeclaration}"
                            Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
                     </Label>
                 </StackPanel>

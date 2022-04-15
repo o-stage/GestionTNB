@@ -367,6 +367,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unbuilt land file.
+        /// </summary>
+        public static string UnbuiltLandFile {
+            get {
+                return ResourceManager.GetString("UnbuiltLandFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User.
         /// </summary>
         public static string User {

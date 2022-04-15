@@ -113,7 +113,7 @@
             <Button Name="Dashboard" Style="{StaticResource MenuButtonActive}">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Icon="Home" Style="{StaticResource MenuButtonIcon}"></fa:IconImage>
-                    <TextBlock Text="{x:Static r:Strings.Settings}" Style="{StaticResource MenuButtonText}"></TextBlock>
+                    <TextBlock Text="{x:Static r:Strings.UnbuiltLandFile}" Style="{StaticResource MenuButtonText}"></TextBlock>
                 </StackPanel>
             </Button>
             <Button Name="File"  Style="{StaticResource MenuButton}">

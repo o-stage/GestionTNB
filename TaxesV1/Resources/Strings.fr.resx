@@ -228,4 +228,7 @@
   <data name="NewFile" xml:space="preserve">
     <value>Nouveau Dossier</value>
   </data>
+  <data name="UnbuiltLandFile" xml:space="preserve">
+    <value>Dossier terrain non bâti</value>
+  </data>
 </root>

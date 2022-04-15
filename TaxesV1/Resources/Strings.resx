@@ -229,4 +229,7 @@
   <data name="NewFile" xml:space="preserve">
     <value>New File</value>
   </data>
+  <data name="UnbuiltLandFile" xml:space="preserve">
+    <value>Unbuilt land file</value>
+  </data>
 </root>

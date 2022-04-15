@@ -122,4 +122,7 @@
     <data name="NewFile" xml:space="preserve">
         <value>ملف جديد</value>
     </data>
+    <data name="UnbuiltLandFile" xml:space="preserve">
+        <value>ملف أرض غير مبنية</value>
+    </data>
 </root>

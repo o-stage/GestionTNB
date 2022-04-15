@@ -53,7 +53,7 @@ namespace TaxesV1
             {
                 Properties.Settings.Default.Language = Language;
                 Properties.Settings.Default.Save();
-                new MainWindow().Show();
+                new LoginWindow().Show();
                 Close();
             }
         }
@@ -72,7 +72,7 @@ namespace TaxesV1
                 Connection.Close();
                 Properties.Settings.Default.User = UserNameTextBox.Text;
                 Properties.Settings.Default.Save();
-                new TaxesSureTNB().Show();
+                new MainWindow().Show();
                 Close();
             }
             else

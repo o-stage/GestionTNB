@@ -122,6 +122,7 @@
       <DependentUpon>TaxesDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Data.cs" />
+    <Compile Include="DatabasePrincipal.cs"/>
     <Compile Include="Declaration.cs">
       <DependentUpon>TaxesDataModel.tt</DependentUpon>
     </Compile>

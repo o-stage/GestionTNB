@@ -4,5 +4,13 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            mc:Ignorable="d">
+        <DataGrid Name="Users" CanUserAddRows="False" CanUserDeleteRows="False">
+            
+            <DataGrid.Columns>
+                <!--
+                <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
+                -->
 
+            </DataGrid.Columns>
+        </DataGrid>
 </DockPanel>

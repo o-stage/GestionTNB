@@ -1,7 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace TaxesV1
 {
@@ -9,12 +9,32 @@ namespace TaxesV1
     {
         public delegate void OnMenuItemClickedDelegate(Button MenuItem, RoutedEventArgs e);
 
-        public OnMenuItemClickedDelegate OnMenuItemClicked;
-
-        Style MenuButtonStyle;
-        Style ActiveMenuButtonStyle;
+        public delegate void OnUserProfileClickedDelegate();
 
         private Button _activeButton;
+        Style ActiveMenuButtonStyle;
+
+        Style MenuButtonStyle;
+
+        public MainMenu()
+        {
+            InitializeComponent();
+            MenuButtonStyle = FindResource("MenuButton") as Style;
+            ActiveMenuButtonStyle = FindResource("MenuButtonActive") as Style;
+            _activeButton = Dashboard;
+
+
+            string Name = Data.Entities.Database.SqlQuery<string>("select SUSER_NAME()").FirstOrDefault();
+
+
+            UserName.Text = Name;
+            var initials = Name.Split(' ');
+            UserInitials.Text = initials[0][0].ToString() + initials.Last()[0];
+            //Auth.Text = user.ROLE;
+
+            foreach (var button in Menu.Children.OfType<Button>())
+                button.Click += (sender, e) => OnMenuItemClicked?.Invoke((Button)sender, e);
+        }
 
         public Button ActiveButton
         {
@@ -27,28 +47,12 @@ namespace TaxesV1
             }
         }
 
-        public MainMenu()
+        public event OnMenuItemClickedDelegate OnMenuItemClicked;
+        public event OnUserProfileClickedDelegate OnUserProfileClicked;
+
+        private void UserProfile_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            InitializeComponent();
-            MenuButtonStyle = FindResource("MenuButton") as Style;
-            ActiveMenuButtonStyle = FindResource("MenuButtonActive") as Style;
-            _activeButton = Dashboard;
-
-
-            string Name = Data.Entities.Database.SqlQuery<string>("select SUSER_NAME()").FirstOrDefault();
-
-          
-                UserName.Text = Name;
-                var initials = Name.Split(' ');
-                UserInitials.Text = initials[0][0].ToString() + initials.Last()[0];
-                //Auth.Text = user.ROLE;
-
-                foreach (var button in Menu.Children.OfType<Button>())
-                button.Click += (sender, e) =>
-                {
-                    if (OnMenuItemClicked != null)
-                        OnMenuItemClicked.Invoke((Button)sender, e);
-                };
+            OnUserProfileClicked?.Invoke();
         }
     }
 }

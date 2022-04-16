@@ -6,39 +6,38 @@ namespace TaxesV1
     public partial class MainWindow : Window
     {
         private Panel _currentPanel;
-        private Button _currentButton;
 
         public MainWindow()
         {
             InitializeComponent();
             if (Properties.Settings.Default.Language == "ar") SetFlowDirection(Body, FlowDirection.RightToLeft);
-          
-            _currentPanel = TaxesSureTNB.GetInstance();
-            if(_currentPanel.Parent!=null)
-                Body.Children.Remove(_currentPanel);
-            Body.Children.Insert(1, _currentPanel);
-            
-            SideMenu.OnMenuItemClicked += ((button, args) =>
+
+            SetCurrentPanel(TaxesSureTNB.GetInstance());
+
+            SideMenu.OnMenuItemClicked += (button, args) =>
             {
-                Body.Children.Remove(_currentPanel);
-
                 SideMenu.ActiveButton = button;
-
-                if (button.Name == "Settings")
+                switch (button.Name)
                 {
-                    _currentPanel = Settings.GetInstance();
+                    case "Settings":
+                        SetCurrentPanel(Settings.GetInstance());
+                        break;
+                    case "File":
+                        SetCurrentPanel(Fichier.GetInstance());
+                        break;
+                    default:
+                        SetCurrentPanel(TaxesSureTNB.GetInstance());
+                        break;
                 }
-                else if (button.Name == "File") {
-                    _currentPanel = Fichier.GetInstance();
+            };
+        }
 
-                }
-                else
-                {
-                    _currentPanel = TaxesSureTNB.GetInstance();
-                }
-
-                Body.Children.Insert(1, _currentPanel);
-            });
+        private void SetCurrentPanel(Panel panel)
+        {
+            if (_currentPanel.Parent != null)
+                Body.Children.Remove(_currentPanel);
+            _currentPanel = panel;
+            Body.Children.Insert(1, _currentPanel);
         }
     }
 }

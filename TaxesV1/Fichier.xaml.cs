@@ -46,11 +46,10 @@ namespace TaxesV1
         private void Nouveau_Fichier_Button_Click(object sender, RoutedEventArgs e)
         {
 
-            MessageBox.Show(Window.GetWindow(this),"aaaaaa");
-            var doss = (from d in Data.Entities.Dossiers select d).FirstOrDefault();
+            var doss = new Dossier();
             doss.NDossier = NumDosstxt.Text;
-            doss.DateDebut = DateTime.Parse(datedebutDatePicker.SelectedDate.Value.ToString());
-            doss.DateDossier = DateTime.Parse(datedossDatePicker.SelectedDate.Value.ToString());
+            doss.DateDebut = datedebutDatePicker.SelectedDate.Value;
+            doss.DateDossier = datedossDatePicker.SelectedDate.Value;
             doss.RedevableId = idredevablecombo.Text;
             doss.TerrainID= ntfcombo.Text;
             Data.Entities.Dossiers.Add(doss);

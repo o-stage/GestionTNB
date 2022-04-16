@@ -16,9 +16,9 @@ namespace TaxesV1
     {
         public int ID { get; set; }
         public string NDossier { get; set; }
-        public Nullable<System.DateTime> DateDeclaration { get; set; }
-        public Nullable<bool> Payer { get; set; }
-        public Nullable<int> Anne { get; set; }
+        public System.DateTime DateDeclaration { get; set; }
+        public bool Payer { get; set; }
+        public int Anne { get; set; }
     
         public virtual Dossier Dossier { get; set; }
     }

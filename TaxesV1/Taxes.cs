@@ -57,8 +57,8 @@ namespace TaxesV1
                     {
                         Declaration declaration = dossier.Declarations.First(dec => dec.Anne == year);
                         tax.NDeclaration = declaration.ID.ToString();
-                        tax.DateDeclaration = declaration.DateDeclaration.Value.ToShortDateString();
-                        if (declaration.Payer.Value)
+                        tax.DateDeclaration = declaration.DateDeclaration.ToShortDateString();
+                        if (declaration.Payer)
                         {
                             tax.Selected = false;
                             continue;
@@ -78,7 +78,7 @@ namespace TaxesV1
                 }
 
                 tax.MtPrincipal = GetLastKeyChange(GetTaxType(dossier.Terrain.Type), year) *
-                                  (float)dossier.Terrain.SuperficeTaxable.Value;
+                                  (float)dossier.Terrain.SuperficeTaxable;
 
                 int numberOfLateMonths = MonthDifference(new DateTime(year, 3, 1), DateTime.Now);
                 if (numberOfLateMonths > 0)

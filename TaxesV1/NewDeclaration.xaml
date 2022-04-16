@@ -24,6 +24,6 @@
         <CheckBox Grid.Row="1" Grid.Column="1">payed</CheckBox>
         <Label Grid.Row="2" Grid.Column="0" Content="{x:Static r:Strings.Year}"></Label>
         <TextBox Grid.Row="2" Grid.Column="1" Width="200" />
-        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Width="150" Content="{x:Static r:Strings.NewDeclaration}"></Button>
+        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="{x:Static r:Strings.NewDeclaration}" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
     </Grid>
 </Window>

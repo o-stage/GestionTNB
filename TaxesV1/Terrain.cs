@@ -22,8 +22,8 @@ namespace TaxesV1
     
         public string NTF { get; set; }
         public string Lieu { get; set; }
-        public Nullable<double> SuperficeBrute { get; set; }
-        public Nullable<double> SuperficeTaxable { get; set; }
+        public double SuperficeBrute { get; set; }
+        public double SuperficeTaxable { get; set; }
         public string Type { get; set; }
         public string Etat { get; set; }
         public Nullable<System.DateTime> DateChangementEtat { get; set; }

@@ -185,14 +185,11 @@
     <Compile Include="TaxesSureTNB.xaml.cs">
       <DependentUpon>TaxesSureTNB.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Terrain.cs">
-      <DependentUpon>TaxesDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="user.cs">
-      <DependentUpon>TaxesDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="PrintDocument.xaml.cs">
       <DependentUpon>PrintDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Terrain.cs">
+      <DependentUpon>TaxesDataModel.tt</DependentUpon>
     </Compile>
     <Page Include="Fichier.xaml">
       <SubType>Designer</SubType>

@@ -21,8 +21,8 @@ namespace TaxesV1
         }
     
         public string NDossier { get; set; }
-        public Nullable<System.DateTime> DateDossier { get; set; }
-        public Nullable<System.DateTime> DateDebut { get; set; }
+        public System.DateTime DateDossier { get; set; }
+        public System.DateTime DateDebut { get; set; }
         public string RedevableId { get; set; }
         public string TerrainID { get; set; }
     

@@ -19,29 +19,29 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="NDossier" Type="varchar" MaxLength="50" />
-          <Property Name="DateDeclaration" Type="date" />
-          <Property Name="Payer" Type="bit" />
-          <Property Name="Anne" Type="int" />
+          <Property Name="NDossier" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateDeclaration" Type="date" Nullable="false" />
+          <Property Name="Payer" Type="bit" Nullable="false" />
+          <Property Name="Anne" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Dossier">
           <Key>
             <PropertyRef Name="NDossier" />
           </Key>
           <Property Name="NDossier" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="DateDossier" Type="date" />
-          <Property Name="DateDebut" Type="date" />
-          <Property Name="RedevableId" Type="varchar" MaxLength="50" />
-          <Property Name="TerrainID" Type="varchar" MaxLength="50" />
+          <Property Name="DateDossier" Type="date" Nullable="false" />
+          <Property Name="DateDebut" Type="date" Nullable="false" />
+          <Property Name="RedevableId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TerrainID" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Redevable">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Nom" Type="varchar" MaxLength="50" />
-          <Property Name="Prenom" Type="varchar" MaxLength="50" />
-          <Property Name="Type" Type="varchar" MaxLength="20" />
+          <Property Name="Nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Tel" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Terrain">
@@ -49,24 +49,15 @@
             <PropertyRef Name="NTF" />
           </Key>
           <Property Name="NTF" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Lieu" Type="varchar(max)" />
-          <Property Name="SuperficeBrute" Type="float" />
-          <Property Name="SuperficeTaxable" Type="float" />
+          <Property Name="Lieu" Type="varchar(max)" Nullable="false" />
+          <Property Name="SuperficeBrute" Type="float" Nullable="false" />
+          <Property Name="SuperficeTaxable" Type="float" Nullable="false" />
           <Property Name="Type" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Etat" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="DateChangementEtat" Type="datetime" />
         </EntityType>
-        <EntityType Name="users">
-          <Key>
-            <PropertyRef Name="CIN" />
-          </Key>
-          <Property Name="CIN" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="USER_NAME" Type="varchar" MaxLength="50" />
-          <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
-          <Property Name="ROLE" Type="varchar" MaxLength="20" />
-        </EntityType>
         <Association Name="FK__Declarati__NDoss__31EC6D26">
-          <End Role="Dossier" Type="Self.Dossier" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="1" />
           <End Role="Declaration" Type="Self.Declaration" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dossier">
@@ -78,7 +69,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Dossier__Redevab__2E1BDC42">
-          <End Role="Redevable" Type="Self.Redevable" Multiplicity="0..1" />
+          <End Role="Redevable" Type="Self.Redevable" Multiplicity="1" />
           <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Redevable">
@@ -90,7 +81,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Dossier__Terrain__2F10007B">
-          <End Role="Terrain" Type="Self.Terrain" Multiplicity="0..1" />
+          <End Role="Terrain" Type="Self.Terrain" Multiplicity="1" />
           <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Terrain">
@@ -107,7 +98,6 @@
           <EntitySet Name="Dossier" EntityType="Self.Dossier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Redevable" EntityType="Self.Redevable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Terrain" EntityType="Self.Terrain" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Declarati__NDoss__31EC6D26" Association="Self.FK__Declarati__NDoss__31EC6D26">
             <End Role="Dossier" EntitySet="Dossier" />
             <End Role="Declaration" EntitySet="Declaration" />
@@ -130,21 +120,21 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="NDossier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DateDeclaration" Type="DateTime" Precision="0" />
-          <Property Name="Payer" Type="Boolean" />
+          <Property Name="NDossier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateDeclaration" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="Payer" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Dossier" Relationship="Self.FK__Declarati__NDoss__31EC6D26" FromRole="Declaration" ToRole="Dossier" />
-          <Property Name="Anne" Type="Int32" />
+          <Property Name="Anne" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Dossier">
           <Key>
             <PropertyRef Name="NDossier" />
           </Key>
           <Property Name="NDossier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DateDossier" Type="DateTime" Precision="0" />
-          <Property Name="DateDebut" Type="DateTime" Precision="0" />
-          <Property Name="RedevableId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TerrainID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateDossier" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="DateDebut" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="RedevableId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TerrainID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Declarations" Relationship="Self.FK__Declarati__NDoss__31EC6D26" FromRole="Dossier" ToRole="Declaration" />
           <NavigationProperty Name="Redevable" Relationship="Self.FK__Dossier__Redevab__2E1BDC42" FromRole="Dossier" ToRole="Redevable" />
           <NavigationProperty Name="Terrain" Relationship="Self.FK__Dossier__Terrain__2F10007B" FromRole="Dossier" ToRole="Terrain" />
@@ -154,9 +144,9 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Dossiers" Relationship="Self.FK__Dossier__Redevab__2E1BDC42" FromRole="Redevable" ToRole="Dossier" />
           <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -165,16 +155,16 @@
             <PropertyRef Name="NTF" />
           </Key>
           <Property Name="NTF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Lieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="SuperficeBrute" Type="Double" />
-          <Property Name="SuperficeTaxable" Type="Double" />
+          <Property Name="Lieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SuperficeBrute" Type="Double" Nullable="false" />
+          <Property Name="SuperficeTaxable" Type="Double" Nullable="false" />
           <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Dossiers" Relationship="Self.FK__Dossier__Terrain__2F10007B" FromRole="Terrain" ToRole="Dossier" />
           <Property Name="Etat" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="DateChangementEtat" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK__Declarati__NDoss__31EC6D26">
-          <End Role="Dossier" Type="Self.Dossier" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="1" />
           <End Role="Declaration" Type="Self.Declaration" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dossier">
@@ -186,7 +176,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Dossier__Redevab__2E1BDC42">
-          <End Role="Redevable" Type="Self.Redevable" Multiplicity="0..1" />
+          <End Role="Redevable" Type="Self.Redevable" Multiplicity="1" />
           <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Redevable">
@@ -198,7 +188,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Dossier__Terrain__2F10007B">
-          <End Role="Terrain" Type="Self.Terrain" Multiplicity="0..1" />
+          <End Role="Terrain" Type="Self.Terrain" Multiplicity="1" />
           <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Terrain">
@@ -227,7 +217,6 @@
             <End Role="Dossier" EntitySet="Dossiers" />
           </AssociationSet>
           <EntitySet Name="Constants" EntityType="TaxesModel.Constant" />
-          <EntitySet Name="users" EntityType="TaxesModel.user" />
         </EntityContainer>
         <EntityType Name="Constant">
           <Key>
@@ -237,15 +226,6 @@
           <Property Name="Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Value" Type="Double" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="user">
-          <Key>
-            <PropertyRef Name="CIN" />
-          </Key>
-          <Property Name="CIN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ROLE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -305,16 +285,6 @@
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="TaxesModel.user">
-              <MappingFragment StoreEntitySet="users">
-                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
-                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
-                <ScalarProperty Name="CIN" ColumnName="CIN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

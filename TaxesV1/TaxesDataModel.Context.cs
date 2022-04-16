@@ -33,6 +33,5 @@ namespace TaxesV1
         public virtual DbSet<Redevable> Redevables { get; set; }
         public virtual DbSet<Terrain> Terrains { get; set; }
         public virtual DbSet<Constant> Constants { get; set; }
-        public virtual DbSet<user> users { get; set; }
     }
 }

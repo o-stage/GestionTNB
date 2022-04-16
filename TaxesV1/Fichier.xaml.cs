@@ -10,9 +10,7 @@ namespace TaxesV1
     /// </summary>
     public partial class Fichier : DockPanel
     {
-        private static Fichier _instance;
-
-        private Fichier()
+        public Fichier()
         {
             InitializeComponent();
 
@@ -22,15 +20,6 @@ namespace TaxesV1
             idredevablecombo.ItemsSource = idRedevable.ToList();
             ntfcombo.SelectedIndex = 0;
             idredevablecombo.SelectedIndex = 0;
-        }
-
-        public static Fichier GetInstance()
-        {
-            if (_instance == null)
-                _instance = new Fichier();
-
-
-            return _instance;
         }
 
         void clearChamps()

@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,22 +10,16 @@ namespace TaxesV1
     public partial class TaxesSureTNB : DockPanel
     {
         TaxesV2Entities Entities;
-        private CollectionViewSource ViewSource = new CollectionViewSource();
         private Taxes tax;
-        public Dossier SelectedFile { get; set; }
+        private CollectionViewSource ViewSource = new CollectionViewSource();
 
-        private static TaxesSureTNB _instance;
-
-        public static TaxesSureTNB GetInstance()
-        {
-            return _instance ?? (_instance = new TaxesSureTNB());
-        }
-
-        private TaxesSureTNB()
+        public TaxesSureTNB()
         {
             Entities = Data.Entities;
             InitializeComponent();
         }
+
+        public Dossier SelectedFile { get; set; }
 
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {

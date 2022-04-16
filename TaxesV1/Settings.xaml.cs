@@ -5,14 +5,7 @@ namespace TaxesV1
 {
     public partial class Settings : DockPanel
     {
-        private static Settings _instance;
-
-        public static Settings GetInstance()
-        {
-            return _instance ?? (_instance = new Settings());
-        }
-
-        private Settings()
+        public Settings()
         {
             InitializeComponent();
             int index = 0;

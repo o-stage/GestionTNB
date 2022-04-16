@@ -1,8 +1,5 @@
-﻿using System;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Windows;
-using System.Windows.Media;
-using TaxesV1.Resources;
 
 namespace TaxesV1
 {
@@ -55,7 +52,7 @@ namespace TaxesV1
                 Properties.Settings.Default.Save();
                 Close();
             }
-            catch (SqlException exception)
+            catch (SqlException)
             {
                 ErrorLabel.Visibility = Visibility.Visible;
             }

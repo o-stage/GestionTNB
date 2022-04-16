@@ -4,8 +4,7 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            mc:Ignorable="d"
-           Background="White"
-           >
+           Background="White">
     <Grid Name="ChangePasswordPanel" IsEnabled="False" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -19,13 +18,15 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Label Content="New Password" />
-        <TextBox Grid.Row="0" Grid.Column="1" />
-        <Label Grid.Row="1" Grid.Column="0" Content="Old Password" />
-        <TextBox Grid.Row="1" Grid.Column="1" />
-        <Label Grid.Row="2" Grid.Column="0" Content="Confirm Old Password" />
-        <TextBox Grid.Row="2" Grid.Column="1" />
-        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Save" HorizontalAlignment="Center" />
-        <TextBlock Name="Details" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Center" Text="None" />
+        <PasswordBox Name="NewPasswordTextBox" Grid.Row="0" Grid.Column="1" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Confirm Password" />
+        <PasswordBox Name="ConfirmNewPasswordTextBox" Grid.Row="1" Grid.Column="1" />
+        <Label Grid.Row="2" Grid.Column="0" Content="Old Password" />
+        <PasswordBox Name="OldPasswordTextBox" Grid.Row="2" Grid.Column="1" />
+        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Save" HorizontalAlignment="Center"
+                Click="ChangePassword_OnClick" />
+        <TextBlock Visibility="Hidden" Foreground="Red" Name="Details" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" Text="None" />
 
     </Grid>
 </DockPanel>

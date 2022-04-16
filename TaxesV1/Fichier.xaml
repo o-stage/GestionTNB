@@ -18,7 +18,7 @@
         <DatePicker Name="datedebutDatePicker" HorizontalAlignment="Left" Height="43" Margin="308,153,0,0"   VerticalAlignment="Top" Width="216"/>
         <ComboBox Name="idredevablecombo" HorizontalAlignment="Left" Height="43" Margin="309,203,0,0"  VerticalAlignment="Top" Width="216"/>
         <ComboBox Name="ntfcombo" HorizontalAlignment="Left" Height="43" Margin="309,253,0,0"  VerticalAlignment="Top" Width="216"/>
-        <Button Name="Nouveau_Fichier_Button" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="564,53,205,281" Height="43" RenderTransformOrigin="0.199,0.472" Foreground="#FF1D1C1C" Click="Nouveau_Fichier_Button_Click">
+        <Button Name="Nouveau_Fichier_Button" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="564,53,205,281" Height="43" RenderTransformOrigin="0.199,0.472" Foreground="#FF1D1C1C" Click="Nouveau_Fichier_Button_Click">
             <StackPanel Orientation="Horizontal">
                 <fa:IconImage Width="20" Height="20" Icon="Plus"
                                   Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">

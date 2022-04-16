@@ -134,4 +134,10 @@
     <data name="Language" xml:space="preserve">
         <value>اللغة</value>
     </data>
+    <data name="ConfirmPassword" xml:space="preserve">
+        <value>تأكيد كلمة المرور</value>
+    </data>
+    <data name="OldPassword" xml:space="preserve">
+        <value>كلمة المرور القديمة</value>
+    </data>
 </root>

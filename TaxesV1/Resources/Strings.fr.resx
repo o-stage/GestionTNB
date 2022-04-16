@@ -187,7 +187,7 @@
     <value>Imprimer</value>
   </data>
   <data name="CalculateTaxes" xml:space="preserve">
-    <value>Calculer Les Taxes</value>
+    <value>Calculer Les taxes</value>
   </data>
   <data name="Summary" xml:space="preserve">
     <value>Résumé</value>
@@ -231,13 +231,19 @@
   <data name="UnbuiltLandFile" xml:space="preserve">
     <value>Dossier terrain non bâti</value>
   </data>
-  <data name="Logout" xml:space="preserve">
+    <data name="Logout" xml:space="preserve">
     <value>Se déconnecter</value>
   </data>
-  <data name="Save" xml:space="preserve">
+    <data name="Save" xml:space="preserve">
     <value>Sauvegarder</value>
   </data>
-  <data name="Language" xml:space="preserve">
+    <data name="Language" xml:space="preserve">
     <value>Langue</value>
+  </data>
+    <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirmez le mot de passe</value>
+  </data>
+    <data name="OldPassword" xml:space="preserve">
+    <value>Ancien mot de passe</value>
   </data>
 </root>

@@ -191,22 +191,26 @@
     <Compile Include="Terrain.cs">
       <DependentUpon>TaxesDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserProfile.xaml.cs">
+      <DependentUpon>UserProfile.xaml</DependentUpon>
+    </Compile>
     <Page Include="Fichier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenu.xaml" />
+    <Page Include="MainMenu.xaml"/>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MainWindow.xaml" />
+    <Page Include="MainWindow.xaml"/>
     <Page Include="NewDeclaration.xaml" />
     <Page Include="Settings.xaml" />
     <Page Include="SideMenuItem.xaml" />
     <Page Include="LoginWindow.xaml" />
     <Page Include="TaxesSureTNB.xaml" />
     <Page Include="PrintDocument.xaml" />
+    <Page Include="UserProfile.xaml"/>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

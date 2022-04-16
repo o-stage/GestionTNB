@@ -14,6 +14,7 @@ namespace TaxesV1
 
             SetCurrentPanel(TaxesSureTNB.GetInstance());
 
+            SideMenu.OnUserProfileClicked += () => { SetCurrentPanel(UserProfile.GetInstance()); };
             SideMenu.OnMenuItemClicked += (button, args) =>
             {
                 SideMenu.ActiveButton = button;
@@ -34,7 +35,7 @@ namespace TaxesV1
 
         private void SetCurrentPanel(Panel panel)
         {
-            if (_currentPanel.Parent != null)
+            if (_currentPanel != null)
                 Body.Children.Remove(_currentPanel);
             _currentPanel = panel;
             Body.Children.Insert(1, _currentPanel);

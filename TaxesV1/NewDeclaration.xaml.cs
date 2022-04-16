@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace TaxesV1
 {
@@ -8,6 +9,18 @@ namespace TaxesV1
         {
             InitializeComponent();
             if (Properties.Settings.Default.Language == "ar") SetFlowDirection(Body, FlowDirection.RightToLeft);
+        }
+
+        private void AddDecleration_OnClick(object sender, RoutedEventArgs e)
+        {
+            Declaration declaration = new Declaration
+            {
+                DateDeclaration = DateTime.Now,
+                NDossier = FileNumberTextBox.Text,
+                Payer = PayedCheckBox.IsChecked.Value,
+                Anne = int.Parse(YearTextBox.Text)
+            };
+            Data.Entities.Declarations.Add(declaration);
         }
     }
 }

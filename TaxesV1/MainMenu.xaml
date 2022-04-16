@@ -146,10 +146,10 @@
                 </StackPanel>
             </Button>
 
-            <Button Style="{StaticResource MenuButton}">
+            <Button Name="ManageUsersMenuItem" Style="{StaticResource MenuButton}">
                 <StackPanel Orientation="Horizontal">
-                    <fa:IconImage Icon="Coins" Style="{StaticResource MenuButtonIcon}" />
-                    <TextBlock Text="Revenue" Style="{StaticResource MenuButtonText}" />
+                    <fa:IconImage Icon="Users" Style="{StaticResource MenuButtonIcon}" />
+                    <TextBlock Text="Manage Users" Style="{StaticResource MenuButtonText}" />
                 </StackPanel>
             </Button>
 

@@ -8,10 +8,10 @@ namespace TaxesV1
     {
         private Panel _currentPanel;
         private Fichier _fichierPanel;
+        private ManageUsers _manageUsersPanel;
         private Settings _settingsPanel;
         private TaxesSureTNB _taxesSureTnbPanel;
-        private UserProfile _userProfile;
-
+        private UserProfile _userProfilePanel;
 
         public MainWindow()
         {
@@ -36,6 +36,9 @@ namespace TaxesV1
                         new LoginWindow().Show();
                         Close();
                         break;
+                    case "ManageUsersMenuItem":
+                        SetCurrentPanel(ManageUsersPanel);
+                        break;
                     default:
                         SetCurrentPanel(TaxesSureTnbPanel);
                         break;
@@ -43,10 +46,16 @@ namespace TaxesV1
             };
         }
 
+        public ManageUsers ManageUsersPanel
+        {
+            get { return _manageUsersPanel ?? (_manageUsersPanel = new ManageUsers()); }
+            set => _manageUsersPanel = value;
+        }
+
         public UserProfile UserProfile
         {
-            get { return _userProfile ?? (_userProfile = new UserProfile()); }
-            set => _userProfile = value;
+            get { return _userProfilePanel ?? (_userProfilePanel = new UserProfile()); }
+            set => _userProfilePanel = value;
         }
 
         public TaxesSureTNB TaxesSureTnbPanel

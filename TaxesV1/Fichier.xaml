@@ -4,21 +4,21 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-           xmlns:local="clr-namespace:TaxesV1"
            xmlns:r="clr-namespace:TaxesV1.Resources"
            mc:Ignorable="d">
-    <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
         <Label Content="{x:Static r:Strings.FileNumber}" />
@@ -35,15 +35,25 @@
                   Grid.Row="4" Grid.Column="1" />
 
         <Button Name="Nouveau_Fichier_Button" Click="Nouveau_Fichier_Button_Click"
-                    VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.ColumnSpan="2">
+                VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5">
             <StackPanel Orientation="Horizontal">
                 <fa:IconImage Width="20" Height="20" Icon="Plus"
-                                  Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
-                </fa:IconImage>
+                              Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
                 <Label Padding="0" Margin="5 0" Content="{x:Static r:Strings.NewFile}"
-                           Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
-                </Label>
+                       Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
             </StackPanel>
         </Button>
+
+        <Button Name="Rechercher_Fichier_Button" Click="Rechercher_Fichier_Button_Click"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <fa:IconImage Width="20" Height="20" Icon="Search"
+                              Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
+                <Label Padding="0" Margin="5 0" Content="{x:Static r:Strings.FindFile}"
+                       Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
+            </StackPanel>
+        </Button>
+
+        <DataGrid Grid.Row="6" Grid.ColumnSpan="2"  Visibility="Visible" Name="DossierGrid" HorizontalAlignment="Stretch" />
     </Grid>
 </DockPanel>

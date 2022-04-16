@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace TaxesV1
 {
@@ -20,17 +10,8 @@ namespace TaxesV1
     /// </summary>
     public partial class Fichier : DockPanel
     {
-        private static  Fichier _instance;
+        private static Fichier _instance;
 
-        public static Fichier GetInstance()
-        {
-            if (_instance == null)
-                _instance = new Fichier();
-
-
-            return _instance;
-
-        }
         private Fichier()
         {
             InitializeComponent();
@@ -43,17 +24,51 @@ namespace TaxesV1
             idredevablecombo.SelectedIndex = 0;
         }
 
+        public static Fichier GetInstance()
+        {
+            if (_instance == null)
+                _instance = new Fichier();
+
+
+            return _instance;
+        }
+
+        void clearChamps()
+        {
+            NumDosstxt.Text = "";
+            datedebutDatePicker.SelectedDate = DateTime.Now;
+            datedossDatePicker.SelectedDate = DateTime.Now;
+            idredevablecombo.SelectedIndex = 0;
+            ntfcombo.SelectedIndex = 0;
+        }
+
         private void Nouveau_Fichier_Button_Click(object sender, RoutedEventArgs e)
         {
-
             var doss = new Dossier();
             doss.NDossier = NumDosstxt.Text;
             doss.DateDebut = datedebutDatePicker.SelectedDate.Value;
             doss.DateDossier = datedossDatePicker.SelectedDate.Value;
             doss.RedevableId = idredevablecombo.Text;
-            doss.TerrainID= ntfcombo.Text;
+            doss.TerrainID = ntfcombo.Text;
             Data.Entities.Dossiers.Add(doss);
             Data.Entities.SaveChanges();
+            clearChamps();
+        }
+
+        private void Rechercher_Fichier_Button_Click(object sender, RoutedEventArgs e)
+        {
+            var doss = Data.Entities.Dossiers.Find(NumDosstxt.Text);
+            if (doss == null)
+            {
+                MessageBox.Show(Window.GetWindow(this), "Dossier Inatrouvable ");
+                return;
+            }
+
+            DossierGrid.Visibility = Visibility.Visible;
+            datedebutDatePicker.SelectedDate = doss.DateDebut;
+            datedossDatePicker.SelectedDate = doss.DateDossier;
+            idredevablecombo.Text = doss.RedevableId;
+            ntfcombo.Text = doss.TerrainID;
         }
     }
 }

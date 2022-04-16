@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace TaxesV1
@@ -76,6 +77,27 @@ namespace TaxesV1
                 Body.Children.Remove(_currentPanel);
             _currentPanel = panel;
             Body.Children.Insert(1, _currentPanel);
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            if (Data.Entities.ChangeTracker.HasChanges())
+            {
+                MessageBoxResult result = MessageBox.Show(this,
+                    "you have unsaved changes would you like to save them before closing?", "Confirm Closing",
+                    MessageBoxButton.YesNoCancel);
+
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        Data.Entities.SaveChanges();
+                        break;
+                    case MessageBoxResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                }
+            }
         }
     }
 }

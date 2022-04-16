@@ -91,7 +91,10 @@ create table Declaration
         references Dossier,
     DateDeclaration date        not null,
     Payer           bit         not null,
-    Anne            int         not null
+    Anne            int         not null,
+    constraint Declaration_pk
+        unique (NDossier, Anne)
 )
 go
+
 

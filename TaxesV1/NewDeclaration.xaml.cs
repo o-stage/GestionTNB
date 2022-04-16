@@ -9,18 +9,27 @@ namespace TaxesV1
         {
             InitializeComponent();
             if (Properties.Settings.Default.Language == "ar") SetFlowDirection(Body, FlowDirection.RightToLeft);
+            YearTextBox.Text = DateTime.Now.Year.ToString();
         }
 
-        private void AddDecleration_OnClick(object sender, RoutedEventArgs e)
+        public string NDossier
+        {
+            private get => FileNumberTextBox.Text;
+            set => FileNumberTextBox.Text = value;
+        }
+
+
+        private void AddDeclaration_OnClick(object sender, RoutedEventArgs e)
         {
             Declaration declaration = new Declaration
             {
-                DateDeclaration = DateTime.Now,
                 NDossier = FileNumberTextBox.Text,
+                DateDeclaration = DateTime.Now,
                 Payer = PayedCheckBox.IsChecked.Value,
                 Anne = int.Parse(YearTextBox.Text)
             };
             Data.Entities.Declarations.Add(declaration);
+            Close();
         }
     }
 }

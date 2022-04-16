@@ -23,6 +23,8 @@
           <Property Name="DateDeclaration" Type="date" Nullable="false" />
           <Property Name="Payer" Type="bit" Nullable="false" />
           <Property Name="Anne" Type="int" Nullable="false" />
+          <Property Name="NQuitance" Type="varchar" MaxLength="20" />
+          <Property Name="NAvis" Type="int" />
         </EntityType>
         <EntityType Name="Dossier">
           <Key>
@@ -56,7 +58,7 @@
           <Property Name="Etat" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="DateChangementEtat" Type="datetime" />
         </EntityType>
-        <Association Name="FK__Declarati__NDoss__31EC6D26">
+        <Association Name="FK__Declarati__NDoss__4AB81AF0">
           <End Role="Dossier" Type="Self.Dossier" Multiplicity="1" />
           <End Role="Declaration" Type="Self.Declaration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -98,7 +100,7 @@
           <EntitySet Name="Dossier" EntityType="Self.Dossier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Redevable" EntityType="Self.Redevable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Terrain" EntityType="Self.Terrain" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Declarati__NDoss__31EC6D26" Association="Self.FK__Declarati__NDoss__31EC6D26">
+          <AssociationSet Name="FK__Declarati__NDoss__4AB81AF0" Association="Self.FK__Declarati__NDoss__4AB81AF0">
             <End Role="Dossier" EntitySet="Dossier" />
             <End Role="Declaration" EntitySet="Declaration" />
           </AssociationSet>
@@ -115,17 +117,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TaxesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Declaration">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="NDossier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DateDeclaration" Type="DateTime" Precision="0" Nullable="false" />
-          <Property Name="Payer" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Dossier" Relationship="Self.FK__Declarati__NDoss__31EC6D26" FromRole="Declaration" ToRole="Dossier" />
-          <Property Name="Anne" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="Dossier">
           <Key>
             <PropertyRef Name="NDossier" />
@@ -135,9 +126,9 @@
           <Property Name="DateDebut" Type="DateTime" Precision="0" Nullable="false" />
           <Property Name="RedevableId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TerrainID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Declarations" Relationship="Self.FK__Declarati__NDoss__31EC6D26" FromRole="Dossier" ToRole="Declaration" />
           <NavigationProperty Name="Redevable" Relationship="Self.FK__Dossier__Redevab__2E1BDC42" FromRole="Dossier" ToRole="Redevable" />
           <NavigationProperty Name="Terrain" Relationship="Self.FK__Dossier__Terrain__2F10007B" FromRole="Dossier" ToRole="Terrain" />
+          <NavigationProperty Name="Declarations" Relationship="TaxesModel.FK__Declarati__NDoss__4AB81AF0" FromRole="Dossier" ToRole="Declaration" />
         </EntityType>
         <EntityType Name="Redevable">
           <Key>
@@ -163,18 +154,6 @@
           <Property Name="Etat" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="DateChangementEtat" Type="DateTime" Precision="3" />
         </EntityType>
-        <Association Name="FK__Declarati__NDoss__31EC6D26">
-          <End Role="Dossier" Type="Self.Dossier" Multiplicity="1" />
-          <End Role="Declaration" Type="Self.Declaration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dossier">
-              <PropertyRef Name="NDossier" />
-            </Principal>
-            <Dependent Role="Declaration">
-              <PropertyRef Name="NDossier" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Dossier__Redevab__2E1BDC42">
           <End Role="Redevable" Type="Self.Redevable" Multiplicity="1" />
           <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
@@ -200,14 +179,9 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="TaxesV2Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Declarations" EntityType="Self.Declaration" />
           <EntitySet Name="Dossiers" EntityType="Self.Dossier" />
           <EntitySet Name="Redevables" EntityType="Self.Redevable" />
           <EntitySet Name="Terrains" EntityType="Self.Terrain" />
-          <AssociationSet Name="FK__Declarati__NDoss__31EC6D26" Association="Self.FK__Declarati__NDoss__31EC6D26">
-            <End Role="Dossier" EntitySet="Dossiers" />
-            <End Role="Declaration" EntitySet="Declarations" />
-          </AssociationSet>
           <AssociationSet Name="FK__Dossier__Redevab__2E1BDC42" Association="Self.FK__Dossier__Redevab__2E1BDC42">
             <End Role="Redevable" EntitySet="Redevables" />
             <End Role="Dossier" EntitySet="Dossiers" />
@@ -217,6 +191,11 @@
             <End Role="Dossier" EntitySet="Dossiers" />
           </AssociationSet>
           <EntitySet Name="Constants" EntityType="TaxesModel.Constant" />
+          <EntitySet Name="Declarations" EntityType="TaxesModel.Declaration" />
+          <AssociationSet Name="FK__Declarati__NDoss__4AB81AF0" Association="TaxesModel.FK__Declarati__NDoss__4AB81AF0">
+            <End Role="Dossier" EntitySet="Dossiers" />
+            <End Role="Declaration" EntitySet="Declarations" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Constant">
           <Key>
@@ -227,23 +206,37 @@
           <Property Name="Value" Type="Double" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="Declaration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NDossier" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateDeclaration" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Payer" Type="Boolean" Nullable="false" />
+          <Property Name="Anne" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dossier" Relationship="TaxesModel.FK__Declarati__NDoss__4AB81AF0" FromRole="Declaration" ToRole="Dossier" />
+          <Property Name="NQuitance" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NAvis" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__Declarati__NDoss__4AB81AF0">
+          <End Type="TaxesModel.Dossier" Role="Dossier" Multiplicity="1" />
+          <End Type="TaxesModel.Declaration" Role="Declaration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dossier">
+              <PropertyRef Name="NDossier" />
+            </Principal>
+            <Dependent Role="Declaration">
+              <PropertyRef Name="NDossier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TaxesModelStoreContainer" CdmEntityContainer="TaxesV2Entities">
-          <EntitySetMapping Name="Declarations">
-            <EntityTypeMapping TypeName="TaxesModel.Declaration">
-              <MappingFragment StoreEntitySet="Declaration">
-                <ScalarProperty Name="Anne" ColumnName="Anne" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NDossier" ColumnName="NDossier" />
-                <ScalarProperty Name="DateDeclaration" ColumnName="DateDeclaration" />
-                <ScalarProperty Name="Payer" ColumnName="Payer" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Dossiers">
             <EntityTypeMapping TypeName="TaxesModel.Dossier">
               <MappingFragment StoreEntitySet="Dossier">
@@ -285,6 +278,19 @@
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Declarations">
+            <EntityTypeMapping TypeName="TaxesModel.Declaration">
+              <MappingFragment StoreEntitySet="Declaration">
+                <ScalarProperty Name="NAvis" ColumnName="NAvis" />
+                <ScalarProperty Name="NQuitance" ColumnName="NQuitance" />
+                <ScalarProperty Name="Anne" ColumnName="Anne" />
+                <ScalarProperty Name="Payer" ColumnName="Payer" />
+                <ScalarProperty Name="DateDeclaration" ColumnName="DateDeclaration" />
+                <ScalarProperty Name="NDossier" ColumnName="NDossier" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

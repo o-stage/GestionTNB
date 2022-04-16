@@ -62,7 +62,11 @@ namespace TaxesV1
 
         private void NewDeclarationButton_OnClick(object sender, RoutedEventArgs e)
         {
-            NewDeclaration newDeclaration = new NewDeclaration();
+            NewDeclaration newDeclaration = new NewDeclaration
+            {
+                Owner = Window.GetWindow(this),
+                NDossier = FileNumber.Text
+            };
             newDeclaration.ShowDialog();
         }
     }

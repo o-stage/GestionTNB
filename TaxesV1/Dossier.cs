@@ -26,9 +26,9 @@ namespace TaxesV1
         public string RedevableId { get; set; }
         public string TerrainID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Declaration> Declarations { get; set; }
         public virtual Redevable Redevable { get; set; }
         public virtual Terrain Terrain { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Declaration> Declarations { get; set; }
     }
 }

@@ -3,7 +3,6 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-           xmlns:local="clr-namespace:TaxesV1"
            xmlns:r="clr-namespace:TaxesV1.Resources"
            xmlns:converter="clr-namespace:TaxesV1.MultiValueConverters"
            xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
@@ -20,22 +19,18 @@
             <Button Click="ButtonCalculateTaxes_OnClick" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Width="20" Height="20" Icon="Search"
-                                  Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
-                    </fa:IconImage>
+                                  Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
                     <Label Padding="0" Margin="5 0" Content="{x:Static r:Strings.FindFile}"
-                           Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
-                    </Label>
+                           Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
                 </StackPanel>
             </Button>
             <Button Name="NewDeclarationButton" Click="NewDeclarationButton_OnClick" IsEnabled="False"
                     VerticalAlignment="Center" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Width="20" Height="20" Icon="Plus"
-                                  Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
-                    </fa:IconImage>
+                                  Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
                     <Label Padding="0" Margin="5 0" Content="{x:Static r:Strings.NewDeclaration}"
-                           Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}">
-                    </Label>
+                           Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
                 </StackPanel>
             </Button>
 
@@ -65,7 +60,7 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileNumber}" />
-                        <TextBox Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False" />
+                        <TextBox Name="FileNumber" Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileDate}" />

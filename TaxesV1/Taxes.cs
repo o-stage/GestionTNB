@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace TaxesV1
@@ -12,28 +11,11 @@ namespace TaxesV1
         private const string TaxSureEconomie = "TaxSureEconomie";
 
         public List<Tax> _taxes = new List<Tax>();
-        public float TotalNet => _taxes.Where(tax => tax.Selected).Sum(tax => tax.Total);
+        public float TotalNet => _taxes.Where(tax => tax.Selected).Sum(tax => tax.MtPrincipal);
         public float TotalAmends => _taxes.Where(tax => tax.Selected).Sum(tax => tax.Amends);
         public float TotalDefaultDec => _taxes.Where(tax => tax.Selected).Sum(tax => tax.DefaultDecl);
         public int NumberOfNonDeposedDeclarations => _taxes.Where(tax => tax.DefaultDecl != 0).Count();
         public float Total => TotalNet + TotalAmends + TotalDefaultDec;
-
-        public class Tax
-        {
-            public bool Selected { get; set; } = true;
-            public int Year { get; internal set; }
-            public string NDeclaration { get; internal set; }
-            public string DateDeclaration { get; internal set; }
-            public string Calcul => $"{MtPrincipal}+{DefaultDecl}+{Amends}";
-            public float MtPrincipal { get; internal set; }
-            public float DefaultDecl { get; internal set; }
-            public float Amends { get; internal set; }
-
-            public float Total => MtPrincipal + DefaultDecl + Amends;
-
-            public string NAvis { get; internal set; }
-            public string NQuitance { get; internal set; }
-        }
 
 
         public static Taxes GetTaxes(Dossier dossier, int starYear = 0)
@@ -58,6 +40,8 @@ namespace TaxesV1
                         Declaration declaration = dossier.Declarations.First(dec => dec.Anne == year);
                         tax.NDeclaration = declaration.ID.ToString();
                         tax.DateDeclaration = declaration.DateDeclaration.ToShortDateString();
+                        if (declaration.NAvis != null) tax.NAvis = declaration.NAvis.Value.ToString();
+                        tax.NQuitance = declaration.NQuitance;
                         if (declaration.Payer)
                         {
                             tax.Selected = false;
@@ -111,6 +95,23 @@ namespace TaxesV1
                     return TaxSureEconomie;
                 default: return "";
             }
+        }
+
+        public class Tax
+        {
+            public bool Selected { get; set; } = true;
+            public int Year { get; internal set; }
+            public string NDeclaration { get; internal set; }
+            public string DateDeclaration { get; internal set; }
+            public string Calcul => $"{MtPrincipal}+{DefaultDecl}+{Amends}";
+            public float MtPrincipal { get; internal set; }
+            public float DefaultDecl { get; internal set; }
+            public float Amends { get; internal set; }
+
+            public float Total => MtPrincipal + DefaultDecl + Amends;
+
+            public string NAvis { get; internal set; }
+            public string NQuitance { get; internal set; }
         }
     }
 }

@@ -19,6 +19,8 @@ namespace TaxesV1
         public System.DateTime DateDeclaration { get; set; }
         public bool Payer { get; set; }
         public int Anne { get; set; }
+        public string NQuitance { get; set; }
+        public Nullable<int> NAvis { get; set; }
     
         public virtual Dossier Dossier { get; set; }
     }

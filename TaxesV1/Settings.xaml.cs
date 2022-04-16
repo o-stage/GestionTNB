@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace TaxesV1
 {
@@ -31,27 +32,25 @@ namespace TaxesV1
             LanguageComboBox.SelectedIndex = index;
         }
 
-        private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void ButtonSaveSettings_OnClick(object sender, RoutedEventArgs e)
         {
-            string Language = "en";
+            string defaultLanguage = "en";
             switch (LanguageComboBox.SelectedIndex)
             {
                 case 0:
-                    Language = "en";
+                    defaultLanguage = "en";
                     break;
                 case 1:
-                    Language = "fr";
+                    defaultLanguage = "fr";
                     break;
                 case 2:
-                    Language = "ar";
+                    defaultLanguage = "ar";
                     break;
             }
 
-            if (Properties.Settings.Default.Language != Language)
-            {
-                Properties.Settings.Default.Language = Language;
-                Properties.Settings.Default.Save();
-            }
+            if (Properties.Settings.Default.Language != defaultLanguage)
+                Properties.Settings.Default.Language = defaultLanguage;
+            Properties.Settings.Default.Save();
         }
     }
 }

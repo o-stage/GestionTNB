@@ -14,13 +14,27 @@
             <converter:AccountableTypeConverter x:Key="AccountableTypeConverter" />
         </ResourceDictionary>
     </DockPanel.Resources>
-    <DockPanel>
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <ComboBox x:Name="LanguageComboBox" Width="120" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" VerticalAlignment="Top">
-                <Label Content="English"/>
-                <Label Content="Français"/>
-                <Label Content="العربية"/>
-            </ComboBox>
+    <Grid DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="{x:Static r:Strings.Language}"/>
+        <ComboBox  x:Name="LanguageComboBox" Grid.Column="1">
+            <Label Content="English"/>
+            <Label Content="Français"/>
+            <Label Content="العربية"/>
+        </ComboBox>
+    </Grid>
+    <Button Click="ButtonSaveSettings_OnClick" VerticalAlignment="Bottom" HorizontalAlignment="Right" DockPanel.Dock="Bottom" Margin="7,7,20,7">
+        <StackPanel Orientation="Horizontal">
+            <fa:IconImage Width="20" Height="20" Icon="Save"
+                              Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+            <Label Padding="0" Margin="5 0" Content="{x:Static r:Strings.Save}"
+                       Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
         </StackPanel>
-    </DockPanel>
+    </Button>
 </DockPanel>

@@ -128,4 +128,10 @@
     <data name="Logout" xml:space="preserve">
         <value>تسجيل خروج</value>
     </data>
+    <data name="Save" xml:space="preserve">
+        <value>احفظ</value>
+    </data>
+    <data name="Language" xml:space="preserve">
+        <value>اللغة</value>
+    </data>
 </root>

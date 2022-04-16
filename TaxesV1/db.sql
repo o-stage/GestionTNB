@@ -92,6 +92,8 @@ create table Declaration
     DateDeclaration date        not null,
     Payer           bit         not null,
     Anne            int         not null,
+    NQuitance       varchar(20),
+    NAvis           int,
     constraint Declaration_pk
         unique (NDossier, Anne)
 )

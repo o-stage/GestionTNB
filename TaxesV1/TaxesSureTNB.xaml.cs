@@ -67,16 +67,10 @@ namespace TaxesV1
             NewDeclarationButton.IsEnabled = true;
         }
 
-<<<<<<< Updated upstream
         private void NewDeclarationButton_OnClick(object sender, RoutedEventArgs e)
         {
             NewDeclaration newDeclaration = new NewDeclaration();
             newDeclaration.ShowDialog();
-=======
-        private void NewDeclarationButton_Click(object sender, RoutedEventArgs e)
-        {
-            
->>>>>>> Stashed changes
         }
     }
 }

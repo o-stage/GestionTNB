@@ -26,6 +26,10 @@ jobs:
       
     - name: Build the solution
       run: msbuild TaxesV1.sln
-      
-      
+    
+    - name: Install NUnit.ConsoleRunner
+      run: nuget install NUnit.ConsoleRunner
+    
+    - name: Run Unit Tests
+      run: packages\NUnit.ConsoleRunner.3.12.0\tools\nunit3-console.exe TaxesUnitTests\bin\Debug\TaxesUnitTests.dll
       

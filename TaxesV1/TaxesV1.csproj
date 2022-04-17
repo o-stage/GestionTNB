@@ -150,6 +150,9 @@
     <Compile Include="NewDeclaration.xaml.cs">
       <DependentUpon>NewDeclaration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewUserWindow.xaml.cs">
+      <DependentUpon>NewUserWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -217,6 +220,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NewDeclaration.xaml"/>
+    <Page Include="NewUserWindow.xaml"/>
     <Page Include="Settings.xaml"/>
     <Page Include="SideMenuItem.xaml"/>
     <Page Include="LoginWindow.xaml"/>

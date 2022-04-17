@@ -39,10 +39,15 @@ namespace TaxesV1
             dialog.PrintDocument(idpSource.DocumentPaginator, "Printing.");
         }
 
-        private void ButtonCalculateTaxes_OnClick(object sender, RoutedEventArgs e)
+        private void FindFile_OnClick(object sender, RoutedEventArgs e)
+        {
+            ShowFile(FileNumberTextBox.Text);
+        }
+
+        private void ShowFile(string fileNumber)
         {
             var cultureInfo = new CultureInfo("fr-ma");
-            SelectedFile = Data.Entities.Dossiers.Find(FileNumberTextBox.Text);
+            SelectedFile = Data.Entities.Dossiers.Find(fileNumber);
             if (SelectedFile == null)
             {
                 MessageBox.Show(Window.GetWindow(this), Strings.FileNotFound);
@@ -69,6 +74,7 @@ namespace TaxesV1
                 NDossier = FileNumber.Text
             };
             newDeclaration.ShowDialog();
+            ShowFile(FileNumber.Text);
         }
 
         private void ModifyFile_OnClick(object sender, RoutedEventArgs e)

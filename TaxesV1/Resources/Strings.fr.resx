@@ -255,4 +255,7 @@
   <data name="EditFile" xml:space="preserve">
     <value>Modifier le dossier</value>
   </data>
+  <data name="NewUser" xml:space="preserve">
+    <value>Nouveau utilisateur</value>
+  </data>
 </root>

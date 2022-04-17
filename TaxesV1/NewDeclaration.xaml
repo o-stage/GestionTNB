@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:r="clr-namespace:TaxesV1.Resources"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="{x:Static r:Strings.NewDeclaration}" SizeToContent="WidthAndHeight">
+        Title="{x:Static r:Strings.NewDeclaration}" SizeToContent="WidthAndHeight" ResizeMode="NoResize" ShowInTaskbar="False">
     <Grid Name="Body" VerticalAlignment="Top" HorizontalAlignment="Left">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />

@@ -3,7 +3,6 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-           xmlns:local="clr-namespace:TaxesV1"
            xmlns:r="clr-namespace:TaxesV1.Resources"
            xmlns:converter="clr-namespace:TaxesV1.MultiValueConverters"
            xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
@@ -16,14 +15,14 @@
     </DockPanel.Resources>
     <Grid DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <Label Content="{x:Static r:Strings.Language}"/>
-        <ComboBox  x:Name="LanguageComboBox" Grid.Column="1">
+        <Label Content="{x:Static r:Strings.Language}" FlowDirection="LeftToRight" Padding="10,0,10,0"/>
+        <ComboBox  x:Name="LanguageComboBox" Grid.Column="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
             <Label Content="English"/>
             <Label Content="Français"/>
             <Label Content="العربية"/>

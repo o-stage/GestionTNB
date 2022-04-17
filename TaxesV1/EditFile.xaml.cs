@@ -11,5 +11,9 @@ namespace TaxesV1
             _fileNumber = fileNumber;
             InitializeComponent();
         }
+
+        private void EditFileButton_OnClick(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

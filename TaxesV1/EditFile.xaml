@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:Resources="clr-namespace:TaxesV1.Resources" xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" x:Class="TaxesV1.EditFile"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" x:Class="TaxesV1.EditFile"
         mc:Ignorable="d" Width="800" Height="450" WindowStartupLocation="CenterOwner">
     <DockPanel>
         <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DockPanel.Dock="Bottom">
@@ -37,7 +37,7 @@
             <TextBox x:Name="DateChangementEtat" TextWrapping="Wrap" Margin="25,10,-125,28" Grid.Column="1" Grid.Row="4" />
             <Label Content="Etat :" Margin="29,24,10,24" Grid.Row="3" />
             <Label Content="Date Changement Etat :" Margin="29,20,0,28" Grid.Row="4" />
-            <Button Click="" Grid.Column="1" Margin="24,14,-100,24" Grid.Row="5">
+            <Button Click="EditFileButton_OnClick" Grid.Column="1" Margin="24,14,-100,24" Grid.Row="5">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Width="20" Height="20" Icon="Edit"
                         Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />

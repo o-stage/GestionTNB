@@ -39,7 +39,7 @@
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Width="20" Height="20" Icon="Edit"
                                   Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
-                    <Label Padding="0" Margin="5 0" Content="Edit File"
+                    <Label Padding="0" Margin="5 0" Content="{x:Static r:Strings.EditFile}"
                            Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
                 </StackPanel>
             </Button>

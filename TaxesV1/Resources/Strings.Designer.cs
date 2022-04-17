@@ -133,6 +133,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit file.
+        /// </summary>
+        public static string EditFile {
+            get {
+                return ResourceManager.GetString("EditFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exempt.
         /// </summary>
         public static string Exempt {

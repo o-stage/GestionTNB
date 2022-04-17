@@ -146,4 +146,7 @@
     <data name="NoticeNumber" xml:space="preserve">
         <value>رقم الإخطار</value>
     </data>
+    <data name="EditFile" xml:space="preserve">
+        <value>تعديل ملف</value>
+    </data>
 </root>

@@ -256,4 +256,7 @@
   <data name="ManageUsers" xml:space="preserve">
     <value>Manage users</value>
   </data>
+  <data name="EditFile" xml:space="preserve">
+    <value>Edit file</value>
+  </data>
 </root>

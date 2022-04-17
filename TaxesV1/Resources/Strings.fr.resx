@@ -243,13 +243,16 @@
     <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirmez le mot de passe</value>
   </data>
-    <data name="OldPassword" xml:space="preserve">
+  <data name="OldPassword" xml:space="preserve">
     <value>Ancien mot de passe</value>
   </data>
-    <data name="ReceiptNumber" xml:space="preserve">
+  <data name="ReceiptNumber" xml:space="preserve">
     <value>Numéro de quittance</value>
   </data>
-    <data name="NoticeNumber" xml:space="preserve">
+  <data name="NoticeNumber" xml:space="preserve">
     <value>Numéro d'avis</value>
+  </data>
+  <data name="EditFile" xml:space="preserve">
+    <value>Modifier le dossier</value>
   </data>
 </root>

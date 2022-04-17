@@ -68,7 +68,16 @@
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0" Grid.Row="0">
-                        <Label Content="{x:Static r:Strings.FileNumber}" />
+                        <Label Content="{x:Static r:Strings.FileNumber}" RenderTransformOrigin="0.5,0.5" >
+                            <Label.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-0.212"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Label.RenderTransform>
+                        </Label>
                         <TextBox Name="FileNumber" Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">

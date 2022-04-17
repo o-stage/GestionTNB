@@ -53,7 +53,6 @@ namespace TaxesV1
                 return;
             }
 
-            DossierGrid.Visibility = Visibility.Visible;
             datedebutDatePicker.SelectedDate = doss.DateDebut;
             datedossDatePicker.SelectedDate = doss.DateDossier;
             idredevablecombo.Text = doss.RedevableId;

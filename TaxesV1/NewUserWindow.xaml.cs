@@ -2,9 +2,9 @@
 
 namespace TaxesV1
 {
-    public partial class NewUser : Window
+    public partial class NewUserWindow : Window
     {
-        public NewUser()
+        public NewUserWindow()
         {
             InitializeComponent();
         }

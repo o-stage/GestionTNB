@@ -4,13 +4,14 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+           xmlns:resources="clr-namespace:TaxesV1.Resources"
            mc:Ignorable="d">
     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
         <Button Click="NewUser_OnClick" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <fa:IconImage Width="20" Height="20" Icon="UserPlus"
                               Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
-                <Label Padding="0" Margin="5 0" Content="New User"
+                <Label Padding="0" Margin="5 0" Content="{x:Static resources:Strings.NewUser}"
                        Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
             </StackPanel>
         </Button>

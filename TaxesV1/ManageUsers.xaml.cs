@@ -17,7 +17,7 @@ namespace TaxesV1
 
         private void NewUser_OnClick(object sender, RoutedEventArgs e)
         {
-            new NewUser()
+            new NewUserWindow()
             {
                 Owner = Window.GetWindow(this)
             }.ShowDialog();

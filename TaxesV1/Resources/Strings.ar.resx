@@ -149,4 +149,7 @@
     <data name="EditFile" xml:space="preserve">
         <value>تعديل ملف</value>
     </data>
+    <data name="NewUser" xml:space="preserve">
+        <value>مستخدم جديد</value>
+    </data>
 </root>

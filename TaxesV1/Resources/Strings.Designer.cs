@@ -304,6 +304,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New User.
+        /// </summary>
+        public static string NewUser {
+            get {
+                return ResourceManager.GetString("NewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Non-Taxable Area.
         /// </summary>
         public static string NonTaxableArea {

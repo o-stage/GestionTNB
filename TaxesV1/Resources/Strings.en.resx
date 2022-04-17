@@ -246,4 +246,10 @@
     <data name="OldPassword" xml:space="preserve">
     <value>Old password</value>
   </data>
+    <data name="ReceiptNumber" xml:space="preserve">
+    <value>Receipt number</value>
+  </data>
+    <data name="NoticeNumber" xml:space="preserve">
+    <value>Notice number</value>
+  </data>
 </root>

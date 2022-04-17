@@ -140,4 +140,10 @@
     <data name="OldPassword" xml:space="preserve">
         <value>كلمة المرور القديمة</value>
     </data>
+    <data name="ReceiptNumber" xml:space="preserve">
+        <value>رقم الإيصال</value>
+    </data>
+    <data name="NoticeNumber" xml:space="preserve">
+        <value>رقم الإخطار</value>
+    </data>
 </root>

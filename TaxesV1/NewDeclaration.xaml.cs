@@ -26,7 +26,9 @@ namespace TaxesV1
                 NDossier = FileNumberTextBox.Text,
                 DateDeclaration = DateTime.Now,
                 Payer = PayedCheckBox.IsChecked.Value,
-                Anne = int.Parse(YearTextBox.Text)
+                Anne = int.Parse(YearTextBox.Text),
+                NQuitance = ReceiptTextBox.Text,
+                NAvis = int.Parse(NoticeTextBox.Text)
             };
             Data.Entities.Declarations.Add(declaration);
             Close();

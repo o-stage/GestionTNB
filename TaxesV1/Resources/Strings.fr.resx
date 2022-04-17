@@ -246,4 +246,10 @@
     <data name="OldPassword" xml:space="preserve">
     <value>Ancien mot de passe</value>
   </data>
+    <data name="ReceiptNumber" xml:space="preserve">
+    <value>Numéro de quittance</value>
+  </data>
+    <data name="NoticeNumber" xml:space="preserve">
+    <value>Numéro d'avis</value>
+  </data>
 </root>

@@ -295,6 +295,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Notice number.
+        /// </summary>
+        public static string NoticeNumber {
+            get {
+                return ResourceManager.GetString("NoticeNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of declarations not filed.
         /// </summary>
         public static string NumberOfDeclarationsNotFiled {
@@ -336,6 +345,15 @@ namespace TaxesV1.Resources {
         public static string Print {
             get {
                 return ResourceManager.GetString("Print", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Receipt number.
+        /// </summary>
+        public static string ReceiptNumber {
+            get {
+                return ResourceManager.GetString("ReceiptNumber", resourceCulture);
             }
         }
         

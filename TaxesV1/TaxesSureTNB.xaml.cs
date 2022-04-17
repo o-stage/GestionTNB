@@ -73,7 +73,7 @@ namespace TaxesV1
 
         private void ModifyFile_OnClick(object sender, RoutedEventArgs e)
         {
-            EditFile editFile = new EditFile()
+            EditFile editFile = new EditFile(FileNumber.Text)
             {
                 Owner = Window.GetWindow(this)
             };

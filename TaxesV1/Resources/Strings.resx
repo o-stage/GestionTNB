@@ -151,7 +151,6 @@
     <value>File Number</value>
   </data>
   <data name="FileDate" xml:space="preserve">
-        <value>File Date</value>
     <value />
   </data>
   <data name="StartDate" xml:space="preserve">
@@ -232,16 +231,16 @@
   <data name="UnbuiltLandFile" xml:space="preserve">
     <value>Unbuilt land file</value>
   </data>
-    <data name="Logout" xml:space="preserve">
+  <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
-    <data name="Save" xml:space="preserve">
+  <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
-    <data name="Language" xml:space="preserve">
+  <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
-    <data name="ConfirmPassword" xml:space="preserve">
+  <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm password</value>
   </data>
   <data name="OldPassword" xml:space="preserve">
@@ -261,5 +260,11 @@
   </data>
   <data name="NewUser" xml:space="preserve">
     <value>New User</value>
+  </data>
+  <data name="NumRedevable" xml:space="preserve">
+    <value>number of indebted</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Phone</value>
   </data>
 </root>

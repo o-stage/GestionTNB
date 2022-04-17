@@ -58,5 +58,10 @@ namespace TaxesV1
             idredevablecombo.Text = doss.RedevableId;
             ntfcombo.Text = doss.TerrainID;
         }
+
+        private void RedevableType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -166,7 +166,7 @@
 
                 </Button>
             </StackPanel>
-            <DataGrid x:Name="DataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="2" ColumnWidth="*"
+            <DataGrid x:Name="DataGrid" Grid.Row="2" ColumnWidth="*"
                       CanUserAddRows="False" />
 
         </Grid>

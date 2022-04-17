@@ -16,7 +16,7 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <TextBox x:Name="FileNumberTextBox" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" />
-            <Button Click="ButtonCalculateTaxes_OnClick" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Click="FindFile_OnClick" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Width="20" Height="20" Icon="Search"
                                   Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />

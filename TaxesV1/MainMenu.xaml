@@ -125,7 +125,7 @@
                 </StackPanel>
             </Button>
 
-            <Button Style="{StaticResource MenuButton}">
+            <!--<Button Style="{StaticResource MenuButton}">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Icon="FileSignature" Style="{StaticResource MenuButtonIcon}" />
                     <TextBlock Text="Listing" Style="{StaticResource MenuButtonText}" />
@@ -144,7 +144,7 @@
                     <fa:IconImage Icon="ChartArea" Style="{StaticResource MenuButtonIcon}" />
                     <TextBlock Text="Statistics" Style="{StaticResource MenuButtonText}" />
                 </StackPanel>
-            </Button>
+            </Button>-->
 
             <Button Name="ManageUsersMenuItem" Style="{StaticResource MenuButton}">
                 <StackPanel Orientation="Horizontal">

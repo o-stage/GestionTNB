@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace TaxesV1
@@ -12,6 +13,14 @@ namespace TaxesV1
                 "select * from sys.database_principals where authentication_type=2").ToList();
             Users.ItemsSource = data;
             Users.DataContext = data;
+        }
+
+        private void NewUser_OnClick(object sender, RoutedEventArgs e)
+        {
+            new NewUser()
+            {
+                Owner = Window.GetWindow(this)
+            }.ShowDialog();
         }
     }
 }

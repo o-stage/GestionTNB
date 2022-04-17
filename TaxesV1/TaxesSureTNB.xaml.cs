@@ -39,7 +39,7 @@ namespace TaxesV1
             dialog.PrintDocument(idpSource.DocumentPaginator, "Printing.");
         }
 
-        private void ButtonCalculateTaxes_OnClick(object sender, RoutedEventArgs e)
+        private void FindFile_OnClick(object sender, RoutedEventArgs e)
         {
             var cultureInfo = new CultureInfo("fr-ma");
             SelectedFile = Data.Entities.Dossiers.Find(FileNumberTextBox.Text);

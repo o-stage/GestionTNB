@@ -9,8 +9,3 @@ updates:
     directory: "/TaxesV1" # Location of package manifests
     schedule:
       interval: "daily"
-  - package-ecosystem: "nuget"
-    directory: "/TaxesUnitTests" # Location of package manifests
-    schedule:
-      interval: "daily"
-      

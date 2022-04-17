@@ -49,7 +49,7 @@ namespace TaxesV1
             var doss = Data.Entities.Dossiers.Find(NumDosstxt.Text);
             if (doss == null)
             {
-                MessageBox.Show(Window.GetWindow(this), "Dossier Inatrouvable ");
+                MessageBox.Show(Window.GetWindow(this),"Dossier Inatrouvable ");
                 return;
             }
 

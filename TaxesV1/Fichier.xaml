@@ -5,8 +5,8 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
            xmlns:r="clr-namespace:TaxesV1.Resources"
-           mc:Ignorable="d">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+           mc:Ignorable="d" Height="414.137" Width="572.735">
+    <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" Height="297" Margin="0,76,0,41.4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="200" />
@@ -19,9 +19,14 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
 
-        <Label Content="{x:Static r:Strings.FileNumber}" />
+        <Label Content="{x:Static r:Strings.FileNumber}"  />
         <TextBox x:Name="NumDosstxt" TextWrapping="Wrap" Background="{x:Null}" Grid.Column="1" />
         <Label Content="{x:Static r:Strings.FileDate}" Background="{x:Null}" Grid.Row="1" />
         <DatePicker x:Name="datedossDatePicker" Grid.Column="1" Grid.Row="1" />
@@ -34,8 +39,26 @@
         <ComboBox x:Name="ntfcombo" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                   Grid.Row="4" Grid.Column="1" />
 
+        <Label Foreground="BlueViolet" HorizontalAlignment="Center" Content="Redevable" Grid.Row="5" Grid.ColumnSpan="2"></Label>
+
+    
+            <Label Content="Numero  Redevable " Grid.Row="6"  />
+            <TextBox x:Name="redavableId" TextWrapping="Wrap" Background="{x:Null}" Grid.Column="1" Grid.Row="6" />
+            <Label Content="{x:Static r:Strings.FirstName}" Background="{x:Null}" Grid.Row="7" />
+            <TextBox x:Name="redevableName" Grid.Column="1" Grid.Row="7" />
+            <Label Content="{x:Static r:Strings.LastName}" Background="{x:Null}" Grid.Row="8" />
+            <TextBox x:Name="redevableLastName" Grid.Row="8" Grid.Column="1" />
+            <Label Content="{x:Static r:Strings.Type}" Background="{x:Null}" Grid.Row="9" />
+            <ComboBox x:Name="RedevableType" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" Margin="146,38.2,0,0.4" Grid.RowSpan="2" Width="201">
+                <Label>PM</Label>
+                <Label>PF</Label>
+            </ComboBox>
+            <Label Content="Telephone " Background="{x:Null}" Grid.Row="10" />
+            <TextBox x:Name="Telephone" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  Grid.Row="10" Grid.Column="1" />
         <Button Name="Nouveau_Fichier_Button" Click="Nouveau_Fichier_Button_Click"
-                VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5">
+                VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="12" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal">
                 <fa:IconImage Width="20" Height="20" Icon="Plus"
                               Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
@@ -44,16 +67,7 @@
             </StackPanel>
         </Button>
 
-        <Button Name="Rechercher_Fichier_Button" Click="Rechercher_Fichier_Button_Click"
-                VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
-                <fa:IconImage Width="20" Height="20" Icon="Search"
-                              Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
-                <Label Padding="0" Margin="5 0" Content="{x:Static r:Strings.FindFile}"
-                       Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
-            </StackPanel>
-        </Button>
-
-        <DataGrid Grid.Row="6" Grid.ColumnSpan="2"  Visibility="Visible" Name="DossierGrid" HorizontalAlignment="Stretch" />
     </Grid>
+    
+
 </DockPanel>

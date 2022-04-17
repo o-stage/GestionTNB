@@ -6,6 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: "nuget"
-    directory: "/TaxesV1" # Location of package manifests
+    directory: "/" # Location of package manifests
     schedule:
       interval: "daily"

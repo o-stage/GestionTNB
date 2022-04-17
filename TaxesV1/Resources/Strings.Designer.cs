@@ -268,6 +268,15 @@ namespace TaxesV1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manage users.
+        /// </summary>
+        public static string ManageUsers {
+            get {
+                return ResourceManager.GetString("ManageUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Declaration.
         /// </summary>
         public static string NewDeclaration {

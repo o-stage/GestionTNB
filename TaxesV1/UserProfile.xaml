@@ -6,7 +6,7 @@
            xmlns:r="clr-namespace:TaxesV1.Resources"
            xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
            mc:Ignorable="d"
-           Background="White">
+          >
     <Grid Name="ChangePasswordPanel" IsEnabled="False" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />

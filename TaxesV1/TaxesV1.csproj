@@ -141,6 +141,9 @@
     <Compile Include="ManageUsers.xaml.cs">
       <DependentUpon>ManageUsers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditFile.xaml.cs">
+      <DependentUpon>EditFile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MoneyTools.cs"/>
     <Compile Include="MultiValueConverters\AccountableTypeConverter.cs"/>
     <Compile Include="MultiValueConverters\DifferenceConverter.cs"/>
@@ -160,7 +163,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
+    <Compile Include="Settings.cs"/>
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -209,6 +212,10 @@
     </Compile>
     <Page Include="MainWindow.xaml"/>
     <Page Include="ManageUsers.xaml"/>
+    <Page Include="EditFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewDeclaration.xaml"/>
     <Page Include="Settings.xaml"/>
     <Page Include="SideMenuItem.xaml"/>

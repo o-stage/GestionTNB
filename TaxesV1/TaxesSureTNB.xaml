@@ -34,6 +34,15 @@
                 </StackPanel>
             </Button>
 
+            <Button Name="EditFile" Click="ModifyFile_OnClick" IsEnabled="False"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Width="20" Height="20" Icon="Edit"
+                                  Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
+                    <Label Padding="0" Margin="5 0" Content="Edit File"
+                           Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
+                </StackPanel>
+            </Button>
         </StackPanel>
         <Grid DockPanel.Dock="Right">
             <Grid.RowDefinitions>

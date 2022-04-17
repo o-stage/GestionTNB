@@ -58,6 +58,7 @@ namespace TaxesV1
             DataGrid.ItemsSource = tax._taxes;
             PrintButton.IsEnabled = true;
             NewDeclarationButton.IsEnabled = true;
+            EditFile.IsEnabled = true;
         }
 
         private void NewDeclarationButton_OnClick(object sender, RoutedEventArgs e)
@@ -68,6 +69,16 @@ namespace TaxesV1
                 NDossier = FileNumber.Text
             };
             newDeclaration.ShowDialog();
+        }
+
+        private void ModifyFile_OnClick(object sender, RoutedEventArgs e)
+        {
+            EditFile editFile = new EditFile()
+            {
+                Owner = Window.GetWindow(this)
+            };
+
+            editFile.ShowDialog();
         }
     }
 }

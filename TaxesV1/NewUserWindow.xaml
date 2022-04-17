@@ -16,13 +16,15 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resources:Strings.Username}" />
-        <TextBox Grid.Row="0" Grid.Column="1" />
+        <TextBox Name="UserNameTextBox" Grid.Row="0" Grid.Column="1" />
         <Label Content="{x:Static resources:Strings.Password}" Grid.Row="1" Grid.Column="0" />
-        <TextBox Grid.Row="1" Grid.Column="1" />
+        <PasswordBox Name="PasswordTextBox" Grid.Row="1" Grid.Column="1" />
         <Label Content="{x:Static resources:Strings.ConfirmPassword}" Grid.Row="2" Grid.Column="0" />
-        <TextBox Grid.Row="2" Grid.Column="1" />
-        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="{x:Static resources:Strings.NewUser}" />
+        <PasswordBox Name="ConfirmPasswordTextBox" Grid.Row="2" Grid.Column="1" />
+        <Button Click="NewUserButton_OnClick" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="{x:Static resources:Strings.NewUser}" />
+        <Label Name="ErrorLabel" Foreground="Red" HorizontalAlignment="Center" Visibility="Hidden" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Content="{x:Static resources:Strings.ConfirmPassword}" />
     </Grid>
 </Window>

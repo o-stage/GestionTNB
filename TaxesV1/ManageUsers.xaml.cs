@@ -9,8 +9,13 @@ namespace TaxesV1
         public ManageUsers()
         {
             InitializeComponent();
+            FillGird();
+        }
+
+        private void FillGird()
+        {
             var data = Data.Entities.Database.SqlQuery<DatabasePrincipal>(
-                "select * from sys.database_principals where authentication_type=2").ToList();
+                "select * from sys.database_principals where authentication_type in (2,3) ").ToList();
             Users.ItemsSource = data;
             Users.DataContext = data;
         }
@@ -21,6 +26,7 @@ namespace TaxesV1
             {
                 Owner = Window.GetWindow(this)
             }.ShowDialog();
+            FillGird();
         }
     }
 }

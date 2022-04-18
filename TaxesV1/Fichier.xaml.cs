@@ -40,8 +40,39 @@ namespace TaxesV1
             doss.RedevableId = idredevablecombo.Text;
             doss.TerrainID = ntfcombo.Text;
             Data.Entities.Dossiers.Add(doss);
+
+
+            var redevabletest = Data.Entities.Redevables.Find(redavableId.Text);
+            if (redevabletest == null)
+            {
+                Redevable redevable = new Redevable();
+
+                redevable.ID = redavableId.Text;
+                redevable.Prenom = redevableName.Text;
+                redevable.Nom = redevableLastName.Text;
+                redevable.Type= RedevableType.Text;
+                redevable.Tel = Telephone.Text;
+
+                Data.Entities.Redevables.Add(redevable);
+            }
+
+            var terraintest = Data.Entities.Terrains.Find(ntfcombo.SelectedItem.ToString());
+            if (terraintest != null)
+            {
+                Terrain terrain = new Terrain();
+                terrain.NTF = ntf.Text;
+                terrain.Lieu = terrainlieu.Text;
+                terrain.SuperficeBrute =double.Parse( terrainSuperBrute.Text);
+                terrain.SuperficeTaxable = double.Parse(terrainSuperTaxable.Text);
+                terrain.Etat = terrainEtat.Text ;
+                terrain.Type = terrainType.Text;
+                terrain.DateChangementEtat = terrainDateChangement.SelectedDate;
+                Data.Entities.Terrains.Add(terrain);
+            }
+
+
             Data.Entities.SaveChanges();
-            clearChamps();
+          
         }
 
         private void Rechercher_Fichier_Button_Click(object sender, RoutedEventArgs e)

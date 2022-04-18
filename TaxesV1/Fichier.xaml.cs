@@ -90,18 +90,27 @@ namespace TaxesV1
             ntfcombo.Text = doss.TerrainID;
         }
 
-        private void RedevableType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+     
+
+
+        private void ntfcombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
-        private void redavableId_TextChanged(object sender, TextChangedEventArgs e)
-        { 
-        }
-        
         private void idredevablecombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var redevable = Data.Entities.Redevables.Find(idredevablecombo.SelectedItem.ToString());
+
+        }
+
+        private void idredevablecombo_TextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+           
+        }
+
+        private void idredevablecombo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var redevable = Data.Entities.Redevables.Find(idredevablecombo.Text);
             if (redevable != null)
             {
                 redavableId.Text = redevable.ID.ToString();
@@ -110,29 +119,44 @@ namespace TaxesV1
                 RedevableType.Text = redevable.Type.ToString();
                 Telephone.Text = redevable.Tel.ToString();
             }
-            else {
+            else
+            {
 
-                redavableId.IsEnabled = true;
-                redevableName.IsEnabled = true;
-                redevableLastName.IsEnabled = true;
-                RedevableType.IsEnabled = true;
-                Telephone.IsEnabled = true;
+
+                redavableId.Text = "";
+                redevableName.Text = "";
+                redevableLastName.Text = "";
+                RedevableType.Text = "";
+                Telephone.Text = "";
             }
+            
+            redavableId.IsEnabled =    redevableName.IsEnabled =   redevableLastName.IsEnabled =
+            RedevableType.IsEnabled =Telephone.IsEnabled = redevable == null;
         }
 
-        private void ntfcombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ntfcombo_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var terrain = Data.Entities.Terrains.Find(ntfcombo.SelectedItem.ToString());
+            var terrain = Data.Entities.Terrains.Find(ntfcombo.Text);
             if (terrain != null)
             {
                 ntf.Text = terrain.NTF.ToString();
                 terrainlieu.Text = terrain.Lieu.ToString();
                 terrainSuperBrute.Text = terrain.SuperficeBrute.ToString();
                 terrainSuperTaxable.Text = terrain.SuperficeTaxable.ToString();
-                terrainEtat.Text = terrain.Etat.ToString();
                 terrainType.Text = terrain.Type.ToString();
+                terrainEtat.Text = terrain.Etat.ToString();
                 terrainDateChangement.SelectedDate = terrain.DateChangementEtat;
             }
+
+            else
+                {
+
+                ntf.Text = terrainlieu.Text = terrainSuperBrute.Text = terrainSuperTaxable.Text =
+                terrainType.Text = terrainEtat.Text = terrainDateChangement.Text = "" ;
+
+            }
+            ntf.IsEnabled = terrainlieu.IsEnabled = terrainSuperBrute.IsEnabled = terrainSuperTaxable.IsEnabled = 
+            terrainType.IsEnabled = terrainEtat.IsEnabled =  terrainDateChangement.IsEnabled = terrain == null;
         }
     }
 }

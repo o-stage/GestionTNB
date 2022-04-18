@@ -53,21 +53,21 @@
         <Label Content="{x:Static r:Strings.StartDate}" Background="{x:Null}" Grid.Row="2" />
         <DatePicker x:Name="datedebutDatePicker" Grid.Row="2" Grid.Column="1" />
         <Label Content="{x:Static r:Strings.Accountable}" Background="{x:Null}" Grid.Row="3" />
-        <ComboBox x:Name="idredevablecombo" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
-                  Grid.Row="3" SelectionChanged="idredevablecombo_SelectionChanged" Grid.Column="1" />
+        <ComboBox x:Name="idredevablecombo" TextBoxBase.TextChanged="idredevablecombo_TextChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  Grid.Row="3"  Grid.Column="1" IsEditable="True" SelectionChanged="idredevablecombo_SelectionChanged" TextInput="idredevablecombo_TextInput" />
         <Label Content="{x:Static r:Strings.LandTitleNumber}" Background="{x:Null}" Grid.Row="4" />
-        <ComboBox x:Name="ntfcombo" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
-                  Grid.Row="4" SelectionChanged="ntfcombo_SelectionChanged" Grid.Column="1" />
+        <ComboBox x:Name="ntfcombo" TextBoxBase.TextChanged="ntfcombo_TextChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  Grid.Row="4" SelectionChanged="ntfcombo_SelectionChanged" Grid.Column="1" IsEditable="True" />
 
         <Label Foreground="BlueViolet" Content="Redevable" Grid.Row="5"/>
 
 
         <Label Content="{x:Static r:Strings.NumRedevable}"  Grid.Row="6"  />
-        <TextBox x:Name="redavableId" IsEnabled="False" TextWrapping="Wrap" Grid.Row="6" TextChanged="redavableId_TextChanged" Grid.Column="1" />
+        <TextBox x:Name="redavableId" Margin="0" IsEnabled="False" TextWrapping="Wrap" Grid.Row="6"  Grid.Column="1" />
         <Label Content="{x:Static r:Strings.FirstName}" Background="{x:Null}" Grid.Row="7" />
-        <TextBox x:Name="redevableName"  IsEnabled="False" Grid.Row="7" Grid.Column="1" />
+        <TextBox x:Name="redevableName" HorizontalContentAlignment="Stretch" Margin="0" IsEnabled="False" Grid.Row="7" Grid.Column="1" />
         <Label Content="{x:Static r:Strings.LastName}" Background="{x:Null}" Grid.Row="8" />
-        <TextBox x:Name="redevableLastName" IsEnabled="False" Grid.Row="8" Grid.Column="1" />
+        <TextBox x:Name="redevableLastName" IsEnabled="False" Grid.Row="8" Margin="0" Grid.Column="1" />
         <Label Content="{x:Static r:Strings.Type}" Background="{x:Null}" Grid.Row="9" />
         <ComboBox IsEnabled="False" x:Name="RedevableType" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                   Grid.Row="9" Grid.Column="1" >
@@ -75,7 +75,7 @@
             <Label>PF</Label>
         </ComboBox>
         <Label Content="{x:Static r:Strings.phone}"  Background="{x:Null}" Grid.Row="10" />
-        <TextBox IsEnabled="False" x:Name="Telephone" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+        <TextBox IsEnabled="False" x:Name="Telephone" Margin="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                   Grid.Row="10" Grid.Column="1" />
 
 
@@ -84,17 +84,17 @@
 
 
         <Label Content="terrainNTF"  Grid.Row="12"  />
-        <TextBox x:Name="ntf" TextWrapping="Wrap" Grid.Row="12" Grid.Column="1" />
-        <Label Content="Lieu" Background="{x:Null}" Grid.Row="13" />
-        <TextBox x:Name="terrainlieu" Grid.Row="13" Grid.Column="1" />
+        <TextBox IsEnabled="False" x:Name="ntf" Margin="0" TextWrapping="Wrap" Grid.Row="12" Grid.Column="1" />
+        <Label Content="Lieu" Margin="0" Background="{x:Null}" Grid.Row="13" />
+        <TextBox x:Name="terrainlieu"  IsEnabled="False"  Margin="0" VerticalContentAlignment="Center" Grid.Row="13" Grid.Column="1" />
         <Label Content="Superficie Brute" Background="{x:Null}" Grid.Row="14" />
-        <TextBox x:Name="terrainSuperBrute" Grid.Row="14" Grid.Column="1" />
+        <TextBox x:Name="terrainSuperBrute"   IsEnabled="False"  Margin="0" Grid.Row="14" Grid.Column="1" />
         <Label Content="Superficie Taxable" Background="{x:Null}" Grid.Row="15" />
-        <TextBox x:Name="terrainSuperTaxable" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+        <TextBox x:Name="terrainSuperTaxable"  IsEnabled="False"  Margin="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                   Grid.Row="15" Grid.Column="1"/>
 
         <Label Content="{x:Static r:Strings.Type}"  Background="{x:Null}" Grid.Row="16" />
-        <ComboBox x:Name="terrainType" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+        <ComboBox x:Name="terrainType"  IsEnabled="False"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                   Grid.Row="16" Grid.Column="1" >
 
             <Label>villa</Label>
@@ -102,14 +102,15 @@
             <Label>economique</Label>
         </ComboBox>
         <Label Content="Etat"  Background="{x:Null}" Grid.Row="17" />
-        <ComboBox x:Name="terrainEtat" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+        <ComboBox x:Name="terrainEtat"  IsEnabled="False"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                   Grid.Row="17" Grid.Column="1" >
             <Label>bati</Label>
             <Label>Nonbati</Label>
             <Label>Construction</Label>
         </ComboBox>
+
         <Label Content="Date de chanegement de l'etat"  Background="{x:Null}" Grid.Row="18" />
-        <DatePicker x:Name="terrainDateChangement" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+        <DatePicker x:Name="terrainDateChangement"   IsEnabled="False"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                   Grid.Row="18" Grid.Column="1" />
 
 

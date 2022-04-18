@@ -32,7 +32,7 @@
             <TextBox x:Name="FileNumber" Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False" Margin="25,19,-125,10" Grid.Column="1" Grid.Row="1" Height="35" />
             <Label Content="Date Début :" Margin="29,24,0,24" Grid.Row="2" />
             <DatePicker x:Name="StartDatePicker" SelectedDate="{Binding DateDebut, Mode=OneTime}"
-                FirstDayOfWeek="Monday" IsEnabled="False" Margin="25,12,-125,24" Grid.Row="2" Grid.Column="1" Height="35" />
+                FirstDayOfWeek="Monday" IsEnabled="True" Margin="25,12,-125,24" Grid.Row="2" Grid.Column="1" Height="35" IsTodayHighlighted="False" />
             <TextBox x:Name="Etat" TextWrapping="Wrap" Margin="25,10,-125,24" Grid.Column="1" Grid.Row="3" Height="35" />
             <Label Content="Etat :" Margin="29,24,10,24" Grid.Row="3" />
             <Label Content="Date Changement Etat :" Margin="29,20,0,28" Grid.Row="4" />
@@ -44,8 +44,8 @@
                         Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
                 </StackPanel>
             </Button>
-            <DatePicker x:Name="DateChangementEtat" SelectedDate=""
-                FirstDayOfWeek="Monday" IsEnabled="False" Margin="25,10,-125,28" Grid.Row="4" Grid.Column="1" />
+            <DatePicker x:Name="DateChangementEtat"
+                FirstDayOfWeek="Monday" IsEnabled="True" Margin="25,10,-125,28" Grid.Row="4" Grid.Column="1" IsTodayHighlighted="False" />
         </Grid>
 
 

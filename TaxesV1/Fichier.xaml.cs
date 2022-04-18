@@ -13,13 +13,13 @@ namespace TaxesV1
         public Fichier()
         {
             InitializeComponent();
-
             var ntf = Data.Entities.Terrains.Select(p => p.NTF);
             var idRedevable = Data.Entities.Redevables.Select(r => r.ID);
             ntfcombo.ItemsSource = ntf.ToList();
+            
             idredevablecombo.ItemsSource = idRedevable.ToList();
-            ntfcombo.SelectedIndex = 0;
-            idredevablecombo.SelectedIndex = 0;
+
+
         }
 
         void clearChamps()
@@ -62,6 +62,46 @@ namespace TaxesV1
         private void RedevableType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void redavableId_TextChanged(object sender, TextChangedEventArgs e)
+        { 
+        }
+        
+        private void idredevablecombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var redevable = Data.Entities.Redevables.Find(idredevablecombo.SelectedItem.ToString());
+            if (redevable != null)
+            {
+                redavableId.Text = redevable.ID.ToString();
+                redevableName.Text = redevable.Prenom.ToString();
+                redevableLastName.Text = redevable.Nom.ToString();
+                RedevableType.Text = redevable.Type.ToString();
+                Telephone.Text = redevable.Tel.ToString();
+            }
+            else {
+
+                redavableId.IsEnabled = true;
+                redevableName.IsEnabled = true;
+                redevableLastName.IsEnabled = true;
+                RedevableType.IsEnabled = true;
+                Telephone.IsEnabled = true;
+            }
+        }
+
+        private void ntfcombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var terrain = Data.Entities.Terrains.Find(ntfcombo.SelectedItem.ToString());
+            if (terrain != null)
+            {
+                ntf.Text = terrain.NTF.ToString();
+                terrainlieu.Text = terrain.Lieu.ToString();
+                terrainSuperBrute.Text = terrain.SuperficeBrute.ToString();
+                terrainSuperTaxable.Text = terrain.SuperficeTaxable.ToString();
+                terrainEtat.Text = terrain.Etat.ToString();
+                terrainType.Text = terrain.Type.ToString();
+                terrainDateChangement.SelectedDate = terrain.DateChangementEtat;
+            }
         }
     }
 }

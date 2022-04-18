@@ -5,12 +5,12 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
            xmlns:r="clr-namespace:TaxesV1.Resources"
-           mc:Ignorable="d" Height="414.17" Width="572.735">
-    <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" Height="523" Margin="0,0,0,-184.6">
+           mc:Ignorable="d" Height="800.17" Width="800.735">
+    <Grid HorizontalAlignment="Center"  VerticalAlignment="Top" Height="655" Margin="0,15,0,0" Width="600">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="167.154" />
-            <ColumnDefinition Width="1.646"/>
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="250" />
+
+            <ColumnDefinition Width="350" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -31,20 +31,22 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
 
             <RowDefinition Height="2*" />
 
         </Grid.RowDefinitions>
 
-        <Label Content="{x:Static r:Strings.FileNumber}" Grid.ColumnSpan="3" Margin="0,0,199.8,25.2" Grid.RowSpan="2"  />
-        <TextBox x:Name="NumDosstxt" TextWrapping="Wrap" Background="{x:Null}" Grid.Column="2" Margin="5.2,2,4.8,1.6" />
+        <Label Content="{x:Static r:Strings.FileNumber}" Grid.ColumnSpan="3" Margin="0,9.8,0,25.2" Grid.RowSpan="2"  />
+        <TextBox x:Name="NumDosstxt" TextWrapping="Wrap" Background="Gray"  Margin="6.6,0,6,0" Grid.Column="1" />
         <Label Content="{x:Static r:Strings.FileDate}" Background="{x:Null}" Grid.Row="1" Grid.ColumnSpan="3" Margin="0,0.4,199.8,0.2" />
-        <DatePicker x:Name="datedossDatePicker" Grid.Column="2" Grid.Row="1" Margin="8.2,2.2,4.8,11.2" RenderTransformOrigin="0.5,0.5" >
+        <DatePicker x:Name="datedossDatePicker" Grid.Column="1" Grid.Row="1" Margin="6.6,9.8,6,4.4" RenderTransformOrigin="0.5,0.5" >
             <DatePicker.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform AngleY="1.212"/>
-                    <RotateTransform/>
+                    <RotateTransform Angle="-0.489"/>
                     <TranslateTransform Y="-1.979"/>
                 </TransformGroup>
             </DatePicker.RenderTransform>
@@ -53,53 +55,67 @@
         <DatePicker x:Name="datedebutDatePicker" Grid.Row="2" Grid.Column="2" Margin="5.2,1.8,4.8,9.6" />
         <Label Content="{x:Static r:Strings.Accountable}" Background="{x:Null}" Grid.Row="3" Grid.ColumnSpan="3" Margin="0,0.2,199.8,24.4" Grid.RowSpan="2" />
         <ComboBox x:Name="idredevablecombo" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
-                  Grid.Row="3" Grid.Column="2" Margin="0.2,0.2,-0.2,24.4" Grid.RowSpan="2" />
+                  Grid.Row="3" Grid.Column="2" Margin="0.2,0.2,-0.2,24.4" Grid.RowSpan="2" SelectionChanged="idredevablecombo_SelectionChanged" />
         <Label Content="{x:Static r:Strings.LandTitleNumber}" Background="{x:Null}" Grid.Row="4" Grid.ColumnSpan="3" Margin="0,0.4,199.8,0.4" />
         <ComboBox x:Name="ntfcombo" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
-                  Grid.Row="4" Grid.Column="2" Margin="0.2,0.4,-0.2,0.4" />
+                  Grid.Row="4" Grid.Column="2" Margin="0.2,0.4,-0.2,0.4" SelectionChanged="ntfcombo_SelectionChanged" />
 
         <Label Foreground="BlueViolet" HorizontalAlignment="Center" Content="Redevable" Grid.Row="4" Grid.ColumnSpan="3" Margin="142,24.4,142.8,0.2" Grid.RowSpan="2"></Label>
 
 
         <Label Content="{x:Static r:Strings.NumRedevable}"  Grid.Row="5" Grid.ColumnSpan="3" Margin="0,24.6,199.8,25.4" Grid.RowSpan="3"  />
-        <TextBox x:Name="redavableId" TextWrapping="Wrap" Background="{x:Null}" Grid.Column="2" Grid.Row="6" Margin="5.2,1.8,4.8,1.8" />
+        <TextBox x:Name="redavableId" IsEnabled="False" TextWrapping="Wrap" Background="{x:Null}" Grid.Column="2" Grid.Row="6" Margin="5.2,1.8,4.8,1.8" TextChanged="redavableId_TextChanged" />
         <Label Content="{x:Static r:Strings.FirstName}" Background="{x:Null}" Grid.Row="7" Grid.ColumnSpan="3" Margin="0,0.2,199.8,0.4" />
-        <TextBox x:Name="redevableName" Grid.Column="2" Grid.Row="7" Margin="5.2,1.2,4.8,2.4" />
+        <TextBox x:Name="redevableName"  IsEnabled="False" Grid.Column="1" Grid.Row="7" Margin="5.4,1.6,5,25.8" Grid.RowSpan="2" />
         <Label Content="{x:Static r:Strings.LastName}" Background="{x:Null}" Grid.Row="7" Grid.ColumnSpan="3" Margin="0,25.2,199.8,24.463" Grid.RowSpan="3" />
-        <TextBox x:Name="redevableLastName" Grid.Row="8" Grid.Column="2" Margin="5.2,1.6,4.8,1.663" />
+        <TextBox x:Name="redevableLastName" IsEnabled="False" Grid.Row="8" Grid.Column="2" Margin="5.2,1.6,4.8,1.663" />
         <Label Content="{x:Static r:Strings.Type}" Background="{x:Null}" Grid.Row="9" Grid.ColumnSpan="3" Margin="0,0.337,199.8,25.063" Grid.RowSpan="2" />
-        <ComboBox Height="20" x:Name="RedevableType" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
-                  Grid.Row="8" HorizontalAlignment="Left" Margin="5.2,24.6,0,5.463" Width="185" Grid.Column="2" Grid.RowSpan="2" SelectionChanged="RedevableType_SelectionChanged">
+        <ComboBox Height="20" IsEnabled="False" x:Name="RedevableType" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  Grid.Row="8" HorizontalAlignment="Left" Margin="5.2,24.6,0,5.463" Width="210" Grid.Column="2" Grid.RowSpan="2" >
             <Label>PM</Label>
             <Label>PF</Label>
         </ComboBox>
         <Label Content="{x:Static r:Strings.phone}"  Background="{x:Null}" Grid.Row="10" Grid.ColumnSpan="3" Margin="0,0.537,199.8,0.063" />
-        <TextBox x:Name="Telephone" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+        <TextBox IsEnabled="False" x:Name="Telephone" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                   Grid.Row="10" Grid.Column="2" Margin="5.2,1.537,4.8,2.063" />
+
 
         <Label Foreground="#FF2B55E2" HorizontalAlignment="Center" Content="Terrain" Grid.Row="10" Grid.ColumnSpan="3" FontWeight="Medium" FontSize="16" Grid.IsSharedSizeScope="True" Margin="150,25.537,149.8,25.263" Grid.RowSpan="3"/>
 
 
 
-        <Label Content="{x:Static r:Strings.NumRedevable}"  Grid.Row="12" Grid.ColumnSpan="3" Margin="0,0.337,199.8,24.863" Grid.RowSpan="2"  />
-        <TextBox x:Name="a" TextWrapping="Wrap" Background="{x:Null}" Grid.Column="2" Grid.Row="12" Margin="5.2,2.337,4.8,1.263" />
-        <Label Content="{x:Static r:Strings.FirstName}" Background="{x:Null}" Grid.Row="13" Grid.ColumnSpan="3" Margin="0,0.737,199.8,25.126" Grid.RowSpan="2" />
-        <TextBox x:Name="b" Grid.Column="2" Grid.Row="13" Margin="5.2,1.737,4.8,1.863" />
-        <Label Content="{x:Static r:Strings.LastName}" Background="{x:Null}" Grid.Row="14" Grid.ColumnSpan="3" Margin="0,0.137,199.8,23.926" Grid.RowSpan="2" />
-        <TextBox x:Name="c" Grid.Row="14" Grid.Column="2" Margin="5.2,2.137,4.8,1.126" />
-        <Label Content="{x:Static r:Strings.Type}" Background="{x:Null}" Grid.Row="14" Grid.ColumnSpan="3" Margin="0,25.137,199.8,25.526" Grid.RowSpan="3" />
-        <ComboBox Height="20" x:Name="d" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
-                  Grid.Row="16" HorizontalAlignment="Left" Margin="5.2,0.074,0,5.526" Width="185" Grid.Column="2" SelectionChanged="RedevableType_SelectionChanged">
-            <Label>PM</Label>
-            <Label>PF</Label>
+        <Label Content="terrainNTF"  Grid.Row="12" Grid.ColumnSpan="3" Margin="0,0.337,199.8,24.863" Grid.RowSpan="2"  />
+        <TextBox x:Name="ntf" TextWrapping="Wrap" Background="{x:Null}" Grid.Column="2" Grid.Row="12" Margin="5.2,2.337,4.8,1.263" />
+        <Label Content="Lieu" Background="{x:Null}" Grid.Row="13" Grid.ColumnSpan="3" Margin="0,0.737,199.8,25.126" Grid.RowSpan="2" />
+        <TextBox x:Name="terrainlieu" Grid.Column="2" Grid.Row="13" Margin="5.2,1.737,4.8,1.863" />
+        <Label Content="Superficie Brute" Background="{x:Null}" Grid.Row="14" Grid.ColumnSpan="3" Margin="0,0.137,199.8,23.926" Grid.RowSpan="2" />
+        <TextBox x:Name="terrainSuperBrute" Grid.Row="14" Grid.Column="2" Margin="5.2,2.137,4.8,1.126" />
+        <Label Content="Superficie Taxable" Background="{x:Null}" Grid.Row="14" Grid.ColumnSpan="3" Margin="0,25.137,199.8,25.526" Grid.RowSpan="3" />
+        <TextBox Height="20" x:Name="terrainSuperTaxable" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  Grid.Row="15" HorizontalAlignment="Left" Margin="5.2,0.074,0,5.526" Width="185" Grid.Column="2"/>
+
+        <Label Content="{x:Static r:Strings.Type}"  Background="{x:Null}" Grid.Row="16" Grid.ColumnSpan="3" Margin="0,0.074,199.8,0.526" />
+        <ComboBox x:Name="terrainType" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  Grid.Row="16" Grid.Column="2" Margin="5.2,2.074,4.8,1.526" >
+
+            <Label>villa</Label>
+            <Label>immeuble</Label>
+            <Label>economique</Label>
         </ComboBox>
-        <Label Content="{x:Static r:Strings.phone}"  Background="{x:Null}" Grid.Row="16" Grid.ColumnSpan="3" Margin="0,0.074,199.8,0.526" />
-        <TextBox x:Name="e" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
-                  Grid.Row="16" Grid.Column="2" Margin="5.2,2.074,4.8,1.526" />
+        <Label Content="Etat"  Background="{x:Null}" Grid.Row="17" Grid.ColumnSpan="3" Margin="0,0.074,199.8,0.526" />
+        <ComboBox x:Name="terrainEtat" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  Grid.Row="17" Grid.Column="2" Margin="5.2,2.074,4.8,1.526" >
+            <Label>bati</Label>
+            <Label>Nonbati</Label>
+            <Label>Construction</Label>
+        </ComboBox>
+        <Label Content="Date de chanegement de l'etat"  Background="{x:Null}" Grid.Row="18" Grid.ColumnSpan="3" Margin="0,0.074,199.8,0.526" />
+        <DatePicker x:Name="terrainDateChangement" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  Grid.Row="18" Grid.Column="2" Margin="5.2,2.074,4.8,1.526" />
 
 
         <Button Name="Nouveau_Fichier_Button" Click="Nouveau_Fichier_Button_Click"
-                VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="17" Grid.ColumnSpan="3" Margin="103,7.474,102.8,7.926">
+                VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="19" Grid.ColumnSpan="3" Margin="103,7.474,102.8,7.926">
             <StackPanel Orientation="Horizontal">
                 <fa:IconImage Width="20" Height="20" Icon="Plus"
                               Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
@@ -107,7 +123,6 @@
                        Foreground="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" />
             </StackPanel>
         </Button>
-
     </Grid>
 
 

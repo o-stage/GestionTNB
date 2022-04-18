@@ -231,16 +231,16 @@
   <data name="UnbuiltLandFile" xml:space="preserve">
     <value>Dossier terrain non bâti</value>
   </data>
-    <data name="Logout" xml:space="preserve">
+  <data name="Logout" xml:space="preserve">
     <value>Se déconnecter</value>
   </data>
-    <data name="Save" xml:space="preserve">
+  <data name="Save" xml:space="preserve">
     <value>Sauvegarder</value>
   </data>
-    <data name="Language" xml:space="preserve">
+  <data name="Language" xml:space="preserve">
     <value>Langue</value>
   </data>
-    <data name="ConfirmPassword" xml:space="preserve">
+  <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirmez le mot de passe</value>
   </data>
   <data name="OldPassword" xml:space="preserve">
@@ -257,5 +257,11 @@
   </data>
   <data name="NewUser" xml:space="preserve">
     <value>Nouveau utilisateur</value>
+  </data>
+  <data name="NumRedevable" xml:space="preserve">
+    <value>numero Redevable</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telephone</value>
   </data>
 </root>

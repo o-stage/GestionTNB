@@ -99,4 +99,7 @@ create table Declaration
 )
 go
 
+alter table Declaration add NQuitance       varchar(20)
+alter table Declaration add NAvis           int
+
 

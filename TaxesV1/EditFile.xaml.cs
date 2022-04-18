@@ -34,15 +34,15 @@ namespace TaxesV1
             Dossier dossier = Data.Entities.Dossiers.Find(_fileNumber);
             if (dossier != null)
             {
-                dossier.DateDebut = System.DateTime.Parse(StartDatePicker.Text);
+                dossier.DateDebut = StartDatePicker.SelectedDate.Value;
                 Terrain terrain = Data.Entities.Terrains.Find(dossier.TerrainID);
                 if (terrain != null)
                 {
                     terrain.Etat = Etat.Text;
-                    terrain.DateChangementEtat = System.DateTime.Parse(DateChangementEtat.Text);
+                    terrain.DateChangementEtat = DateChangementEtat.SelectedDate.Value;
                 }
 
-                
+                Data.Entities.Terrains.
             }
             
         }

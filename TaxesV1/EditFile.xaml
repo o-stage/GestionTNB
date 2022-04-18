@@ -6,9 +6,9 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" x:Class="TaxesV1.EditFile"
         mc:Ignorable="d" Width="800" Height="450" WindowStartupLocation="CenterOwner">
     <DockPanel>
-        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DockPanel.Dock="Bottom">
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Bottom">
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"  />
+                <RowDefinition  />
                 <RowDefinition  />
                 <RowDefinition  />
                 <RowDefinition  />
@@ -16,10 +16,10 @@
                 <RowDefinition  />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="200" />
-                <ColumnDefinition Width="100" />
             </Grid.ColumnDefinitions>
-            <Label Content="N° Dossier :" RenderTransformOrigin="0.5,0.5" Margin="30,24,1,19" Grid.Row="1" >
+            <Label Content="N° Dossier :" RenderTransformOrigin="0.5,0.5" Grid.Row="1" >
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -29,23 +29,27 @@
                     </TransformGroup>
                 </Label.RenderTransform>
             </Label>
-            <TextBox x:Name="FileNumber" Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False" Margin="25,19,-125,10" Grid.Column="1" Grid.Row="1" Height="35" />
-            <Label Content="Date Début :" Margin="29,24,0,24" Grid.Row="2" />
+            <TextBox x:Name="FileNumber" Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False" Grid.Column="1" Grid.Row="1" />
+            <Label Content="Date Début :" Grid.Row="2" />
             <DatePicker x:Name="StartDatePicker" SelectedDate="{Binding DateDebut, Mode=OneTime}"
-                FirstDayOfWeek="Monday" IsEnabled="True" Margin="25,12,-125,24" Grid.Row="2" Grid.Column="1" Height="35" IsTodayHighlighted="False" />
-            <TextBox x:Name="Etat" TextWrapping="Wrap" Margin="25,10,-125,24" Grid.Column="1" Grid.Row="3" Height="35" />
-            <Label Content="Etat :" Margin="29,24,10,24" Grid.Row="3" />
-            <Label Content="Date Changement Etat :" Margin="29,20,0,28" Grid.Row="4" />
-            <Button Click="EditFileButton_OnClick" Grid.Column="1" Margin="24,14,-100,24" Grid.Row="5">
+                FirstDayOfWeek="Monday" IsEnabled="True" Grid.Row="2" Grid.Column="1" IsTodayHighlighted="False" />
+            <ComboBox x:Name="Etat" Grid.Column="1" Grid.Row="3" >
+                <ComboBoxItem>Non Batu</ComboBoxItem>
+                <ComboBoxItem>Construction</ComboBoxItem>
+                <ComboBoxItem>Batu</ComboBoxItem>
+            </ComboBox>
+            <Label Content="Etat :" Grid.Row="3" />
+            <Label Content="Date Changement Etat :" Grid.Row="4" />
+            <Button Click="EditFileButton_OnClick" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2">
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Width="20" Height="20" Icon="Edit"
-                        Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                        Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" HorizontalAlignment="Center" />
                     <Label Padding="0" Margin="5 0" Content="Modifier le Dossier"
                         Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
                 </StackPanel>
             </Button>
             <DatePicker x:Name="DateChangementEtat"
-                FirstDayOfWeek="Monday" IsEnabled="True" Margin="25,10,-125,28" Grid.Row="4" Grid.Column="1" IsTodayHighlighted="False" />
+                FirstDayOfWeek="Monday" IsEnabled="True" Grid.Row="4" Grid.Column="1" IsTodayHighlighted="False" />
         </Grid>
 
 

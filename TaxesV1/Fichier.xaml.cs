@@ -33,6 +33,40 @@ namespace TaxesV1
 
         private void Nouveau_Fichier_Button_Click(object sender, RoutedEventArgs e)
         {
+            var redevabletest = Data.Entities.Redevables.Find(redavableId.Text);
+            if (redevabletest == null)
+            {
+                Redevable redevable = new Redevable();
+
+                redevable.ID = redavableId.Text;
+                redevable.Prenom = redevableName.Text;
+                redevable.Nom = redevableLastName.Text;
+                redevable.Type = RedevableType.Text;
+                redevable.Tel = Telephone.Text;
+
+                Data.Entities.Redevables.Add(redevable);
+
+
+            }
+
+            var terraintest = Data.Entities.Terrains.Find(ntf.Text);
+            if (terraintest == null)
+            {
+                Terrain terrain = new Terrain();
+                terrain.NTF = ntf.Text;
+                MessageBox.Show(ntf.Text);
+                terrain.Lieu = terrainlieu.Text;
+                terrain.SuperficeBrute = double.Parse(terrainSuperBrute.Text);
+                terrain.SuperficeTaxable = double.Parse(terrainSuperTaxable.Text);
+                terrain.Etat = terrainEtat.Text;
+                terrain.Type = terrainType.Text;
+                terrain.DateChangementEtat = terrainDateChangement.SelectedDate;
+                Data.Entities.Terrains.Add(terrain);
+
+
+            }
+
+
             var doss = new Dossier();
             doss.NDossier = NumDosstxt.Text;
             doss.DateDebut = datedebutDatePicker.SelectedDate.Value;
@@ -42,37 +76,10 @@ namespace TaxesV1
             Data.Entities.Dossiers.Add(doss);
 
 
-            var redevabletest = Data.Entities.Redevables.Find(redavableId.Text);
-            if (redevabletest == null)
-            {
-                Redevable redevable = new Redevable();
-
-                redevable.ID = redavableId.Text;
-                redevable.Prenom = redevableName.Text;
-                redevable.Nom = redevableLastName.Text;
-                redevable.Type= RedevableType.Text;
-                redevable.Tel = Telephone.Text;
-
-                Data.Entities.Redevables.Add(redevable);
-            }
-
-            var terraintest = Data.Entities.Terrains.Find(ntfcombo.SelectedItem.ToString());
-            if (terraintest != null)
-            {
-                Terrain terrain = new Terrain();
-                terrain.NTF = ntf.Text;
-                terrain.Lieu = terrainlieu.Text;
-                terrain.SuperficeBrute =double.Parse( terrainSuperBrute.Text);
-                terrain.SuperficeTaxable = double.Parse(terrainSuperTaxable.Text);
-                terrain.Etat = terrainEtat.Text ;
-                terrain.Type = terrainType.Text;
-                terrain.DateChangementEtat = terrainDateChangement.SelectedDate;
-                Data.Entities.Terrains.Add(terrain);
-            }
-
-
             Data.Entities.SaveChanges();
-          
+
+
+
         }
 
         private void Rechercher_Fichier_Button_Click(object sender, RoutedEventArgs e)
@@ -123,7 +130,7 @@ namespace TaxesV1
             {
 
 
-                redavableId.Text = "";
+                redavableId.Text = idredevablecombo.Text;
                 redevableName.Text = "";
                 redevableLastName.Text = "";
                 RedevableType.Text = "";
@@ -151,7 +158,8 @@ namespace TaxesV1
             else
                 {
 
-                ntf.Text = terrainlieu.Text = terrainSuperBrute.Text = terrainSuperTaxable.Text =
+                ntf.Text = ntfcombo.Text;
+                terrainlieu.Text = terrainSuperBrute.Text = terrainSuperTaxable.Text =
                 terrainType.Text = terrainEtat.Text = terrainDateChangement.Text = "" ;
 
             }

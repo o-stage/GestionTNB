@@ -5,6 +5,7 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
            xmlns:r="clr-namespace:TaxesV1.Resources"
+
            mc:Ignorable="d" d:DesignHeight="900" d:DesignWidth="900" Background="White">
 
     <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
@@ -34,7 +35,7 @@
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0">
 
                 <Label Content="{x:Static r:Strings.StartDate}" Background="{x:Null}" />
-                <DatePicker SelectedDate="{Binding Path=DateDebut}"/>
+                <DatePicker SelectedDate="{Binding Path=DateDebut}" />
 
             </StackPanel>
 
@@ -65,27 +66,27 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0">
                 <Label Content="{x:Static r:Strings.NumRedevable}" />
-                <TextBox  Text="{Binding Path=ID ,Mode=OneWay}" IsEnabled="False" />
+                <TextBox Text="{Binding Path=ID ,Mode=OneWay}" IsEnabled="False" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
-                <Label Content="{x:Static r:Strings.FirstName}"/>
-                <TextBox  Text="{Binding Path=Nom}" />
+                <Label Content="{x:Static r:Strings.FirstName}" />
+                <TextBox Text="{Binding Path=Nom}" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0">
                 <Label Content="{x:Static r:Strings.LastName}" />
-                <TextBox  Text="{Binding Path=Prenom}" />
+                <TextBox Text="{Binding Path=Prenom}" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
                 <Label Content="{x:Static r:Strings.Type}" Background="{x:Null}" Grid.Row="9" />
-                <ComboBox>
-                    <Label>PM</Label>
-                    <Label>PF</Label>
+                <ComboBox SelectedValue="{Binding Path=Type}" SelectedValuePath="Tag">
+                    <ComboBoxItem Tag="PM" Content="{x:Static r:Strings.Individual }" />
+                    <ComboBoxItem Tag="PF" Content="{x:Static r:Strings.BodyCorporate }" />
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
                 <Label Content="{x:Static r:Strings.phone}" />
-                <TextBox  Text="{Binding Path=Tel}" />
+                <TextBox Text="{Binding Path=Tel}" />
 
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" />
@@ -104,11 +105,11 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0">
                 <Label Content="NTF" />
-                <TextBox IsEnabled="False"  Text="{Binding Path=NTF}" />
+                <TextBox IsEnabled="False" Text="{Binding Path=NTF}" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
                 <Label Content="Lieu" Margin="0" Background="{x:Null}" Grid.Row="13" />
-                <TextBox Text="{Binding Path=Lieu}"/>
+                <TextBox Text="{Binding Path=Lieu}" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0">
                 <Label Content="Superficie Brute" Background="{x:Null}" />
@@ -120,20 +121,19 @@
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
-                <Label Content="{x:Static r:Strings.Type}" Background="{x:Null}" />
-                <ComboBox x:Name="terrainType">
-                    <Label Content="villa" />
-                    <Label Content="immeuble" />
-                    <Label Content="economique" />
+                <Label Content="{x:Static r:Strings.Type}"/>
+                <ComboBox SelectedValue="{Binding Path=Type}" SelectedValuePath="Tag">
+                    <ComboBoxItem Tag="immeuble"  Content="Immeuble"/>
+                    <ComboBoxItem Tag="economique" Content="Economique" />
                 </ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1">
                 <Label Content="Etat" Background="{x:Null}" />
-                <ComboBox x:Name="terrainEtat">
-                    <Label>bati</Label>
-                    <Label>Nonbati</Label>
-                    <Label>Construction</Label>
+                <ComboBox SelectedValue="{Binding Path=Etat}" SelectedValuePath="Tag">
+                    <ComboBoxItem Tag="bati" Content="Built" />
+                    <ComboBoxItem Tag="Nonbati" Content="Non Built" />
+                    <ComboBoxItem Tag="Construction" Content="Construction" />
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">

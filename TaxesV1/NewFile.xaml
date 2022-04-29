@@ -9,7 +9,7 @@
            mc:Ignorable="d" d:DesignHeight="900" d:DesignWidth="900" Background="White">
 
     <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
-        <Label FontWeight="Bold" Content="Dossier" />
+        <Label FontWeight="Bold" Content="{x:Static r:Strings.File}" />
         <Grid Name="FileGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -40,7 +40,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
-                <Label Content="{x:Static r:Strings.Accountable}" />
+                <Label Content="{x:Static r:Strings.Taxpayer}" />
                 <TextBox TextChanged="RedevableId_TextChanged" />
 
             </StackPanel>
@@ -52,7 +52,7 @@
 
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" />
         </Grid>
-        <Label FontWeight="Bold" Content="Redevable" />
+        <Label FontWeight="Bold" Content="{x:Static r:Strings.Taxpayer}" />
         <Grid Name="RedevableGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -65,7 +65,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0">
-                <Label Content="{x:Static r:Strings.NumRedevable}" />
+                <Label Content="{x:Static r:Strings.TaxpayerNumber}" />
                 <TextBox Text="{Binding Path=ID ,Mode=OneWay}" IsEnabled="False" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
@@ -85,13 +85,13 @@
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
-                <Label Content="{x:Static r:Strings.phone}" />
+                <Label Content="{x:Static r:Strings.Phone}" />
                 <TextBox Text="{Binding Path=Tel}" />
 
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1" />
         </Grid>
-        <Label Content="Terrain" FontWeight="Bold" />
+        <Label Content="{x:Static r:Strings.Terrain}" FontWeight="Bold" />
         <Grid Name="TerrainGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -104,32 +104,32 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0">
-                <Label Content="NTF" />
+                <Label Content="{x:Static r:Strings.LandTitleNumber}" />
                 <TextBox IsEnabled="False" Text="{Binding Path=NTF}" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
-                <Label Content="Lieu" Margin="0" Background="{x:Null}" Grid.Row="13" />
+                <Label Content="{x:Static r:Strings.Place}" Margin="0" Background="{x:Null}" />
                 <TextBox Text="{Binding Path=Lieu}" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0">
-                <Label Content="Superficie Brute" Background="{x:Null}" />
+                <Label Content="{x:Static r:Strings.GrossArea}" Background="{x:Null}" />
                 <TextBox Text="{Binding Path=SuperficeBrute}" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
-                <Label Content="Superficie Taxable" Background="{x:Null}" Grid.Row="15" />
+                <Label Content="{x:Static r:Strings.TaxableArea}" />
                 <TextBox Text="{Binding Path=SuperficeTaxable}" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
-                <Label Content="{x:Static r:Strings.Type}"/>
+                <Label Content="{x:Static r:Strings.Type}" />
                 <ComboBox SelectedValue="{Binding Path=Type}" SelectedValuePath="Tag">
-                    <ComboBoxItem Tag="immeuble"  Content="Immeuble"/>
+                    <ComboBoxItem Tag="immeuble" Content="Immeuble" />
                     <ComboBoxItem Tag="economique" Content="Economique" />
                 </ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1">
-                <Label Content="Etat" Background="{x:Null}" />
+                <Label Content="{x:Static r:Strings.State}" Background="{x:Null}" />
                 <ComboBox SelectedValue="{Binding Path=Etat}" SelectedValuePath="Tag">
                     <ComboBoxItem Tag="bati" Content="Built" />
                     <ComboBoxItem Tag="Nonbati" Content="Non Built" />
@@ -137,7 +137,7 @@
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">
-                <Label Content="Date de chanegement de l'etat" />
+                <Label Content="{x:Static r:Strings.DateOfStateChange}" />
                 <DatePicker SelectedDate="{Binding Path=DateChangementEtat}" />
             </StackPanel>
         </Grid>

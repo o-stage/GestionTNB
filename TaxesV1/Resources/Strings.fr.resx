@@ -162,7 +162,7 @@
   <data name="Type" xml:space="preserve">
     <value>Type</value>
   </data>
-  <data name="Accountable" xml:space="preserve">
+  <data name="Taxpayer" xml:space="preserve">
     <value>Redevable</value>
   </data>
   <data name="Place" xml:space="preserve">
@@ -249,19 +249,34 @@
   <data name="ReceiptNumber" xml:space="preserve">
     <value>Numéro de quittance</value>
   </data>
-  <data name="NoticeNumber" xml:space="preserve">
+    <data name="NoticeNumber" xml:space="preserve">
     <value>Numéro d'avis</value>
   </data>
-  <data name="EditFile" xml:space="preserve">
+    <data name="EditFile" xml:space="preserve">
     <value>Modifier le dossier</value>
   </data>
-  <data name="NewUser" xml:space="preserve">
+    <data name="NewUser" xml:space="preserve">
     <value>Nouveau utilisateur</value>
   </data>
-  <data name="NumRedevable" xml:space="preserve">
-    <value>numero Redevable</value>
+    <data name="TaxpayerNumber" xml:space="preserve">
+    <value>Numéro du Redevable</value>
   </data>
-  <data name="Phone" xml:space="preserve">
+    <data name="Phone" xml:space="preserve">
     <value>Telephone</value>
+  </data>
+    <data name="State" xml:space="preserve">
+    <value>État</value>
+  </data>
+    <data name="DateOfStateChange" xml:space="preserve">
+    <value>Date du changement d'état</value>
+  </data>
+    <data name="Terrain" xml:space="preserve">
+    <value>Terrain</value>
+  </data>
+    <data name="Indebted" xml:space="preserve">
+    <value>Redevable</value>
+  </data>
+    <data name="File" xml:space="preserve">
+    <value>Dossier</value>
   </data>
 </root>

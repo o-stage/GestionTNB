@@ -153,25 +153,25 @@
   <data name="FileDate" xml:space="preserve">
     <value>File Date</value>
   </data>
-  <data name="StartDate" xml:space="preserve">
+    <data name="StartDate" xml:space="preserve">
     <value>Start Date</value>
   </data>
-  <data name="Delete" xml:space="preserve">
+    <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="Type" xml:space="preserve">
+    <data name="Type" xml:space="preserve">
     <value>Type</value>
   </data>
-  <data name="Accountable" xml:space="preserve">
-    <value>Accountable</value>
+    <data name="Taxpayer" xml:space="preserve">
+    <value>Taxpayer</value>
   </data>
-  <data name="Place" xml:space="preserve">
+    <data name="Place" xml:space="preserve">
     <value>Place</value>
   </data>
-  <data name="GrossArea" xml:space="preserve">
+    <data name="GrossArea" xml:space="preserve">
     <value>Gross Area</value>
   </data>
-  <data name="TaxableArea" xml:space="preserve">
+    <data name="TaxableArea" xml:space="preserve">
     <value>Taxable Area</value>
   </data>
   <data name="NonTaxableArea" xml:space="preserve">
@@ -252,19 +252,34 @@
   <data name="NoticeNumber" xml:space="preserve">
     <value>Notice number</value>
   </data>
-  <data name="ManageUsers" xml:space="preserve">
+    <data name="ManageUsers" xml:space="preserve">
     <value>Manage users</value>
   </data>
-  <data name="EditFile" xml:space="preserve">
+    <data name="EditFile" xml:space="preserve">
     <value>Edit file</value>
   </data>
-  <data name="NewUser" xml:space="preserve">
+    <data name="NewUser" xml:space="preserve">
     <value>New User</value>
   </data>
-  <data name="NumRedevable" xml:space="preserve">
-    <value>Number of indebted</value>
+    <data name="TaxpayerNumber" xml:space="preserve">
+    <value>Taxpayer number</value>
   </data>
-  <data name="Phone" xml:space="preserve">
+    <data name="State" xml:space="preserve">
+    <value>State</value>
+  </data>
+    <data name="DateOfStateChange" xml:space="preserve">
+    <value>Date of state change</value>
+  </data>
+    <data name="Terrain" xml:space="preserve">
+    <value>Terrain</value>
+  </data>
+    <data name="Phone" xml:space="preserve">
     <value>Phone</value>
+  </data>
+    <data name="Indebted" xml:space="preserve">
+    <value>Indebted</value>
+  </data>
+    <data name="File" xml:space="preserve">
+    <value>File</value>
   </data>
 </root>

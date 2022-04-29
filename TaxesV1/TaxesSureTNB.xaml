@@ -92,7 +92,7 @@
                                     FirstDayOfWeek="Monday" IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-                        <Label Content="{x:Static r:Strings.Accountable}" />
+                        <Label Content="{x:Static r:Strings.Taxpayer}" />
                         <TextBox x:Name="AccountableTextBox" TextWrapping="Wrap" IsReadOnly="True" IsEnabled="False">
                             <MultiBinding StringFormat="{}{0} {1} ({2})">
                                 <Binding Path="Redevable.Nom" />

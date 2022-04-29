@@ -3,7 +3,5 @@
     public class Data
     {
         public static TaxesV2Entities Entities;
-
-        //test comment
     }
 }

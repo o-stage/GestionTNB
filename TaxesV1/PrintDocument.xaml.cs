@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Windows;
 using System.Windows.Documents;
 
 namespace TaxesV1
@@ -8,8 +7,6 @@ namespace TaxesV1
     public partial class PrintDocument : FlowDocument
     {
         CultureInfo Culture = new CultureInfo("fr-ma");
-        public Taxes Taxes { get; set; }
-        public Dossier Dossier { get; set; }
 
         public PrintDocument(Taxes taxes, Dossier dossier)
         {
@@ -17,6 +14,7 @@ namespace TaxesV1
             Dossier = dossier;
             DataContext = Dossier;
             InitializeComponent();
+
             foreach (var tax in Taxes._taxes)
             {
                 if (!tax.Selected) continue;
@@ -36,5 +34,8 @@ namespace TaxesV1
             Total.Text = taxes.Total.ToString("c", Culture);
             TotalWords.Text = MoneyTools.ConvertToWords(taxes.Total).ToUpper();
         }
+
+        public Taxes Taxes { get; set; }
+        public Dossier Dossier { get; set; }
     }
 }

@@ -7,8 +7,8 @@ namespace TaxesV1
     public partial class MainWindow : Window
     {
         private Panel _currentPanel;
-        private Fichier _fichierPanel;
         private ManageUsers _manageUsersPanel;
+        private NewFile _newFilePanel;
         private Settings _settingsPanel;
         private TaxesSureTNB _taxesSureTnbPanel;
         private UserProfile _userProfilePanel;
@@ -30,7 +30,7 @@ namespace TaxesV1
                         SetCurrentPanel(SettingsPanel);
                         break;
                     case "File":
-                        SetCurrentPanel(FichierPanel);
+                        SetCurrentPanel(NewFilePanel);
                         break;
                     case "Logout":
                         new LoginWindow().Show();
@@ -70,14 +70,14 @@ namespace TaxesV1
             set => _settingsPanel = value;
         }
 
-        private Fichier FichierPanel
+        private NewFile NewFilePanel
         {
             get
             {
-                return _fichierPanel ?? (_fichierPanel = new Fichier());
+                return _newFilePanel ?? (_newFilePanel = new NewFile());
                 ;
             }
-            set => _fichierPanel = value;
+            set => _newFilePanel = value;
         }
 
         private void SetCurrentPanel(Panel panel)

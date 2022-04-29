@@ -122,44 +122,44 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Constant.cs">
-      <DependentUpon>TaxesDataModel.tt</DependentUpon>
+        <DependentUpon>TaxesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data.cs" />
-    <Compile Include="DatabasePrincipal.cs"/>
-    <Compile Include="Declaration.cs">
-      <DependentUpon>TaxesDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Dossier.cs">
-      <DependentUpon>TaxesDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Fichier.xaml.cs">
-      <DependentUpon>Fichier.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainMenu.xaml.cs">
-      <DependentUpon>MainMenu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ManageUsers.xaml.cs">
-      <DependentUpon>ManageUsers.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EditFile.xaml.cs">
-      <DependentUpon>EditFile.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MoneyTools.cs"/>
-    <Compile Include="MultiValueConverters\AccountableTypeConverter.cs"/>
-    <Compile Include="MultiValueConverters\DifferenceConverter.cs"/>
-    <Compile Include="NewDeclaration.xaml.cs">
-      <DependentUpon>NewDeclaration.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NewUserWindow.xaml.cs">
-      <DependentUpon>NewUserWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
+      <Compile Include="Data.cs"/>
+      <Compile Include="DatabasePrincipal.cs"/>
+      <Compile Include="Declaration.cs">
+          <DependentUpon>TaxesDataModel.tt</DependentUpon>
+      </Compile>
+      <Compile Include="Dossier.cs">
+          <DependentUpon>TaxesDataModel.tt</DependentUpon>
+      </Compile>
+      <Compile Include="NewFile.xaml.cs">
+          <DependentUpon>NewFile.xaml</DependentUpon>
+      </Compile>
+      <Compile Include="MainMenu.xaml.cs">
+          <DependentUpon>MainMenu.xaml</DependentUpon>
+      </Compile>
+      <Compile Include="MainWindow.xaml.cs">
+          <DependentUpon>MainWindow.xaml</DependentUpon>
+      </Compile>
+      <Compile Include="ManageUsers.xaml.cs">
+          <DependentUpon>ManageUsers.xaml</DependentUpon>
+      </Compile>
+      <Compile Include="EditFile.xaml.cs">
+          <DependentUpon>EditFile.xaml</DependentUpon>
+      </Compile>
+      <Compile Include="MoneyTools.cs"/>
+      <Compile Include="MultiValueConverters\AccountableTypeConverter.cs"/>
+      <Compile Include="MultiValueConverters\DifferenceConverter.cs"/>
+      <Compile Include="NewDeclaration.xaml.cs">
+          <DependentUpon>NewDeclaration.xaml</DependentUpon>
+      </Compile>
+      <Compile Include="NewUserWindow.xaml.cs">
+          <DependentUpon>NewUserWindow.xaml</DependentUpon>
+      </Compile>
+      <Compile Include="Properties\Settings.Designer.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTimeSharedInput>True</DesignTimeSharedInput>
+          <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Redevable.cs">
       <DependentUpon>TaxesDataModel.tt</DependentUpon>
@@ -169,7 +169,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs"/>
+      <Compile Include="Settings.cs"/>
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -207,29 +207,29 @@
     <Compile Include="UserProfile.xaml.cs">
       <DependentUpon>UserProfile.xaml</DependentUpon>
     </Compile>
-    <Page Include="Fichier.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainMenu.xaml"/>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="MainWindow.xaml"/>
-    <Page Include="ManageUsers.xaml"/>
-    <Page Include="EditFile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="NewDeclaration.xaml"/>
-    <Page Include="NewUserWindow.xaml"/>
-    <Page Include="Settings.xaml"/>
-    <Page Include="SideMenuItem.xaml"/>
-    <Page Include="LoginWindow.xaml"/>
-    <Page Include="TaxesSureTNB.xaml"/>
-    <Page Include="PrintDocument.xaml"/>
-    <Page Include="UserProfile.xaml"/>
+      <Page Include="NewFile.xaml">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:Compile</Generator>
+      </Page>
+      <Page Include="MainMenu.xaml"/>
+      <Compile Include="App.xaml.cs">
+          <DependentUpon>App.xaml</DependentUpon>
+          <SubType>Code</SubType>
+      </Compile>
+      <Page Include="MainWindow.xaml"/>
+      <Page Include="ManageUsers.xaml"/>
+      <Page Include="EditFile.xaml">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:Compile</Generator>
+      </Page>
+      <Page Include="NewDeclaration.xaml"/>
+      <Page Include="NewUserWindow.xaml"/>
+      <Page Include="Settings.xaml"/>
+      <Page Include="SideMenuItem.xaml"/>
+      <Page Include="LoginWindow.xaml"/>
+      <Page Include="TaxesSureTNB.xaml"/>
+      <Page Include="PrintDocument.xaml"/>
+      <Page Include="UserProfile.xaml"/>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -297,13 +297,13 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets'))"/>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))"/>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))"/>
-  </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')"/>
+    <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+        <PropertyGroup>
+            <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+        </PropertyGroup>
+        <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets'))"/>
+        <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))"/>
+        <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))"/>
+    </Target>
+    <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')"/>
 </Project>

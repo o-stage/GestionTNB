@@ -9,13 +9,10 @@ namespace TaxesV1
 {
     public partial class TaxesSureTNB : DockPanel
     {
-        TaxesV2Entities Entities;
-        private Taxes tax;
-        private CollectionViewSource ViewSource = new CollectionViewSource();
+        private Taxes _tax;
 
         public TaxesSureTNB()
         {
-            Entities = Data.Entities;
             InitializeComponent();
         }
 
@@ -26,7 +23,7 @@ namespace TaxesV1
             PrintDialog dialog = new PrintDialog();
             if (dialog.ShowDialog() != true)
                 return;
-            PrintDocument doc = new PrintDocument(tax, SelectedFile)
+            PrintDocument doc = new PrintDocument(_tax, SelectedFile)
             {
                 PageHeight = dialog.PrintableAreaHeight,
                 PageWidth = dialog.PrintableAreaWidth,
@@ -54,13 +51,13 @@ namespace TaxesV1
                 return;
             }
 
-            tax = Taxes.GetTaxes(SelectedFile);
+            _tax = Taxes.GetTaxes(SelectedFile);
             DataContext = SelectedFile;
-            NumberOfNonDeposedDeclarations.Text = tax.NumberOfNonDeposedDeclarations.ToString();
-            TotalPrincipal.Text = tax.TotalNet.ToString("c", cultureInfo);
-            TotalAmends.Text = tax.TotalAmends.ToString("c", cultureInfo);
-            Total.Text = tax.Total.ToString("c", cultureInfo);
-            DataGrid.ItemsSource = tax._taxes;
+            NumberOfNonDeposedDeclarations.Text = _tax.NumberOfNonDeposedDeclarations.ToString();
+            TotalPrincipal.Text = _tax.TotalNet.ToString("c", cultureInfo);
+            TotalAmends.Text = _tax.TotalAmends.ToString("c", cultureInfo);
+            Total.Text = _tax.Total.ToString("c", cultureInfo);
+            DataGrid.ItemsSource = _tax._taxes;
             PrintButton.IsEnabled = true;
             NewDeclarationButton.IsEnabled = true;
             EditFile.IsEnabled = true;
@@ -85,6 +82,27 @@ namespace TaxesV1
             };
 
             editFile.ShowDialog();
+        }
+
+        private void SelectAll_OnUnchecked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.ItemsSource == null) return;
+            foreach (Taxes.Tax tax in DataGrid.Items)
+                tax.Selected = false;
+            // for some reason we need to commit edits 2 times for it to work
+            DataGrid.CommitEdit();
+            DataGrid.CommitEdit();
+            CollectionViewSource.GetDefaultView(DataGrid.ItemsSource).Refresh();
+        }
+
+        private void SelectAll_OnChecked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.ItemsSource == null) return;
+            foreach (Taxes.Tax tax in DataGrid.Items)
+                tax.Selected = true;
+            DataGrid.CommitEdit();
+            DataGrid.CommitEdit();
+            CollectionViewSource.GetDefaultView(DataGrid.ItemsSource).Refresh();
         }
     }
 }

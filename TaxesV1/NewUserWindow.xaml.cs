@@ -15,6 +15,8 @@ namespace TaxesV1
             {
                 Data.Entities.Database.ExecuteSqlCommand(
                     $"CREATE USER [{UserNameTextBox.Text}] WITH PASSWORD = '{PasswordTextBox.Password}';");
+                Data.Entities.Database.ExecuteSqlCommand(
+                    $"GRANT SELECT ON Constants TO {UserNameTextBox.Text} AS dbo");
                 Close();
             }
             else

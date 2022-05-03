@@ -91,7 +91,7 @@ namespace TaxesV1
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-            if (Data.Entities.ChangeTracker.HasChanges())
+            /*if (Data.Entities.ChangeTracker.HasChanges())
             {
                 MessageBoxResult result = MessageBox.Show(this,
                     "you have unsaved changes would you like to save them before closing?", "Confirm Closing",
@@ -106,7 +106,7 @@ namespace TaxesV1
                         e.Cancel = true;
                         break;
                 }
-            }
+            }*/
         }
     }
 }

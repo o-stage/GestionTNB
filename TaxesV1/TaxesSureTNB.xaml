@@ -6,7 +6,7 @@
            xmlns:r="clr-namespace:TaxesV1.Resources"
            xmlns:converter="clr-namespace:TaxesV1.MultiValueConverters"
            xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-           mc:Ignorable="d" Background="#ffffffff">
+           mc:Ignorable="d" Background="#ffffffff" d:DesignWidth="800" d:DesignHeight="600">
     <DockPanel.Resources>
         <ResourceDictionary>
             <converter:DifferenceConverter x:Key="DifferenceConverter" />
@@ -68,17 +68,9 @@
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0" Grid.Row="0">
-                        <Label Content="{x:Static r:Strings.FileNumber}" RenderTransformOrigin="0.5,0.5" >
-                            <Label.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform Angle="-0.212"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Label.RenderTransform>
-                        </Label>
-                        <TextBox Name="FileNumber" Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap" IsEnabled="False" />
+                        <Label Content="{x:Static r:Strings.FileNumber}" />
+                        <TextBox Name="FileNumber" Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap"
+                                 IsEnabled="False" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
                         <Label Content="{x:Static r:Strings.FileDate}" />
@@ -139,11 +131,13 @@
                                  IsReadOnly="True" IsEnabled="False" />
                     </StackPanel>
                 </Grid>
-                <Border Padding="5" Width="Auto" Background="#f7f8fa" CornerRadius="5" Grid.Column="1"  HorizontalAlignment="Left"
+                <Border Padding="5" Width="Auto" Background="#f7f8fa" CornerRadius="5" Grid.Column="1"
+                        HorizontalAlignment="Left"
                         VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left"
                                 VerticalAlignment="Top">
-                        <TextBlock FontWeight="Bold" TextWrapping="Wrap" Text="{x:Static r:Strings.Summary}" VerticalAlignment="Stretch"
+                        <TextBlock FontWeight="Bold" TextWrapping="Wrap" Text="{x:Static r:Strings.Summary}"
+                                   VerticalAlignment="Stretch"
                                    Padding="10,5,10,0" />
                         <TextBlock TextWrapping="Wrap" Text="{x:Static r:Strings.NumberOfDeclarationsNotFiled}"
                                    Padding="10,5,10,0" />
@@ -176,7 +170,27 @@
                 </Button>
             </StackPanel>
             <DataGrid x:Name="DataGrid" Grid.Row="2" ColumnWidth="*"
-                      CanUserAddRows="False" />
+                      CanUserAddRows="False" CanUserDeleteRows="False"
+                      AutoGenerateColumns="False" HeadersVisibility="Column">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn IsReadOnly="False" Binding="{Binding Selected,Mode=TwoWay}" Width="Auto" >
+                        <DataGridCheckBoxColumn.Header>
+                            <CheckBox  Checked="SelectAll_OnChecked" Unchecked="SelectAll_OnUnchecked" />
+                        </DataGridCheckBoxColumn.Header>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTextColumn Header="{x:Static r:Strings.Year}" Binding="{Binding Year}" Width="Auto"  IsReadOnly="True" />
+                    <DataGridTextColumn Header="Number of declaration" Binding="{Binding NDeclaration}"  IsReadOnly="True"  />
+                    <DataGridTextColumn Header="Date of declaration" Binding="{Binding DateDeclaration}" IsReadOnly="True"  />
+                    <DataGridTextColumn Header="Calcul" Binding="{Binding Calcul}" IsReadOnly="True"  />
+                    <DataGridTextColumn Header="MtPrincipal" Binding="{Binding MtPrincipal}" IsReadOnly="True"   />
+                    <DataGridTextColumn Header="DefaultDecl" Binding="{Binding DefaultDecl}" IsReadOnly="True"  />
+                    <DataGridTextColumn Header="Amends" Binding="{Binding Amends}"  IsReadOnly="True"  />
+                    <DataGridTextColumn Header="Total" Binding="{Binding Total}" IsReadOnly="True"  />
+                    <DataGridTextColumn Header="NAvis" Binding="{Binding NAvis}" IsReadOnly="True"  />
+                    <DataGridTextColumn Header="N Quitance" Binding="{Binding NQuitance}" IsReadOnly="True"  />
+
+                </DataGrid.Columns>
+            </DataGrid>
 
         </Grid>
     </DockPanel>

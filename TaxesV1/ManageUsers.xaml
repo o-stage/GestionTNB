@@ -5,7 +5,7 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
            xmlns:resources="clr-namespace:TaxesV1.Resources"
-           mc:Ignorable="d">
+           mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600">
     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
         <Button Click="NewUser_OnClick" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
@@ -16,13 +16,10 @@
             </StackPanel>
         </Button>
     </StackPanel>
-    <DataGrid DockPanel.Dock="Right" Name="Users" CanUserAddRows="False" CanUserDeleteRows="False">
+    <DataGrid ColumnWidth="*" MouseDoubleClick="Users_OnMouseDoubleClick" DockPanel.Dock="Right" CanUserReorderColumns="False" Name="Users" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"  HeadersVisibility="Column">
             
             <DataGrid.Columns>
-                <!--
-                <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
-                -->
-
+                <DataGridTextColumn Header="{x:Static resources:Strings.Username}" Binding="{Binding name ,Mode=OneWay}"/>
             </DataGrid.Columns>
         </DataGrid>
 </DockPanel>

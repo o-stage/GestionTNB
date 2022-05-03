@@ -20,13 +20,10 @@ namespace TaxesV1
                 Terrain terrain = Data.Entities.Terrains.Find(dossier.TerrainID);
                 if (terrain != null)
                 {
-                    
                     Etat.Text = terrain.Etat;
                     DateChangementEtat.SelectedDate = terrain.DateChangementEtat;
                 }
-                
             }
-            
         }
 
         private void EditFileButton_OnClick(object sender, RoutedEventArgs e)
@@ -34,17 +31,18 @@ namespace TaxesV1
             Dossier dossier = Data.Entities.Dossiers.Find(_fileNumber);
             if (dossier != null)
             {
-                dossier.DateDebut = StartDatePicker.SelectedDate.Value;
-                Terrain terrain = Data.Entities.Terrains.Find(dossier.TerrainID);
-                if (terrain != null)
+                if (StartDatePicker.SelectedDate != null)
                 {
-                    terrain.Etat = Etat.Text;
-                    terrain.DateChangementEtat = DateChangementEtat.SelectedDate.Value;
+                    dossier.DateDebut = StartDatePicker.SelectedDate.Value;
+                    Terrain terrain = Data.Entities.Terrains.Find(dossier.TerrainID);
+                    if (terrain != null)
+                    {
+                        terrain.Etat = Etat.Text;
+                        if (DateChangementEtat.SelectedDate != null)
+                            terrain.DateChangementEtat = DateChangementEtat.SelectedDate.Value;
+                    }
                 }
-
-                
             }
-            
         }
     }
 }

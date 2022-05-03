@@ -25,8 +25,9 @@ namespace TaxesV1
 
 
             string Name = Data.Entities.Database.SqlQuery<string>("select SUSER_NAME()").FirstOrDefault();
+            int isAdmin = Data.Entities.Database.SqlQuery<int>("select IS_ROLEMEMBER ('db_owner')").FirstOrDefault();
 
-
+            if (isAdmin != 1) ManageUsersMenuItem.Visibility = Visibility.Collapsed;
             UserName.Text = Name;
             var initials = Name.Split(' ');
             UserInitials.Text = initials[0][0].ToString() + initials.Last()[0];

@@ -1,0 +1,62 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" x:Class="GestionTNB.EditFile"
+    mc:Ignorable="d" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <DockPanel>
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="200" />
+            </Grid.ColumnDefinitions>
+            <Label Content="N° Dossier :" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="-0.212" />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <TextBox x:Name="FileNumber" Text="{Binding NDossier}" IsReadOnly="True" TextWrapping="Wrap"
+                     IsEnabled="False" Grid.Column="1" Grid.Row="1" />
+            <Label Content="Date Début :" Grid.Row="2" />
+            <DatePicker x:Name="StartDatePicker" SelectedDate="{Binding DateDebut, Mode=OneTime}"
+                        FirstDayOfWeek="Monday" IsEnabled="True" Grid.Row="2" Grid.Column="1"
+                        IsTodayHighlighted="False" />
+            <ComboBox x:Name="Etat" Grid.Column="1" Grid.Row="3">
+                <ComboBoxItem>Non Batu</ComboBoxItem>
+                <ComboBoxItem>Construction</ComboBoxItem>
+                <ComboBoxItem>Batu</ComboBoxItem>
+            </ComboBox>
+            <Label Content="Etat :" Grid.Row="3" />
+            <Label Content="Date Changement Etat :" Grid.Row="4" />
+            <Button Click="EditFileButton_OnClick" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Width="20" Height="20" Icon="Edit"
+                                  Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"
+                                  HorizontalAlignment="Center" />
+                    <Label Padding="0" Margin="5 0" Content="Modifier le Dossier"
+                           Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                </StackPanel>
+            </Button>
+            <DatePicker x:Name="DateChangementEtat"
+                        FirstDayOfWeek="Monday" IsEnabled="True" Grid.Row="4" Grid.Column="1"
+                        IsTodayHighlighted="False" />
+        </Grid>
+
+
+    </DockPanel>
+</Window>

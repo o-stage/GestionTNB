@@ -1,0 +1,38 @@
+﻿<Window x:Class="GestionTNB.NewDeclaration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:r="clr-namespace:GestionTNB.Resources"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="{x:Static r:Strings.NewDeclaration}" SizeToContent="WidthAndHeight" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Grid Name="Body" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Content="{x:Static r:Strings.FileNumber}" />
+        <TextBox Name="FileNumberTextBox" Grid.Row="0" Grid.Column="1" Width="200" />
+        <CheckBox Name="PayedCheckBox" Grid.Row="1" Grid.Column="1">payed</CheckBox>
+        <Label Grid.Row="2" Grid.Column="0" Content="{x:Static r:Strings.Year}" />
+        <TextBox Name="YearTextBox" Grid.Row="2" Grid.Column="1" Width="200" />
+        
+        <Label Grid.Row="3" Grid.Column="0" Content="{x:Static r:Strings.ReceiptNumber}" />
+        <TextBox Name="ReceiptTextBox" Grid.Row="3" Grid.Column="1" Width="200" />
+        
+        <Label Grid.Row="4" Grid.Column="0" Content="{x:Static r:Strings.NoticeNumber}" />
+        <TextBox Name="NoticeTextBox" Grid.Row="4" Grid.Column="1" Width="200" />
+        
+        <Button Click="AddDeclaration_OnClick" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                Content="{x:Static r:Strings.NewDeclaration}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+    </Grid>
+</Window>

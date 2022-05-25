@@ -1,0 +1,40 @@
+﻿<DockPanel x:Class="GestionTNB.UserProfile"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:r="clr-namespace:GestionTNB.Resources"
+           xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+           mc:Ignorable="d"
+          >
+    <Grid Name="ChangePasswordPanel" IsEnabled="False" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Content="{x:Static r:Strings.Password}" />
+        <PasswordBox Name="NewPasswordTextBox" Grid.Row="0" Grid.Column="1" />
+        <Label Grid.Row="1" Grid.Column="0" Content="{x:Static r:Strings.ConfirmPassword}" />
+        <PasswordBox Name="ConfirmNewPasswordTextBox" Grid.Row="1" Grid.Column="1" />
+        <Label Grid.Row="2" Grid.Column="0" Content="{x:Static r:Strings.OldPassword}" />
+        <PasswordBox Name="OldPasswordTextBox" Grid.Row="2" Grid.Column="1" />
+        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"  Click="ChangePassword_OnClick" VerticalAlignment="Bottom" HorizontalAlignment="Right" DockPanel.Dock="Bottom" Margin="7,7,20,7">
+            <StackPanel Orientation="Horizontal">
+                <fa:IconImage Width="20" Height="20" Icon="Save"
+                              Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                <Label Padding="0" Margin="5 0" Content="{x:Static r:Strings.Save}"
+                       Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+            </StackPanel>
+        </Button>
+        <TextBlock Visibility="Hidden" Foreground="Red" Name="Details" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" Text="None" />
+
+    </Grid>
+</DockPanel>

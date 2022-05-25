@@ -270,13 +270,16 @@
     <data name="DateOfStateChange" xml:space="preserve">
     <value>Date du changement d'état</value>
   </data>
-    <data name="Terrain" xml:space="preserve">
+  <data name="Terrain" xml:space="preserve">
     <value>Terrain</value>
   </data>
-    <data name="Indebted" xml:space="preserve">
+  <data name="Indebted" xml:space="preserve">
     <value>Redevable</value>
   </data>
-    <data name="File" xml:space="preserve">
+  <data name="File" xml:space="preserve">
     <value>Dossier</value>
+  </data>
+  <data name="ManageUsers" xml:space="preserve">
+    <value>Gérer les utilisateurs</value>
   </data>
 </root>

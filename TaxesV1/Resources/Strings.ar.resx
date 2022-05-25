@@ -170,4 +170,7 @@
     <data name="TaxpayerNumber" xml:space="preserve">
         <value>رقم دافع الضرائب</value>
     </data>
+    <data name="ManageUsers" xml:space="preserve">
+        <value>ادارة المستخدمين</value>
+    </data>
 </root>
